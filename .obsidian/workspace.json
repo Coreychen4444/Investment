@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "390ccf14eba5a6ab",
+        "id": "bd09c0bb56f627dd",
         "type": "tabs",
         "children": [
           {
-            "id": "1ad3c434b32ee15e",
+            "id": "842468e6ad0303b1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "10_Core_Logic/Investment_First_Principles.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Investment_First_Principles"
+              "title": "新标签页"
             }
           }
         ]
@@ -180,7 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 293.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,19 +190,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1ad3c434b32ee15e",
+  "active": "842468e6ad0303b1",
   "lastOpenFiles": [
-    "00_Index/Home.md",
     "10_Core_Logic/Investment_First_Principles.md",
-    "README.md",
+    "00_Index/Home.md",
     "50_Psychology_Risk/Mindset_Risk_Control.md",
-    "40_Valuation/Valuation_Framework.md",
-    "30_Micro_Analysis/Financial_Health_Returns.md",
-    "20_Macro/Fed_and_Liquidity.md",
-    "30_Micro_Analysis/Business_Quality_Moats.md",
     "50_Psychology_Risk",
+    "40_Valuation/Valuation_Framework.md",
     "40_Valuation",
+    "30_Micro_Analysis/Financial_Health_Returns.md",
+    "30_Micro_Analysis/Business_Quality_Moats.md",
     "30_Micro_Analysis",
+    "20_Macro/Fed_and_Liquidity.md",
     "20_Macro",
     "10_Core_Logic",
     "00_Index"
