@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "10_Core_Logic/Investment_First_Principles.md",
-                "mode": "source",
+                "file": "00_Index/Home.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Investment_First_Principles"
+              "title": "Home"
             }
           }
         ]
@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 235.5
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "2b0f2792fe512fed",
@@ -180,7 +181,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 307.5
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,9 +199,11 @@
   "active": "1ad3c434b32ee15e",
   "lastOpenFiles": [
     "60_Strategy_2026/2026_Investment_Plan.md",
+    "60_Strategy_2026/Sectors/AI_Logic.md",
+    "00_Index/Home.md",
+    "10_Core_Logic/Investment_First_Principles.md",
     "60_Strategy_2026/Sectors/Aerospace_Logic.md",
     "60_Strategy_2026/Sectors/Energy_Logic.md",
-    "60_Strategy_2026/Sectors/AI_Logic.md",
     "60_Strategy_2026/Sectors",
     "60_Strategy_2026",
     "20_Macro/Monetary_History/USD_System.md",
@@ -227,8 +231,6 @@
     "20_Macro/Concepts",
     "10_Core_Logic/Concepts/Earnings_Surprise_Logic.md",
     "10_Core_Logic/Concepts/Davis_Cycle.md",
-    "10_Core_Logic/Concepts/PE_Market_Expectation.md",
-    "10_Core_Logic/Concepts/EPS_Business_Reality.md",
     "10_Core_Logic/Concepts",
     "50_Psychology_Risk",
     "40_Valuation"

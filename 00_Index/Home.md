@@ -14,26 +14,26 @@ graph TD
     classDef result fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
     classDef action fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
 
-    subgraph Internal ["🏢 Phase 3: 微观视角 (内生增长)"]
+    subgraph Internal ["🏢 Phase 3: 微观视角"]
         direction TB
         Moat[护城河]
         Biz[商业模式]
         Buyback[回购/分红]
     end
 
-    subgraph External ["🏦 Phase 2 & 5: 宏观与情绪 (外部环境)"]
+    subgraph External ["🏦 Phase 2 & 5: 宏观与情绪"]
         direction TB
         Fed[美联储/流动性]
         Mood[市场情绪/贪婪恐惧]
     end
 
-    Internal -->|决定| EPS[EPS (每股收益)]:::numerator
-    External -->|影响| PE[PE (市盈率)]:::denominator
+    Internal -->|决定| EPS["EPS (每股收益)"]:::numerator
+    External -->|影响| PE["PE (市盈率)"]:::denominator
 
-    EPS --> Price((股价 P)):::result
+    EPS --> Price(("股价 P")):::result
     PE --> Price
 
-    Price --> Valuation{Phase 4: 估值体系\n(价格 vs 价值)}:::action
+    Price --> Valuation{"Phase 4: 估值体系\n(价格 vs 价值)"}:::action
     
     Valuation -->|低估 + 情绪配合| Buy[买入/持有]:::action
     Valuation -->|高估 + 逻辑破坏| Sell[卖出/避险]:::action
@@ -43,18 +43,20 @@ graph TD
 
 ### 🏎️ 核心驱动力 (Drivers)
 
-| 核心变量 | 对应阶段 | 关键模块 |
-| :--- | :--- | :--- |
-| **分子 ($EPS$)** | **Phase 3: 微观** | **[[Business_Quality_Moats|商业模式与护城河]]**<br>*(好生意、护城河)*<br><br>**[[Financial_Health_Returns|财务与股东回报]]**<br>*(回购 > 分红)* |
-| **分母 ($PE$)** | **Phase 2: 宏观** | **[[Fed_and_Liquidity|宏观视角：美联储]]**<br>*(全球资产定价之锚)* |
-| **特殊资产 (Gold)** | **Phase 2: 宏观** | **[[Gold_Logic|黄金与货币]]**<br>*(避险、抗通胀)* |
+*   **分子 ($EPS$)** (Phase 3: 微观)
+    *   **[[Business_Quality_Moats|商业模式与护城河]]**: 好生意、护城河
+    *   **[[Financial_Health_Returns|财务与股东回报]]**: 回购 > 分红
+*   **分母 ($PE$)** (Phase 2: 宏观)
+    *   **[[Fed_and_Liquidity|宏观视角：美联储]]**: 全球资产定价之锚
+*   **特殊资产 (Gold)** (Phase 2: 宏观)
+    *   **[[Gold_Logic|黄金与货币]]**: 避险、抗通胀
 
 ### ⚖️ 决策与风控 (Execution)
 
-| 操作环节 | 对应阶段 | 关键模块 |
-| :--- | :--- | :--- |
-| **裁判 (Judge)** | **Phase 4: 估值** | **[[Valuation_Framework|估值体系]]**<br>*(相对估值、DCF、安全边际)* |
-| **执行 (Action)** | **Phase 5: 心法** | **[[Mindset_Risk_Control|交易心法与风控]]**<br>*(凯利公式、情绪管理、止盈止损)* |
+*   **裁判 (Judge)** (Phase 4: 估值)
+    *   **[[Valuation_Framework|估值体系]]**: 相对估值、DCF、安全边际
+*   **执行 (Action)** (Phase 5: 心法)
+    *   **[[Mindset_Risk_Control|交易心法与风控]]**: 凯利公式、情绪管理、止盈止损
 
 ---
 *🔥 常用速查*:  [[Davis_Cycle|戴维斯双击]] | [[Ten_Year_Treasury|10年期美债]] | [[Buyback_vs_Dividend|回购 vs 分红]] | [[Earnings_Surprise_Logic|预期差博弈]]
