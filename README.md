@@ -1,5 +1,6 @@
 # 个人投资体系知识库 (Investment Second Brain)
 
+
 这是一个基于 Obsidian 构建的个人美股投资体系知识库。它旨在帮助投资者从“第一性原理”出发，建立一套理性、可重复的投资决策框架。
 
 ## 🎯 核心理念 (First Principles)
