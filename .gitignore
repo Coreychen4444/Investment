@@ -6,11 +6,15 @@
 # Obsidian Cache & Trash
 .obsidian/cache/
 .trash/
+.obsidian/backlink-cache
+.obsidian/graph.json
 
 # System Files
 .DS_Store
 Thumbs.db
 desktop.ini
+.Trashes
+.spotlight-V100
 
 # Optional: Avoid syncing obsidian-git plugin's own state (prevents loops)
 .obsidian/plugins/obsidian-git/data.json
