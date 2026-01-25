@@ -1,0 +1,16 @@
+# Obsidian Workspace (Local state, causes conflicts)
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Obsidian Cache & Trash
+.obsidian/cache/
+.trash/
+
+# System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Optional: Avoid syncing obsidian-git plugin's own state (prevents loops)
+.obsidian/plugins/obsidian-git/data.json
