@@ -1,23 +1,40 @@
-# 投资第一性原理：股价上涨的本质
+# 投资第一性原理 (Investment First Principles)
 
-$P = EPS \times PE$
+股票价格的波动并非随机，而是遵循一个核心公式。这是理解投资的基石。
 
-## 核心公式拆解
-- **EPS (每股收益)**: 代表企业的业务表现 (Business)，是股价上涨的内生动力。
-- **PE (市盈率)**: 代表市场对企业的预期 (Expectation)，受情绪、流动性等外部因素影响。
-股价的上涨本质上是企业盈利增长与市场估值提升的共同作用。
+## 1. 核心公式 (The Formula)
 
-## 戴维斯双击与双杀 (The Davis Mechanics)
-- **戴维斯双击 (Davis Double Play)**: 当企业盈利 (EPS) 增长，且市场预期好转导致估值 (PE) 提升时，股价会呈指数级上涨。
-    - 例子：一家公司净利润增长 20%，PE 从 20 倍提升至 30 倍 (涨幅 50%)，股价涨幅 = $1.2 \times 1.5 - 1 = 80\%$。
-- **戴维斯双杀 (Davis Double Kill)**: 当企业盈利下滑，且市场预期恶化导致估值压缩时，股价会呈断崖式下跌。
+$$ \text{Price} = \text{EPS} \times \text{PE} $$
 
-## 时间维度的博弈
-- **短期**: 市场投票机 (Voting Machine)。股价波动主要由 PE (情绪、资金面) 驱动。
-- **长期**: 市场称重机 (Weighing Machine)。股价表现回归 EPS (企业基本面)。
-长期投资的核心在于寻找 EPS 能够持续增长的企业，赚企业成长的钱。
+点击下方组件深入研究：
 
-## 美股特性：预期差 (Earnings Surprise)
-- 美股市场高度有效，当前股价往往已经包含了对未来的预期。
-- 股价大幅波动的关键在于 **实际业绩 vs 市场预期** 的差异。
-- **Beating Estimates**: 仅仅业绩好是不够的，必须好于分析师的预期 (Consensus)，才能推动股价上涨。
+*   **[[EPS_Business_Reality|EPS (每股收益)]]**: **商业现实 (Business Reality)**。代表企业当下的赚钱能力。
+*   **[[PE_Market_Expectation|PE (市盈率)]]**: **市场预期 (Market Expectation)**。代表投资者愿意为未来支付的溢价。
+
+---
+
+## 2. 乘数效应：戴维斯周期 (The Multiplier)
+EPS 和 PE 并非孤立存在，它们的相互作用会产生巨大的杠杆效应。
+
+*   **[[Davis_Cycle|戴维斯双击与双杀 (Davis Double Play & Kill)]]**: 
+    *   **双击**: 业绩增长 + 估值提升 = 股价暴涨。
+    *   **双杀**: 业绩下滑 + 估值压缩 = 股价崩盘。
+
+---
+
+## 3. 市场博弈：预期差 (The Game)
+在短期内，股价的波动更多取决于心理博弈。
+
+*   **[[Earnings_Surprise_Logic|预期差逻辑 (Earnings Surprise)]]**: 
+    *   好消息不等于涨：如果是 "Priced In" 的好消息，股价可能不涨反跌。
+    *   关键在于：**实际结果 vs 市场预期** (Consensus & Whisper Numbers)。
+
+---
+
+## 4. 时间维度 (Time Horizon)
+*   **短期**: 市场是投票机 (Voting Machine) -> 主导因素是 **PE** (情绪/流动性)。
+*   **长期**: 市场是称重机 (Weighing Machine) -> 主导因素是 **EPS** (企业真实盈利)。
+
+## 📚 推荐书单 (Recommended Reading)
+- **《投资最重要的事》 (The Most Important Thing)** - *Howard Marks*: 理解市场周期、第二层次思维与风险控制的必读经典。
+- **《彼得·林奇的成功投资》 (One Up On Wall Street)** - *Peter Lynch*: 散户如何利用常识战胜华尔街，深入理解 PEG 与公司分类。

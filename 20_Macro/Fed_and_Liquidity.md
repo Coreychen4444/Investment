@@ -1,19 +1,32 @@
 # 宏观视角：美联储与流动性
 
-## 全球资产定价之锚
-- **10年期美国国债收益率 (10-year Treasury Yield)** 是全球风险资产定价的基准 (Risk-free Rate)。
-- 根据现金流折现模型 (DCF)，分母中的折现率 (r) 包含无风险利率。
-- 当美债收益率上升，折现率上升，未来现金流的现值下降，导致股票 (尤其是高成长股) 估值承压 (Kill Valuation)。
+宏观分析的核心在于理解 **流动性 (Liquidity)** 的方向。在 [[../10_Core_Logic/Investment_First_Principles|投资第一性原理]] 中，我们知道 $P = EPS \times PE$。如果说企业基本面决定 EPS，那么宏观环境主要通过影响流动性来决定 **PE (估值倍数)** 的扩张或收缩。
 
-## 美联储 (The Fed)
-- **双重使命 (Dual Mandate)**:
-    1.  **最大就业 (Maximum Employment)**: 确保劳动力市场健康。
-    2.  **价格稳定 (Price Stability)**: 将通胀控制在 2% 的目标水平。
-- **点阵图 (Dot Plot)**: 反映联邦公开市场委员会 (FOMC) 成员对未来利率路径的预期，是市场预测加息/降息节奏的重要参考。
+## 核心概念体系
 
-## 关键数据解读
-- **核心 PCE 物价指数 (Core PCE)**: 美联储最看重的通胀指标 (剔除食品和能源)。
-- **非农就业数据 (Non-farm Payrolls)**: 反映经济景气度。
-    - 数据过热 -> 引发加息担忧 -> 利空股市。
-    - 数据过冷 -> 衰退预期 -> 利空股市 (但在降息周期可能是利好)。
-    - "坏消息就是好消息" (Bad news is good news): 在高通胀时期，经济数据走弱可能被解读为通胀降温，从而利好股市。
+### 1. 资产定价之锚
+一切金融分析的起点。为什么美债收益率的波动能引发全球市场的海啸？
+*   [[Concepts/Ten_Year_Treasury|10年期美债：全球资产定价之锚]] - 理解 $R_f$、DCF 模型与"杀估值"逻辑。
+
+### 2. 政策制定者 (庄家)
+谁在控制流动性的水龙头？
+*   [[Concepts/Fed_Mechanics|美联储机制：双重使命与点阵图]] - 了解 Fed 的目标、工具以及"Don't Fight the Fed"的含义。
+
+### 3. 导航仪表盘
+如何预判美联储的动作？我们需要看懂他们看的数据。
+*   [[Concepts/Economic_Indicators|关键数据：PCE 与 非农就业]] - 解读通胀与就业数据，以及"好消息就是坏消息"的市场博弈逻辑。
+
+## 流动性传导机制
+1.  **美联储政策**: 加息/缩表 -> 收紧流动性。
+2.  **美债收益率**: 随之上升 -> 无风险利率 ($R_f$) 提高。
+3.  **估值 (PE)**: 资金成本上升 -> 股市估值承压 (尤其是成长股)。
+4.  **实体经济**: 借贷成本上升 -> 企业扩张减缓，消费抑制 -> 最终影响 EPS。
+
+## 进阶宏观：货币与黄金 (Advanced Macro)
+*   [[Monetary_History/Evolution_of_Money|货币演变史]] - 从以物易物到数字货币。
+*   [[Monetary_History/Gold_Logic|黄金逻辑]] - 为什么在法币时代持有"野蛮的遗迹"？
+*   [[Monetary_History/USD_System|美元体系]] - 布雷顿森林体系的瓦解与石油美元霸权。
+
+## 📚 推荐书单 (Recommended Reading)
+- **《原则：应对变化中的世界秩序》 (Principles for Dealing with the Changing World Order)** - *Ray Dalio*: 理解长期债务周期与大国博弈背后的宏观规律。
+- **《索罗斯的金融炼金术》 (The Alchemy of Finance)** - *George Soros*: 理解“反身性”理论与市场泡沫的形成机制。

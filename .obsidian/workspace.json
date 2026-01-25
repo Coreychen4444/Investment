@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "bd09c0bb56f627dd",
+        "id": "390ccf14eba5a6ab",
         "type": "tabs",
         "children": [
           {
-            "id": "842468e6ad0303b1",
+            "id": "1ad3c434b32ee15e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "10_Core_Logic/Investment_First_Principles.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Investment_First_Principles"
             }
           }
         ]
@@ -176,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 307.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -190,20 +194,43 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "842468e6ad0303b1",
+  "active": "1ad3c434b32ee15e",
   "lastOpenFiles": [
-    "10_Core_Logic/Investment_First_Principles.md",
-    "00_Index/Home.md",
-    "50_Psychology_Risk/Mindset_Risk_Control.md",
+    "60_Strategy_2026/2026_Investment_Plan.md",
+    "60_Strategy_2026/Sectors/Aerospace_Logic.md",
+    "60_Strategy_2026/Sectors/Energy_Logic.md",
+    "60_Strategy_2026/Sectors/AI_Logic.md",
+    "60_Strategy_2026/Sectors",
+    "60_Strategy_2026",
+    "20_Macro/Monetary_History/USD_System.md",
+    "20_Macro/Monetary_History/Gold_Logic.md",
+    "20_Macro/Monetary_History/Evolution_of_Money.md",
+    "20_Macro/Monetary_History",
+    "30_Micro_Analysis/Concepts/Buyback_vs_Dividend.md",
+    "50_Psychology_Risk/Concepts/Exit_Strategy.md",
+    "50_Psychology_Risk/Concepts/Position_Sizing.md",
+    "50_Psychology_Risk/Concepts/Market_Sentiment.md",
+    "50_Psychology_Risk/Concepts",
+    "40_Valuation/Concepts/PE_Band.md",
+    "40_Valuation/Concepts/DCF_Logic.md",
+    "40_Valuation/Concepts/Relative_Valuation.md",
+    "40_Valuation/Concepts",
+    "30_Micro_Analysis/Concepts/SBC_Trap.md",
+    "30_Micro_Analysis/Concepts/Tech_Metrics.md",
+    "30_Micro_Analysis/Concepts/Buyback_vs_Dividend_SG.md",
+    "30_Micro_Analysis/Concepts/Porters_Five_Forces.md",
+    "30_Micro_Analysis/Concepts/Moat_Types.md",
+    "30_Micro_Analysis/Concepts",
+    "20_Macro/Concepts/Economic_Indicators.md",
+    "20_Macro/Concepts/Fed_Mechanics.md",
+    "20_Macro/Concepts/Ten_Year_Treasury.md",
+    "20_Macro/Concepts",
+    "10_Core_Logic/Concepts/Earnings_Surprise_Logic.md",
+    "10_Core_Logic/Concepts/Davis_Cycle.md",
+    "10_Core_Logic/Concepts/PE_Market_Expectation.md",
+    "10_Core_Logic/Concepts/EPS_Business_Reality.md",
+    "10_Core_Logic/Concepts",
     "50_Psychology_Risk",
-    "40_Valuation/Valuation_Framework.md",
-    "40_Valuation",
-    "30_Micro_Analysis/Financial_Health_Returns.md",
-    "30_Micro_Analysis/Business_Quality_Moats.md",
-    "30_Micro_Analysis",
-    "20_Macro/Fed_and_Liquidity.md",
-    "20_Macro",
-    "10_Core_Logic",
-    "00_Index"
+    "40_Valuation"
   ]
 }

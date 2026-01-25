@@ -1,20 +1,31 @@
-# 交易心法与风控
+# 交易心法与风控 (Psychology & Risk)
 
-## 市场情绪
-- **VIX (恐慌指数)**: 衡量标普 500 指数期权的隐含波动率。VIX 过高通常代表市场极度恐慌 (买入机会?)。
-- **CNN Fear & Greed Index**: 综合 7 个指标的情绪指数。
-    - Extreme Fear (<20): 往往是阶段性底部。
-    - Extreme Greed (>80): 往往是阶段性顶部。
-- **逆向思维 (Contrarian Trading)**: "在别人贪婪时恐惧，在别人恐惧时贪婪。"
+在投资中，技术分析和基本面分析只贡献了成功的 20%，剩下的 80% 取决于心理素质和风险控制。没有良好的心态和风控，再好的策略最终也会归零。
 
-## 仓位管理
-- **Kelly Criterion (凯利公式)**: 用于计算最优下注比例，最大化长期增长率。
-- **金字塔建仓 (Pyramid Building)**:
-    - 初始仓位不宜过大。
-    - 只有在盈利时才加仓 (Right side of the trade)。
-    - 亏损时不要摊低成本 (Don't average down on losers)，除非是基于基本面的左侧布局且逻辑未变。
+## 核心概念
 
-## 止损与止盈
-- **纪律 (Discipline)**: 制定计划，执行计划。
-- **卖飞 (Selling too early)**: 牛股拿不住是常态。可以通过分批止盈或移动止损 (Trailing Stop) 来让利润奔跑。
-- **死扛 (Holding losers)**: 最大的风险是损失本金。如果不设止损，一次深跌可能需要翻倍才能回本 (跌 50% 需要涨 100% 回本)。
+### [[Market_Sentiment|市场情绪 (Sentiment)]]
+了解市场当前处于"贪婪"还是"恐惧"的状态，是逆势交易的罗盘。
+- **VIX**: 恐慌指数。
+- **CNN Fear & Greed**: 贪婪与恐惧指标。
+- **逆向思维**: 在极端情绪中寻找机会。
+
+### [[Position_Sizing|仓位管理 (Position Sizing)]]
+活着是最重要的事情。仓位管理决定了你能否在连续亏损中存活下来。
+- **Kelly Criterion**: 凯利公式与下注比例。
+- **金字塔建仓**: 顺势加仓，截断亏损。
+- **核心/卫星策略**: 平衡稳健与爆发。
+
+### [[Exit_Strategy|止盈止损 (Exit Strategy)]]
+反人性的纪律。止损保护本金，止盈锁定利润。
+- **损失的数学**: 为什么亏损 50% 需要涨 100% 回本。
+- **止损类型**: 硬止损 vs 逻辑止损。
+- **止盈策略**: Trim and Trail，让利润奔跑。
+
+---
+> "The stock market is a device for transferring money from the impatient to the patient." — Warren Buffett
+
+## 📚 推荐书单 (Recommended Reading)
+- **《思考，快与慢》 (Thinking, Fast and Slow)** - *Daniel Kahneman*: 行为经济学巨著，剖析人类在决策中的非理性偏差（如损失厌恶）。
+- **《股票作手回忆录》 (Reminiscences of a Stock Operator)** - *Edwin Lefèvre*: 杰西·利弗莫尔的传记，关于交易心理与人性博弈最精彩的实录。
+- **《随机漫步的傻瓜》 (Fooled by Randomness)** - *Nassim Taleb*: 理解市场中的运气成分与存活者偏差。

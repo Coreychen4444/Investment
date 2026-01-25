@@ -1,25 +1,22 @@
 # 微观分析：商业模式与护城河
 
-## 晨星护城河 (Morningstar Moats)
-护城河是企业抵御竞争对手、维持超额利润的能力。
+这一章节专注于分析企业的核心竞争力。
 
-1.  **网络效应 (Network Effect)**: 用户越多，产品/服务价值越高。
-    - 例子: Meta (Facebook), Tencent (WeChat), Visa/Mastercard.
-    - 特点: 赢家通吃，极难被颠覆。
-2.  **转换成本 (Switching Costs)**: 用户更换竞品的成本极高 (金钱、时间、学习成本)。
-    - 例子: Microsoft (Office/Windows 生态), Oracle (数据库), Adobe.
-    - 特点: 客户粘性极强，定价权高。
-3.  **无形资产 (Intangible Assets)**: 品牌、专利、监管牌照。
-    - 例子: Coca-Cola (品牌), Pfizer (专利), Moody's (牌照).
-4.  **成本优势 (Cost Advantage)**: 规模效应或独特资源带来的低成本。
-    - 例子: Costco, Amazon.
-5.  **有效规模 (Efficient Scale)**: 市场规模有限，只容得下少数玩家。
-    - 例子: 铁路、机场、公用事业。
+## 核心概念
 
-## 波特五力模型 (Porter's Five Forces)
-用于分析行业的竞争格局：
-1.  **现有竞争者的竞争**: 价格战是否激烈？
-2.  **潜在进入者的威胁**: 行业壁垒是否够高？
-3.  **替代品的威胁**: 是否有新技术颠覆？
-4.  **供应商的议价能力**: 上游是否强势？
-5.  **购买者的议价能力**: 下游客户是否有话语权？
+### [[Concepts/Moat_Types|晨星护城河：企业的防御工事]]
+并不是所有赚大钱的企业都有护城河，但伟大的企业一定有。
+- **网络效应 (Network Effect)**：最强的护城河。
+- **转换成本 (Switching Costs)**：用户离不开你。
+- **无形资产 (Intangible Assets)**：品牌与专利。
+- **成本优势 (Cost Advantage)**：低成本打败一切。
+- **有效规模 (Efficient Scale)**：垄断小池塘。
+
+### [[Concepts/Porters_Five_Forces|波特五力：行业竞争格局分析]]
+判断一个行业是好生意还是坏生意。
+- **好生意 (Software)**：高壁垒、低成本、高议价权。
+- **坏生意 (Airlines)**：低壁垒、高资本投入、激烈价格战。
+
+## 📚 推荐书单 (Recommended Reading)
+- **《巴菲特的护城河》 (The Little Book That Builds Wealth)** - *Pat Dorsey*: 晨星公司护城河理论的奠基之作，系统分类企业竞争优势。
+- **《竞争战略》 (Competitive Strategy)** - *Michael Porter*: 波特五力模型的教科书级原著，深入理解行业竞争格局。

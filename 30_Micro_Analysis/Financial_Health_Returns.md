@@ -1,23 +1,25 @@
-# 财务指标与股东回报 (SG 投资者特供)
+# 财务指标与股东回报
 
-## 回购 vs 分红
-对于新加坡 (SG) 投资者而言，**回购 (Buybacks) 往往优于分红 (Dividends)**。
-- **税务优势**: 新加坡居民通常不需要缴纳资本利得税 (Capital Gains Tax)，但美股分红需要缴纳 30% 的预扣税 (Withholding Tax, WHT)。
-    - 分红 $100 \rightarrow$ 实际到手 $70。
-    - 股价因回购上涨 $100 \rightarrow$ 实际获利 $100。
-- **EPS 增厚**: 回购注销股份会减少流通股本，即使净利润不变，EPS 也会上升，从而推动股价上涨。
+这一章节专注于如何从财务数据中识别真正的价值，并评估一家公司的“慷慨程度”与财务实力。
 
-## 股东盈余 (Shareholder Yield)
-衡量公司对股东的回报力度。
-$$Shareholder Yield = Dividend Yield + Buyback Yield + Net Debt Paydown Yield$$
-- **科技巨头的"良心"**: 优秀的科技巨头 (如 Apple, Microsoft) 通常拥有强劲的现金流，通过巨额回购和分红回馈股东。
+## 核心概念
 
-## 硬核科技股指标
-- **Rule of 40 (SaaS)**: 只有当 $Revenue Growth \% + Profit Margin \% \ge 40\%$ 时，SaaS 公司才被认为是健康的。平衡了增长与盈利。
-- **库存周期 (Inventory Cycles)**: 半导体行业的关键指标。关注 DOI (Days of Inventory)，库存高企往往预示着下行周期。
+### [[Concepts/Buyback_vs_Dividend|资本配置：回购 vs 分红]]
+Capital Allocation 是 CEO 最重要的工作。理解公司如何分配利润（回购、分红、再投资）是判断管理层质量的关键。
+- **Shareholder Yield**: 股息率 + 回购率。这是衡量公司对股东“总回报”的真实指标。
+- **Buyback**: 灵活、避税、且在低估时能显著增厚每股价值。
+- **Dividend**: 提供现金流，体现管理层的财务纪律。
 
-## 避坑指南
-- **SBC (Stock-Based Compensation, 股权激励)**:
-    - 许多科技公司通过发股票给员工来发工资，这会增加流通股本，稀释现有股东的权益。
-    - 关注 **GAAP vs Non-GAAP** 利润的差异，SBC 往往是主要差异来源。
-    - 警惕 SBC 过高导致回购效果被抵消的公司。
+### [[Concepts/Tech_Metrics|硬核科技指标：SaaS 与 半导体]]
+通用指标 (PE/PB) 在科技股往往失效，你需要看懂行业的专属语言。
+- **SaaS**: Rule of 40。
+- **Semiconductor**: 库存周期与牛鞭效应。
+
+### [[Concepts/SBC_Trap|SBC 陷阱：警惕股权稀释]]
+不要被 Non-GAAP 利润欺骗。
+- **隐形费用**：股权激励 (SBC) 是真实的股东成本。
+- **伪回购**：公司一边回购，一边发 SBC，你的股份可能根本没变少。
+
+## 📚 推荐书单 (Recommended Reading)
+- **《商界局外人》 (The Outsiders)** - *William Thorndike*: 资本配置领域的圣经。讲述 8 位 CEO 如何通过回购与理性配置资本创造超额回报。
+- **《巴菲特致股东的信》 (The Essays of Warren Buffett)**: 学习如何像企业主一样思考财务报表与股东回报。
