@@ -22,7 +22,15 @@ EPS 和 PE 并非孤立存在，它们的相互作用会产生巨大的杠杆效
 
 ---
 
-## 3. 市场博弈：预期差 (The Game)
+## 3. 低估的本质 (Finding Undervaluation)
+*   **[[Undervaluation_First_Principles|低估的第一性原理]]**:
+    *   低估 = 市场对 g（增长）定价过低，或对 r（风险）定价过高。
+    *   比喻：比别人更早发现房子旁边要建地铁。
+    *   核心风险：你凭什么比市场更懂？
+
+---
+
+## 4. 市场博弈：预期差 (The Game)
 在短期内，股价的波动更多取决于心理博弈。
 
 *   **[[Earnings_Surprise_Logic|预期差逻辑 (Earnings Surprise)]]**: 
@@ -31,7 +39,7 @@ EPS 和 PE 并非孤立存在，它们的相互作用会产生巨大的杠杆效
 
 ---
 
-## 4. 时间维度 (Time Horizon)
+## 5. 时间维度 (Time Horizon)
 *   **短期**: 市场是投票机 (Voting Machine) -> 主导因素是 **PE** (情绪/流动性)。
 *   **长期**: 市场是称重机 (Weighing Machine) -> 主导因素是 **EPS** (企业真实盈利)。
 
