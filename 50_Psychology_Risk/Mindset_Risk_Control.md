@@ -22,6 +22,9 @@
 - **止损类型**: 硬止损 vs 逻辑止损。
 - **止盈策略**: Trim and Trail，让利润奔跑。
 
+## 内心功法
+不要想赚亏$，只求每步正确 (min loss max profit)，纪律复利。
+
 ---
 > "The stock market is a device for transferring money from the impatient to the patient." — Warren Buffett
 
