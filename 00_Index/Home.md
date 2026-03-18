@@ -90,3 +90,7 @@ graph TD
 
 ## 🚀 2026 实战规划 (Action)
 [[2026_Investment_Plan|👉 进入 2026 年度作战室]]
+
+## 🧭 工作区入口 (Working Hubs)
+- [[US stocks/Home|🇺🇸 US Stocks Hub]]
+- [[polymarket/Home|🎯 Polymarket Hub]]
