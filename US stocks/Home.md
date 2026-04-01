@@ -20,4 +20,4 @@ This is the working hub for current US stocks trading/investing materials.
 - `knowledge/` = sector/theme knowledge
 - `holdings/` = live position notes
 - `reviews/` = formal post-trade reviews
-- `trading_journal/` = ongoing logs / raw lessons
+- `strategy/` also carries compact doctrine / evergreen lessons alongside formal rules

@@ -32,3 +32,9 @@ This trio does not exist in repeatable real trading.
 
 5. **Less profit is not a loss.**
    Small or partial wins are still wins; undisciplined trading is what destroys compounding.
+
+6. **Perfect price is FOMO in disguise.**
+   Lowering a valid first entry just to catch a more beautiful price is not discipline. It is another form of emotional optimization.
+
+7. **Protect the first tranche.**
+   If the original first buy is still inside the planned zone, keep it. Add a lower second tranche if needed; do not replace the first one.

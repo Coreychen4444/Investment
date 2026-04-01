@@ -45,9 +45,40 @@ Protect against FOMO, early entry, one-size-fits-all actions, and confusing corr
 11. Confirmation matters more than pretty prices.
 12. Buying a bit higher for stronger confirmation is acceptable.
 13. Missing part of a move is not failure.
+14. Do not move a reasonable first buy limit lower just to chase a more perfect entry.
+15. If the first planned price is still valid, keep it and add a second lower tranche instead of replacing it.
+16. The first tranche exists to secure participation; the second tranche exists to exploit deeper weakness.
 
 ## Four iron rules
 - No confirmation, no size.
 - Max two entries per thesis.
 - Early strength on catalyst days is not confirmation.
 - If you are chasing the prettiest price, stop.
+- Do not cancel or downgrade the first tranche just because you feel price may go lower.
+
+## Compact rules and lessons
+### Core execution laws
+- Set the stop before the trade.
+- No chaotic open trading by default.
+- Size follows certainty.
+
+### Anti-FOMO laws
+- Missing part of a move is not failure.
+- Perfect price is FOMO in disguise.
+
+### Entry discipline
+- Protect the first tranche.
+- Add lower, do not replace lower.
+- First tranche = participation right; second tranche = deeper weakness opportunity.
+
+### Event-risk discipline
+- Cut amplifiers before core.
+- Risk reduction is not prediction.
+
+## Quick reminder prompt
+Before any trade, ask:
+- Is this confirmed, probe, or early/risky?
+- Am I making a good trade, or chasing a pretty trade?
+- Am I preserving the first tranche, or lowering it for a perfect price?
+- If I want a better price, should I add a second tranche instead of moving the first one?
+- Do not cancel or downgrade the first tranche just because you feel price may go lower.

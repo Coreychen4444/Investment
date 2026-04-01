@@ -8,5 +8,7 @@ Before any trade, answer:
 5. If I am wrong, what proves it and where do I reduce/exit?
 6. How many entries are allowed? (Never more than 2)
 7. Am I making a good trade, or chasing a pretty trade?
+8. Am I preserving the first tranche, or am I lowering it to chase a perfect price?
+9. If I want a better price, should I add a second lower tranche instead of moving the first one?
 
 If 2 or more answers are unclear, do not trade.
