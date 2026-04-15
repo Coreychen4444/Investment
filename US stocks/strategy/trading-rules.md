@@ -1,6 +1,6 @@
-# Trading Rules v2
+# Trading Rules
 
-Upgraded from v1 (2026-04-16). Absorbs event-day-trading-rules, opening-discipline, anti-fomo-rules into one master file. All source citations preserved.
+Last major update: 2026-04-16. Absorbs event-day-trading-rules, opening-discipline, anti-fomo-rules into one master file. All source citations preserved.
 
 ## Core purpose
 Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, and confusing correct logic with correct timing.

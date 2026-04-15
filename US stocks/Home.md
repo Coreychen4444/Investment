@@ -4,7 +4,7 @@
 This is the working hub for current US stocks trading/investing materials.
 
 ## Sections
-- [[strategy/trading-rules-v2|Trading Rules v2]]
+- [[strategy/trading-rules|Trading Rules]]
 - [[strategy/pre-trade-checklist|Pre-Trade Checklist]]
 - [[strategy/two-stage-entry-rules|Two-Stage Entry Rules]]
 - [[strategy/bottom-confirmation-signals|Bottom Confirmation Signals]]

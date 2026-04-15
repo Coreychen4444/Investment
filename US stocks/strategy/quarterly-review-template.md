@@ -5,7 +5,7 @@
 ## Steps
 
 1. **读取全部策略文件**：
-   - trading-rules-v2.md
+   - trading-rules.md
    - pre-trade-checklist.md
    - two-stage-entry-rules.md
    - bottom-confirmation-signals.md
@@ -31,7 +31,7 @@
    - 锐化规则（表述模糊、执行时容易绕过）
 
 6. **执行更新**（经 Corey 确认后）：
-   - 更新 trading-rules-v2.md
+   - 更新 trading-rules.md
    - 同步到 investment repo
    - Commit: `strategy: quarterly review Q[N] 2026`
 
