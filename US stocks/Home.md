@@ -4,11 +4,13 @@
 This is the working hub for current US stocks trading/investing materials.
 
 ## Sections
-- [[strategy/trading-rules-v1|Trading Rules v1]]
+- [[strategy/trading-rules-v2|Trading Rules v2]]
 - [[strategy/pre-trade-checklist|Pre-Trade Checklist]]
-- [[strategy/anti-fomo-rules|Anti-FOMO Rules]]
-- [[strategy/event-day-trading-rules|Event-Day / Earnings-Day Rules]]
-- [[strategy/opening-discipline|Opening Discipline]]
+- [[strategy/two-stage-entry-rules|Two-Stage Entry Rules]]
+- [[strategy/bottom-confirmation-signals|Bottom Confirmation Signals]]
+- [[strategy/event-risk-reduction-principle|Event Risk Reduction]]
+- [[strategy/sell-put-rules|Sell Put Rules]]
+- [[strategy/quarterly-review-template|Quarterly Review Template]]
 - [[knowledge/photonics-supply-chain|Photonics Supply Chain]]
 - [[holdings/current/README|Current Holdings]]
 - [[holdings/watchlist/README|Watchlist]]

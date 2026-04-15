@@ -1,67 +1,111 @@
-# Two-Stage Entry Rules
+# 两段式建仓规则卡
 
-## Core principle
-> Buy price with light size. Buy confirmation with size.
+## 核心原则
+> 轻仓买价格，重仓买确认。
 
-This framework is for situations where:
-- the stock has entered a desirable accumulation zone,
-- but the market has not fully confirmed,
-- and you want participation without prematurely sizing up.
+这套方法适用于：
+- 标的已经进入你认可的价格区间
+- 但市场尚未完成确认
+- 你不想完全错过参与权
+- 同时也不想在未确认阶段重仓冒险
 
-## Stage 1: Price tranche
-### Definition
-A **light first tranche** taken when price enters a pre-approved zone but market confirmation is still incomplete.
+---
 
-### Purpose
-- Secure participation
-- Avoid a full miss
-- Take advantage of a clearly better price without overcommitting
+## 一、第一段：价格仓
+### 定义
+在价格明显进入理想区间，但市场尚未完全确认时，用**轻仓**先拿参与权。
 
-### Conditions
-1. The price is already inside a pre-planned buy zone
-2. You are willing to hold if price weakens further
-3. The stock is familiar and thesis-backed
-4. Size is light enough that being early does not damage psychology
+### 目的
+- 防止完全踏空
+- 利用明显更好的价格
+- 给自己留一张“上桌门票”
 
-### What stage 1 is NOT
-- not a full-sized conviction entry
-- not a blind bottom-fishing bet
-- not an excuse to average down without discipline
+### 必须满足的条件
+1. 价格确实进入你提前认可的区间
+2. 这个价格即使短期再跌，你也不恐慌
+3. 你本来就愿意持有这个标的
+4. 仓位必须轻，不影响情绪
 
-## Stage 2: Confirmation tranche
-### Definition
-An add only after the market gives clearer evidence of support and confirmation.
+### 价格仓不是干什么的
+- 不是为了抄最低点
+- 不是为了一把赌反弹
+- 不是因为“跌很多看起来便宜”就去买
 
-### Typical confirmation signals
-- successful retest of a key level
-- open + first 15-30 minutes do not materially fail
-- sector and index are not deteriorating at the same time
-- move is not just a one-headline squeeze with no follow-through
+---
 
-## The key execution rule
-### Preserve the first tranche
-If the first planned limit is still valid, do **not** move it lower just to chase a more perfect fill.
+## 二、第二段：确认仓
+### 定义
+在价格仓之后，只有市场出现更清晰的承接与确认，才允许进一步加仓。
 
-Correct:
-- keep first tranche
-- add a lower second tranche if desired
+### 目的
+- 用更高的确定性换取更大的仓位
+- 避免未确认阶段就把风险打满
 
-Wrong:
-- replace the first tranche with a greedier number
-- demand a near-perfect intraday low before participating
+### 可以考虑加仓的确认信号
+1. 回踩后能稳住关键价位
+2. 开盘后 15-30 分钟走势没有明显走坏
+3. 板块和指数没有同步转弱
+4. 不是单一 headline 的瞬间拉升，而是有持续承接
 
-## Common failure modes
-1. Turning a probe into a full-sized early entry
-2. Adding repeatedly without confirmation
-3. Calling something a "good price" with no pre-planned range
-4. Lowering the first tranche because of a feeling that price may go lower
+---
 
-## Rule extracted from AAOI / AXTI miss
-A valid first tranche at AAOI 80 / AXTI 50 was lowered to AAOI 78 / AXTI 48. Intraday lows later hit 78.5 / 50.2 and the trade was missed before a sharp rebound. This is the exact pattern to avoid.
+## 三、什么时候适合两段式建仓
+适合：
+- 高波动但你熟悉的标的
+- 有明确事件驱动，但方向未完全确认
+- 市场给了明显更好的价格
+- 你愿意先轻仓参与，再等确认加仓
 
-## Final summary
-- First tranche = participation right
-- Second tranche = deeper weakness opportunity
-- Confirmation tranche = allowed size
+不适合：
+- 纯情绪票
+- 你并不熟悉的标的
+- 你其实没有预设价格区间
+- 你容易越跌越补、失去纪律
 
-If you break the first tranche for a prettier price, you are no longer executing a two-stage entry. You are gambling on perfection.
+---
+
+## 四、最常见的错误
+### 1. 把“轻仓先手”做成“提前重仓”
+嘴上说试探仓，实际一买就是主仓。
+
+### 2. 后续不等确认，越跌越补
+这会把“两段式建仓”变成无纪律摊平。
+
+### 3. 说是“好价格”，其实只是主观觉得便宜
+好价格必须有依据：
+- 前低附近
+- 关键支撑
+- 明显情绪错杀
+- 你愿意中期持有
+
+---
+
+## 五、执行纪律
+### 第一段价格仓
+- 仓位轻
+- 买错不影响心态
+- 允许价格继续波动
+- 主要目的是拿参与权
+
+### 第二段确认仓
+- 只有在确认出现后才加
+- 加仓后总仓位仍需舒服
+- 不因为“已经有底仓”就失去风险控制
+
+---
+
+## 六、一句话判断
+如果你现在想买，先问自己：
+
+> 我现在买的是“价格优势”，还是“市场确认”？
+
+- 如果是价格优势 → 只能轻仓
+- 如果是市场确认 → 才允许加主仓
+
+---
+
+## 最终总结
+> 未确认时，只允许轻仓参与。
+> 确认后，才允许逐步加仓。
+
+如果做不到这两句，这套方法就不是纪律，而是在给提前重仓找借口。

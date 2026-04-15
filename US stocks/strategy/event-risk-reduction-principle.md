@@ -1,74 +1,113 @@
-# Event Risk Reduction Principle
+# 事件前减仓原则（财报 / FOMC / 宏观风险叠加）
 
-## Core definition
-When multiple event risks stack, the goal of reducing exposure is **not** to predict that the bad outcome must happen.
-The goal is to admit:
+## 核心定义
+当多个事件风险同时存在时，减仓的目的**不是预测坏事一定发生**，而是承认：
 
-> If the bad outcome happens, the current portfolio structure may be too fragile.
+> 如果坏情景真的发生，当前仓位结构可能扛不住。
 
-So the focus is not prediction. The focus is reducing portfolio brittleness.
+所以动作重点不是猜方向，而是**先降低组合脆弱性**。
 
-## Trigger conditions
-Enter event-risk reduction mode when 2 or more of the following are true:
-- earnings approaching
-- FOMC / CPI / payrolls / major macro events approaching
-- oil / geopolitics / tariffs / policy risk rising
-- broad market weakening
-- portfolio contains leverage, high beta, or oversized single-name exposure
+---
 
-## Principle 1: cut amplifiers before core
-Reduce first:
-- leverage products
-- high-beta names
-- sentiment-driven exposures
-- crowded trades with weak near-term support
+## 适用场景
+当以下 2 项以上同时出现时，进入“事件前减仓模式”：
+- 重要财报临近（如 MU）
+- FOMC / CPI / 非农等宏观事件临近
+- 油价、地缘、关税、政策风险明显上升
+- 大盘转弱，风险偏好下降
+- 组合内有杠杆仓 / 高 beta 仓 / 单票仓位过大
 
-Try to preserve:
-- core thesis positions
-- structurally stronger names
-- participation positions with real industry backing
+---
 
-## Principle 2: risk reduction is not bearish capitulation
-The correct framing is:
-- not "I know the market will collapse"
-- but "if the bad scenario happens, I do not want to be trapped"
+## 原则 1：先减放大器，不先砍核心
+优先处理：
+- 杠杆品（如 MULL）
+- 高 beta / 高弹性票（如 LITE / AXTI / AAOI）
+- 交易拥挤、资金驱动强但硬利好不足的仓位
 
-The target structure is:
-- downside survivable
-- upside still partially participated in
+尽量保留：
+- 核心 thesis 仓
+- 有产业逻辑支撑、不是纯交易弹性的底仓
 
-## Principle 3: do not kick yourself out of the game
-Reducing event risk does not mean full liquidation by default.
-Usually the better structure is:
-- trim some profit
-- reduce the most fragile names
-- keep a core or participation stake
+一句话：
+> 先拆放大器，再谈核心仓。
 
-## Principle 4: do not rewrite prudent risk reduction as failed prediction
-If the event passes and the market rallies:
-- do not conclude the de-risking was wrong
-- what was sold was some upside, in exchange for less fragility
+---
 
-If the event goes badly:
-- do not glorify the move as prophecy
-- judge it by whether the portfolio remained manageable
+## 原则 2：减仓不是看空主线，是把仓位调到“坏了也能活”
+正确表述：
+- 不是“我确定会三杀”
+- 而是“如果三杀出现，我现在扛不住”
+- 所以先锁一部分利润、降一部分 beta、保留一部分参与权
 
-## Principle 5: separate structure from emotion
-After trimming for event risk:
-- do not instantly chase back in because price bounced
-- let the market reprice and confirm again
+目标仓位结构：
+- 坏情景来时，不至于被迫情绪性止损
+- 好情景来时，仍然有底仓参与 upside
 
-## Execution order
-1. Identify stacked events
-2. Map the portfolio into: leverage / high beta / core / catalyst-backed / weak laggards
-3. Cut amplifiers first
-4. Keep participation in the strongest core expressions
-5. Reassess after the event, not during emotional intraday swings
+---
 
-## Reminder for Corey
-The recurring mistake is not always wrong logic. It is wanting to keep full upside while still pretending risk is controlled.
+## 原则 3：保留参与仓，不把自己踢出牌桌
+事件前减仓，不等于清仓。
 
-A mature event-risk reduction action accepts:
-- some upside may be sacrificed
-- but forced emotional damage is reduced
-- and re-entry after confirmation remains possible
+更优结构通常是：
+- 锁掉一部分浮盈
+- 降低最脆的仓位
+- 留下核心仓 / 参与仓
+
+这样即使事件结果非常好，也不会因为完全踏空而情绪化追回。
+
+---
+
+## 原则 4：不要把风控动作包装成高确定性预测
+可以这样说：
+- “风险在上升”
+- “组合脆弱性偏高”
+- “先收缩高 beta 暴露”
+
+不要这样说：
+- “后面一定三杀”
+- “我已经看透市场一定会怎么走”
+
+风控是为了应对不确定，不是为了证明自己能预言。
+
+---
+
+## 原则 5：减完后不许用结果论反咬自己
+如果事件后大涨：
+- 不要立刻后悔“早知道不减”
+- 你卖掉的不是上涨空间，而是一部分失控风险
+
+如果事件后大跌：
+- 也不要把这次风控神化成“我果然全都判断对了”
+- 重点是结构更健康，不是预言成功
+
+复盘看的是：
+- 这次减仓后，组合是否更可承受？
+- 是否保留了合理参与权？
+- 是否避免了情绪化被动动作？
+
+---
+
+## 执行顺序（简版）
+1. 识别事件：财报 / FOMC / 宏观风险是否叠加
+2. 看仓位：哪些是杠杆品、哪些是高 beta、哪些是核心仓
+3. 先减放大器：优先削 MULL 这类仓位
+4. 再减高 beta 浮盈仓：如 LITE / AXTI / AAOI
+5. 保留核心底仓：避免完全离场
+6. 事件落地前不过度来回折腾
+7. 事件落地后再看市场重新定价，不凭情绪追回
+
+---
+
+## 给 Corey 的提醒
+你的常见错误不是 thesis 一定错，而是：
+- 想把整段上涨吃满
+- 明知事件风险大，仍不愿提前降脆弱性
+- 卖完后如果上涨，又容易 FOMO 追回
+
+所以这条原则的本质是：
+
+> 不需要吃满全部上涨，
+> 只需要让下行伤害可控，同时保留上行参与。
+
+这才是成熟的事件前仓位管理。
