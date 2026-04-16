@@ -1,40 +1,62 @@
-# 个人投资体系知识库 (Investment Second Brain)
+# Investment Knowledge Base
 
+A principle-driven investment framework built with [Obsidian](https://obsidian.md/), designed around the fundamental stock price formula:
 
-这是一个基于 Obsidian 构建的个人美股投资体系知识库。它旨在帮助投资者从“第一性原理”出发，建立一套理性、可重复的投资决策框架。
+$$P = EPS \times PE$$
 
-## 🎯 核心理念 (First Principles)
+- **EPS (Earnings Per Share)**: Business fundamentals and intrinsic growth (micro perspective)
+- **PE (Price/Earnings)**: Market expectations and liquidity (macro + sentiment)
 
-本体系严格围绕股价上涨的本质公式展开：
+## Structure
 
-$$ P = EPS \times PE $$
+The knowledge base is organized into five core modules, plus two working areas:
 
-- **EPS (每股收益)**：代表企业的基本面与内生增长（微观视角）。
-- **PE (市盈率)**：代表市场的预期与流动性（宏观与情绪）。
+```
+00_Index/          → Dashboard and navigation
+10_Core_Logic/     → First principles: Davis Cycle, EPS, PE, earnings surprise
+20_Macro/          → Fed policy, treasury yields, monetary history, gold
+30_Micro_Analysis/ → Moats, Porter's Five Forces, financial health, tech metrics
+40_Valuation/      → PE Band, DCF, relative valuation, metric selection
+50_Psychology_Risk/ → Sentiment, position sizing, stop-loss, exit strategy
+60_Strategy/       → Sector thesis and annual investment plan (example)
+us-stocks/         → Trading rules, strategy, sector knowledge, reviews
+polymarket/        → Prediction market (esports) odds trading framework
+```
 
-投资的本质，就是在**宏观**周期的波动中，寻找**微观**基本面强劲的企业，在**估值**合理时买入，并用**纪律**对抗人性弱点。
+## Highlights
 
-## 🗂️ 体系结构 (Structure)
+- **Trading Rules**: 30 rules + 5 iron rules distilled from real trading experience
+- **Pre-Trade Checklist**: Systematic decision framework before every trade
+- **Two-Stage Entry**: "Light buys price, heavy buys confirmation"
+- **Options Framework**: Tiered strategy guide with Greeks, zone integration, and error detection
+- **Bottom Confirmation Signals**: Graded A/B/C signal system for accumulation decisions
+- **Post-Trade Reviews**: Anonymized real case studies — where the real lessons live
+- **Prediction Market**: Independent framework for esports odds repair trading
 
-知识库采用模块化设计，分为五个核心阶段：
+## How to Use
 
-1.  **第一性原理 (Core Logic)**: 投资的底层逻辑，理解戴维斯双击与双杀。
-2.  **宏观视角 (Macro)**: 关注美联储、利率与全球资产定价之锚。
-3.  **微观选股 (Micro Analysis)**: 筛选拥有护城河的好生意，关注高效的资本配置（回购/分红）。
-4.  **估值体系 (Valuation)**: 结合相对估值与绝对估值，确定安全边际。
-5.  **交易心法 (Psychology)**: 情绪管理、仓位控制与风控纪律。
+1. Open in [Obsidian](https://obsidian.md/) for the full experience (bidirectional links, Mermaid diagrams, LaTeX)
+2. Start at `00_Index/Home.md` — the central dashboard
+3. Navigate through modules to build understanding
+4. Use `us-stocks/holdings/current/_EXAMPLE_.md` as a template for your own position notes
+5. Use `us-stocks/strategy/trading-rules.md` as your pre-trade reference
 
-## 🚀 如何使用 (Getting Started)
+## Customization
 
-1.  **启动**: 打开 `00_Index/Home.md`，这是您的中央控制台 (**Dashboard**)。
-2.  **学习**: 点击 Dashboard 中的模块链接，深入学习各个维度的概念。
-3.  **实战**: 使用 Dashboard 底部的 **《投资决策 CheckList》** 进行个股扫描和交易决策。
+This is a framework, not a prescription:
+- `us-stocks/holdings/` — add your own position notes using the template
+- `us-stocks/reviews/` — document your own trade reviews
+- `60_Strategy/` — replace with your own sector thesis and annual plan
+- `polymarket/` — adapt for any prediction market or alternative asset class
 
-## 🛠️ 技术栈
+## Philosophy
 
-- **Obsidian**: 知识管理与双向链接。
-- **Mermaid**: 逻辑流程可视化。
-- **LaTeX**: 金融数学公式展示。
+> Process over outcome. Discipline compounds. Build the system, fight the randomness.
 
----
-*建立体系，对抗随机。*
+## License
+
+[CC BY-SA 4.0](LICENSE) — share and adapt with attribution.
+
+## Disclaimer
+
+This is a personal learning framework, not financial advice. All example positions, prices, and reviews are anonymized. Do your own research and consult qualified professionals before making investment decisions.

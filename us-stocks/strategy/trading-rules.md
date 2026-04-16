@@ -68,7 +68,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 
 11. Confirmation matters more than pretty prices.
     A worse price for better confirmation is acceptable, not failure.
-    _Source: LITE ~638 pre-confirmation vs ~600 post-confirmation, 2026-03-17_
+    _Source: catalyst day early entry review, 2026-03-17_
 
 12. Missing part of a move is not failure.
 
@@ -78,10 +78,10 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     _Source: anti-fomo-rules, 2026-03-17_
 
 14. Do not move a reasonable first buy limit lower just to chase a more perfect entry.
-    _Source: AAOI 80→78, AXTI 50→48 踏空, 2026-04-01_
+    _Source: perfect-price trap review, 2026-04-01_
 
 15. If the first planned price is still valid, keep it and add a second lower tranche instead of replacing it.
-    _Source: AAOI/AXTI perfect-price trap review, 2026-04-01_
+    _Source: perfect-price trap review, 2026-04-01_
 
 16. The first tranche exists to secure participation; the second tranche exists to exploit deeper weakness.
 
@@ -126,7 +126,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 23. Zones are not eternal. When a stock structurally breaks out of its old range, update zones before trading — do not mechanically block a trade based on stale zones.
     - If the stock has moved decisively above old zones and the thesis supports the new level, update first, then trade.
     - Zone violations should still be flagged, but with the question: "Are the zones themselves stale?"
-    _Source: NOK $10.40 buy in old trim zone, zone updated post-trade, 2026-04-14_
+    _Source: zone staleness incident, 2026-04-14_
 
 24. Zone checks are mandatory before entry:
     - In accumulation zone → proceed
@@ -174,7 +174,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 1. **No confirmation, no size.** (Rule #2)
 2. **Max two entries per thesis.** (Rule #4)
 3. **Early strength on catalyst days is not confirmation.** (Rule #19) _Source: GTC day, 2026-03-17_
-4. **Do not chase the prettiest price — protect the first tranche.** (Rules #14-16) _Source: AAOI/AXTI, 2026-04-01_
+4. **Do not chase the prettiest price — protect the first tranche.** (Rules #14-16) _Source: perfect-price trap review, 2026-04-01_
 5. **No trading in the first 30 minutes.** (Rule #17) _Source: opening-discipline, 2026-03_
 
 ---

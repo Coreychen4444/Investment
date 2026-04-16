@@ -1,21 +1,21 @@
-# 2026-04-01 Perfect Price Trap Review
+# Review — Perfect Price Trap
 
 ## Summary
 This was not a thesis error. This was an execution error.
 
-Corey originally planned premarket limit buys at:
-- **AAOI 80**
-- **AXTI 50**
+Originally planned premarket limit buys at:
+- **STOCK_A: $80**
+- **STOCK_B: $50**
 
-Before the open, he lowered them to:
-- **AAOI 78**
-- **AXTI 48**
+Before the open, lowered them to:
+- **STOCK_A: $78**
+- **STOCK_B: $48**
 
 Intraday lows later reached:
-- **AAOI 78.5**
-- **AXTI 50.2**
+- **STOCK_A: $78.5**
+- **STOCK_B: $50.2**
 
-That means the original plan likely would have filled or nearly filled, while the revised "perfect price" plan missed both entries entirely. Later, Iran de-escalation headlines triggered a sharp rebound.
+That means the original plan likely would have filled, while the revised "perfect price" plan missed both entries entirely. A macro headline then triggered a sharp rebound.
 
 ## What actually went wrong
 The mistake was not "failing to predict the rebound." The mistake happened earlier:
@@ -48,12 +48,12 @@ In practice, this creates a worse outcome:
 
 ## Correct execution model
 Wrong:
-- AAOI 80 → 78
-- AXTI 50 → 48
+- STOCK_A $80 → $78
+- STOCK_B $50 → $48
 
 Right:
-- AAOI 80 first tranche, 78 second tranche
-- AXTI 50 first tranche, 48 second tranche
+- STOCK_A $80 first tranche, $78 second tranche
+- STOCK_B $50 first tranche, $48 second tranche
 
 The first tranche secures participation.
 The second tranche is for deeper weakness.

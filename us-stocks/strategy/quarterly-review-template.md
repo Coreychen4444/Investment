@@ -13,7 +13,7 @@
    - sell-put-rules.md
 
 2. **读取本季度交易日志**：
-   - `trade/us_stock/holding/trade_history/trade_journal.md`
+   - Your trade journal (maintain separately)
    - 统计本季度交易笔数、纪律评分分布（A/B/C/D）
 
 3. **规则分类**：
@@ -30,7 +30,7 @@
    - 归档规则（环境已变、不再适用）
    - 锐化规则（表述模糊、执行时容易绕过）
 
-6. **执行更新**（经 Corey 确认后）：
+6. **执行更新**（经确认后）：
    - 更新 trading-rules.md
    - 同步到 investment repo
    - Commit: `strategy: quarterly review Q[N] 2026`

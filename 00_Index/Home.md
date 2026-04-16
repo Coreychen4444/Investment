@@ -88,9 +88,9 @@ graph TD
 > - [ ] **分批建仓**: 计划分几次买入？(如：50% -> 30% -> 20%)
 > - [ ] **止损位**: 硬止损点在哪里？(如：-8% 或 200日线) ([[Exit_Strategy]])
 
-## 🚀 2026 实战规划 (Action)
-[[2026_Investment_Plan|👉 进入 2026 年度作战室]]
+## 🚀 Strategy & Action
+[[2026_Investment_Plan|👉 进入年度作战室 (示例)]]
 
 ## 🧭 工作区入口 (Working Hubs)
-- [[US stocks/Home|🇺🇸 US Stocks Hub]]
+- [[us-stocks/Home|🇺🇸 US Stocks Hub]]
 - [[polymarket/Home|🎯 Polymarket Hub]]

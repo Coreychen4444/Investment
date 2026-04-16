@@ -1,17 +1,15 @@
-# 2026-03-14 Review — Macro Risk Day De-Risking
+# Review — Macro Risk Day De-Risking
 
 ## Summary
-Corey de-risked on Friday premarket because Iran kept the Strait of Hormuz closed, Brent moved above $100, and he expected another risk-off continuation. The macro read was directionally correct, but the execution was too uniform across very different position types.
+De-risked on Friday premarket because geopolitical risk escalated and oil spiked. The macro read was directionally correct, but the execution was too uniform across very different position types.
 
 ## What happened
-- Premarket reductions:
-  - MU 13 -> 4
-  - SNDK 5 -> 2
-  - LITE 4.5 -> 0
-  - AAOI 16 -> 6
+- Premarket reductions across the book:
+  - High-beta optics names: large cuts (justified)
+  - Core memory names: large cuts (questionable — had near-term catalysts)
 - Outcome:
-  - LITE / AAOI handling was broadly justified
-  - MU / SNDK held up better and had near-term catalysts still ahead
+  - High-beta names handling was broadly justified
+  - Core-theme names held up better and had near-term catalysts still ahead
 
 ## Main mistake
 The mistake was not de-risking itself. The mistake was applying nearly one clean risk action to positions that should have been split into:
