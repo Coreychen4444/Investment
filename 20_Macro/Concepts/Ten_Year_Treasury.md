@@ -34,14 +34,14 @@ $$
 *   **长久期资产 (Long Duration)**: 类似于科技成长股 (如 Tesla, Nvidia)。投资者买的是未来的增长，现金流主要集中在远期。利率敏感度极高。利率涨，跌幅大。
 *   **短久期资产 (Short Duration)**: 类似于成熟价值股 (如 Coca-Cola, Walmart)。公司当下就有强劲的现金流和分红。利率敏感度较低。
 
----
-> 📍 **Navigation**
-> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
-> 相关：[[DCF_Logic|DCF 估值逻辑]]、[[PE_Market_Expectation|PE 市场预期]]、[[Fed_Mechanics|美联储机制]]
-
 ## 重力隐喻 (The Gravity Metaphor)
 沃伦·巴菲特曾做过一个精彩的比喻：
 > **"利率之于资产价格，就像重力之于苹果。"** (Interest rates are to asset prices what gravity is to the apple.)
 
 *   **低利率**: 重力微弱，资产价格可以漂浮在很高的位置（高估值泡沫）。
 *   **高利率**: 重力增强，将所有资产价格猛烈地拉回地面。
+
+---
+> 📍 **Navigation**
+> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
+> 相关：[[DCF_Logic|DCF 估值逻辑]]、[[PE_Market_Expectation|PE 市场预期]]、[[Fed_Mechanics|美联储机制]]

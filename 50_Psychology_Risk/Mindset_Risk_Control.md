@@ -26,7 +26,7 @@ aliases:
 - **金字塔建仓**: 顺势加仓，截断亏损。
 - **核心/卫星策略**: 平衡稳健与爆发。
 
-### [[Exit_Strategy|止盈止损 (Exit Strategy)]]
+### [[Stop_Loss_Strategy|止盈止损 (Exit Strategy)]]
 反人性的纪律。止损保护本金，止盈锁定利润。
 - **损失的数学**: 为什么亏损 50% 需要涨 100% 回本。
 - **止损类型**: 硬止损 vs 逻辑止损。
@@ -43,7 +43,27 @@ aliases:
 - **《股票作手回忆录》 (Reminiscences of a Stock Operator)** - *Edwin Lefèvre*: 杰西·利弗莫尔的传记，关于交易心理与人性博弈最精彩的实录。
 - **《随机漫步的傻瓜》 (Fooled by Randomness)** - *Nassim Taleb*: 理解市场中的运气成分与存活者偏差。
 
+## 开盘纪律 (Opening Discipline)
+
+> **铁律：开盘 30 分钟内不交易（ET 09:30-10:00）**
+
+- **原因**: 开盘前 30 分钟波动最剧烈（隔夜资金消化、情绪化订单集中执行），方向不明确
+- **例外**: 只有明确的风险削减（止损、减仓）才可在 30 分钟内执行
+- **观察期**: 10:00 后等待 15 分钟 K 线确认方向再行动
+- **盘前挂单**: limit order 可以提前设置，但不要在开盘后追 market order
+
+## 情绪交易教训 (Emotional Trading Lesson)
+
+> **无 thesis 不买。情绪不是理由。**
+
+一个匿名化的真实案例：因 AI hype 和"大厂安全"错觉，无明确 thesis 买入两只股票。结果：一只 -20%+，一只 -6%。
+
+**提炼的规则**：
+1. 每笔买入必须有文档化的 thesis（为什么现在？需求/估值/催化剂？）
+2. FOMO/"便宜"的感觉 → 暂停 24 小时再决策
+3. 如果说不清这笔是 Confirmed/Probe/Early，就不要动
+
 ---
 > 📍 **Navigation**
 > 上级：[[00_Index/Home|Dashboard]]
-> 相关：[[Stop_Loss_Strategy|止损策略]]、[[Trading_Timing|交易时机]]、[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[Stop_Loss_Strategy|止损与退出策略]]、[[Market_Sentiment|市场情绪]]、[[Position_Sizing|仓位管理]]、[[Investment_First_Principles|投资第一性原理]]

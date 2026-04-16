@@ -43,4 +43,4 @@ $$ f^* = \frac{bp - q}{b} = \frac{p(b+1) - 1}{b} $$
 ---
 > 📍 **Navigation**
 > 上级：[[Mindset_Risk_Control|交易心法与风控]]
-> 相关：[[Exit_Strategy|止盈止损]]、[[Stop_Loss_Strategy|止损策略]]
+> 相关：[[Stop_Loss_Strategy|止损与退出策略]]

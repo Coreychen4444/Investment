@@ -212,4 +212,4 @@ Before any trade, ask:
 ---
 > 📍 **Navigation**
 > 上级：[[us-stocks/Home|US Stocks Hub]]
-> 框架连接：[[Position_Sizing|仓位管理]]、[[Exit_Strategy|止盈止损]]、[[Market_Sentiment|市场情绪]]、[[Trading_Timing|交易时机]]
+> 框架连接：[[Position_Sizing|仓位管理]]、[[Stop_Loss_Strategy|止损与退出策略]]、[[Market_Sentiment|市场情绪]]、[[Mindset_Risk_Control|交易心法与风控]]

@@ -52,6 +52,15 @@ EPS 和 PE 并非孤立存在，它们的相互作用会产生巨大的杠杆效
 *   **短期**: 市场是投票机 (Voting Machine) -> 主导因素是 **PE** (情绪/流动性)。
 *   **长期**: 市场是称重机 (Weighing Machine) -> 主导因素是 **EPS** (企业真实盈利)。
 
+## 📖 建议阅读路径 (Recommended Reading Path)
+
+1. **先理解公式两端**: [[EPS_Business_Reality|EPS]] → [[PE_Market_Expectation|PE]]
+2. **再理解乘数效应**: [[Davis_Cycle|戴维斯双击/双杀]]
+3. **然后理解短期博弈**: [[Earnings_Surprise_Logic|预期差逻辑]]
+4. **最后掌握寻找机会**: [[Undervaluation_First_Principles|低估的第一性原理]]
+
+每篇文章底部都有导航链接，可以自由跳转。
+
 ## 📚 推荐书单 (Recommended Reading)
 - **《投资最重要的事》 (The Most Important Thing)** - *Howard Marks*: 理解市场周期、第二层次思维与风险控制的必读经典。
 - **《彼得·林奇的成功投资》 (One Up On Wall Street)** - *Peter Lynch*: 散户如何利用常识战胜华尔街，深入理解 PEG 与公司分类。
