@@ -1,5 +1,7 @@
 # Investment Knowledge Base
 
+[中文版本](README_CN.md)
+
 A principle-driven investment framework built with [Obsidian](https://obsidian.md/), designed around the fundamental stock price formula:
 
 $$P = EPS \times PE$$
