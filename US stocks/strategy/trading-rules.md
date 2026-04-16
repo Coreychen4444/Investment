@@ -34,6 +34,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
    - Not a single-headline spike; sustained buying
    - Opening 30-min settled, price behavior stable
    For quantitative bottom signals, reference `bottom-confirmation-signals.md`.
+   For full indicator roles and SOP, reference `technical-indicators-framework.md`.
 
 ---
 
