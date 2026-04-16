@@ -11,7 +11,7 @@ aliases:
 
 # 光模块产业链的思考与总结
 
-> 基于 @crux_capital_（Gaetano）2026年2月21日 Education Saturday 系列推文
+> 基于 [@crux_capital_](https://x.com/crux_capital_)（Gaetano）2026年2月21日 Education Saturday 系列推文（[原帖](https://x.com/crux_capital_/status/2025323778474164601)）
 > **核心观点："稀缺环节捕获最多价值（The scarce steps capture the most value）——瓶颈全部集中在上游（Bottlenecks are upstream）。"**
 
 ---
