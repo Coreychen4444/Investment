@@ -9,18 +9,25 @@ aliases:
 # Polymarket Hub
 
 ## Purpose
-This is the dedicated workspace for Polymarket trading, especially Valorant-related strategy and review.
+Dedicated workspace for prediction market trading (e.g., esports, events).
+Keep PM logic separate from US stocks logic.
 
 ## Sections
-- [[valorant-core-strategy|Valorant Core Strategy]]
-- [[pm-live-iron-rules|PM Live Iron Rules]]
-- [[valorant-pm-edge|Valorant PM Edge Notes]]
-- [[2026-03-14-strategy-note|Strategy Note]]
-- [[2026-03-14-averaging-down-failure|Averaging-Down Failure Review]]
+- `strategy/` — trading strategies, odds frameworks, iron rules
+- `journal/` — trade journals (use template)
+- `reviews/` — post-trade reviews (use template)
+- `knowledge/` — domain knowledge (game meta, team analysis, etc.)
+- `templates/` — journal and review templates
 
-## Notes
-- Keep PM logic separate from US stocks logic
-- Shared discipline can be referenced, but do not mix market narratives
+## Templates
+- [[trade-journal-template|Trade Journal Template]]
+- [[review-template|Review Template]]
+
+## Getting Started
+1. Define your edge hypothesis in `strategy/`
+2. Record each trade using the journal template
+3. Review outcomes using the review template
+4. Extract durable rules back into `strategy/`
 
 ---
 > 📍 **Navigation**
