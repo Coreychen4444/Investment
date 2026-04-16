@@ -10,6 +10,7 @@ This is the working hub for current US stocks trading/investing materials.
 - [[strategy/bottom-confirmation-signals|Bottom Confirmation Signals]]
 - [[strategy/event-risk-reduction-principle|Event Risk Reduction]]
 - [[strategy/sell-put-rules|Sell Put Rules]]
+- [[strategy/options-strategy-framework|Options Strategy Framework]]
 - [[strategy/quarterly-review-template|Quarterly Review Template]]
 - [[knowledge/photonics-supply-chain|Photonics Supply Chain]]
 - [[holdings/current/README|Current Holdings]]
