@@ -1,3 +1,13 @@
+---
+tags:
+  - strategy
+  - sector
+aliases:
+  - 商业航天
+  - Aerospace
+  - Space Economy
+---
+
 # 商业航天：新的大航海时代 (Commercial Aerospace)
 
 ## 核心逻辑 (Logic)
@@ -8,3 +18,8 @@
 ## 估值 (Valuation)
 - **长久期**：基于 TAM（总可触及市场）估值。
 - **早期阶段**：EV/Sales
+
+---
+> 📍 **Navigation**
+> 上级：[[2026_Investment_Plan|年度投资计划]]
+> 相关：[[AI_Logic|AI 板块]]、[[Energy_Logic|能源板块]]

@@ -1,3 +1,12 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Two-Stage Entry
+  - 两段式建仓
+---
+
 # 两段式建仓规则卡
 
 ## 核心原则
@@ -109,3 +118,8 @@
 > 确认后，才允许逐步加仓。
 
 如果做不到这两句，这套方法就不是纪律，而是在给提前重仓找借口。
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]、[[Position_Sizing|仓位管理]]

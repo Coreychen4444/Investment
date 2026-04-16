@@ -1,3 +1,11 @@
+---
+tags:
+  - polymarket
+  - review
+aliases:
+  - PM Averaging-Down Failure
+---
+
 # Review — Averaging-Down Failure in Live Odds Trading
 
 ## 复盘主题
@@ -40,3 +48,8 @@
 **用错误的仓位管理，把原本可能成立的 edge 交易成了一次事故。**
 
 真正输掉这笔的，不是盘口机器人，也不只是比赛走势，而是"因为自认懂，所以不断补仓"的执行失控。
+
+---
+> 📍 **Navigation**
+> 上级：[[polymarket/Home|Polymarket Hub]]
+> 相关：[[pm-live-iron-rules|PM Iron Rules]]

@@ -1,3 +1,13 @@
+---
+tags:
+  - core-logic
+  - concept
+aliases:
+  - PE
+  - 市盈率
+  - Price Earnings
+---
+
 # PE：市场情绪的温度计 (Market Expectation)
 
 **定义**: PE (Price / Earnings) = 股价 / 每股收益。它代表了按照当前的盈利水平，你需要多少年才能回本。
@@ -24,4 +34,6 @@ PE 的变化往往比 EPS 更剧烈，被称为“估值倍数的扩张与收缩
    - **恐惧 (Fear)**: 大众恐慌抛售，即便好公司也只给极低 PE。
 
 ---
-返回: [[Investment_First_Principles]]
+> 📍 **Navigation**
+> 上级：[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[Fed_Mechanics|美联储机制]]、[[Ten_Year_Treasury|10年期美债]]、[[Market_Sentiment|市场情绪]]、[[Davis_Cycle|戴维斯双击]]

@@ -1,3 +1,12 @@
+---
+tags:
+  - index
+  - hub
+aliases:
+  - Dashboard
+  - 投资体系
+---
+
 # 个人投资体系 Dashboard
 
 > [!tip] **Phase 1: 投资第一性原理**

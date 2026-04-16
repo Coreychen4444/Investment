@@ -1,3 +1,12 @@
+---
+tags:
+  - valuation
+  - concept
+aliases:
+  - 估值指标选择
+  - Valuation Metrics
+---
+
 # 估值指标选择指南：什么公司用什么指标
 
 ## 核心原则
@@ -180,5 +189,6 @@ $$P/B = \frac{市值}{净资产}$$
 **永远要问：这个数字背后的业务逻辑是什么？**
 
 ---
-
-返回: [[Valuation_Framework]]
+> 📍 **Navigation**
+> 上级：[[Valuation_Framework|估值体系]]
+> 相关：[[Relative_Valuation|相对估值]]、[[DCF_Logic|DCF]]、[[Tech_Metrics|科技指标]]

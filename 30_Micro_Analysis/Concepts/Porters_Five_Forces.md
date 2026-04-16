@@ -1,3 +1,12 @@
+---
+tags:
+  - micro
+  - concept
+aliases:
+  - 波特五力
+  - Porter's Five Forces
+---
+
 # 波特五力：行业竞争格局分析
 
 波特五力模型 (Porter's Five Forces) 是分析行业竞争格局和利润潜力的经典框架。
@@ -28,3 +37,8 @@
 行业内的玩家是在打价格战，还是在此消彼长中默契共存？
 - **价格战 (Price Wars)**: 中国的电动车 (EV) 市场，为了抢占份额不惜亏本卖车。
 - **寡头垄断 (Oligopoly)**: Visa 和 Mastercard，双寡头格局，不仅不打价格战，反而还能一起涨价，坐享高利润。
+
+---
+> 📍 **Navigation**
+> 上级：[[Business_Quality_Moats|商业模式与护城河]]
+> 相关：[[Moat_Types|护城河类型]]

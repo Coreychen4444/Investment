@@ -1,3 +1,13 @@
+---
+tags:
+  - macro
+  - concept
+aliases:
+  - 10年期美债
+  - US Treasury
+  - 无风险利率
+---
+
 # 10年期美债：全球资产定价之锚
 
 ## 全球资产的"定海神针" (The Anchor)
@@ -23,6 +33,11 @@ $$
 这就引入了债券市场中的 **久期 (Duration)** 概念，同样适用于股票：
 *   **长久期资产 (Long Duration)**: 类似于科技成长股 (如 Tesla, Nvidia)。投资者买的是未来的增长，现金流主要集中在远期。利率敏感度极高。利率涨，跌幅大。
 *   **短久期资产 (Short Duration)**: 类似于成熟价值股 (如 Coca-Cola, Walmart)。公司当下就有强劲的现金流和分红。利率敏感度较低。
+
+---
+> 📍 **Navigation**
+> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
+> 相关：[[DCF_Logic|DCF 估值逻辑]]、[[PE_Market_Expectation|PE 市场预期]]、[[Fed_Mechanics|美联储机制]]
 
 ## 重力隐喻 (The Gravity Metaphor)
 沃伦·巴菲特曾做过一个精彩的比喻：

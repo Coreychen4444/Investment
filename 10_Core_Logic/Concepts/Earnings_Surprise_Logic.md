@@ -1,3 +1,12 @@
+---
+tags:
+  - core-logic
+  - concept
+aliases:
+  - 预期差
+  - Earnings Surprise
+---
+
 # 预期差：美股的短线博弈 (Earnings Surprise)
 
 在美股市场，股价的短期波动往往不取决于绝对的好坏，而取决于**实际结果与市场预期之间的差距**。
@@ -27,3 +36,8 @@
 美股极其看重未来。
 *   即使上个季度的业绩超预期（Beat），如果公司给出的下季度**指引 (Guidance)** 不及预期（Miss），股价依然会暴跌。
 *   **逻辑**: 过去已成历史，股市买的是未来现金流。
+
+---
+> 📍 **Navigation**
+> 上级：[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[PE_Market_Expectation|PE 市场预期]]、[[Market_Sentiment|市场情绪]]

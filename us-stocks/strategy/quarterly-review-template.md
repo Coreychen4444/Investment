@@ -1,3 +1,12 @@
+---
+tags:
+  - trading
+  - template
+aliases:
+  - Quarterly Review
+  - 季度复盘
+---
+
 # Quarterly Strategy Review Template
 
 手动触发，每季度末（3/6/9/12月）或宏观环境显著变化时执行。
@@ -39,3 +48,7 @@
 - 变更摘要（新增/归档/锐化）
 - 本季度纪律评分趋势
 - 下季度重点关注的行为模式
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]

@@ -1,3 +1,12 @@
+---
+tags:
+  - valuation
+  - concept
+aliases:
+  - PE Band
+  - 历史估值通道
+---
+
 # 历史估值通道：均值回归的引力
 
 ## 核心概念 (Concept)
@@ -17,3 +26,8 @@
 - 如果一家公司的基本面彻底崩坏（例如智能手机时代的 Nokia，胶卷时代的 Kodak），它的盈利 (Earnings) 会永久性坍塌。
 - 此时，看似“便宜”的低 PE 其实是**价值陷阱**。因为随着 E 的消失，P 即使再低，PE 也会变得无限大。
 - **切记**：只对基本面健康、只是遭遇暂时性困难的好公司使用 PE 通道。
+
+---
+> 📍 **Navigation**
+> 上级：[[Valuation_Framework|估值体系]]
+> 相关：[[Relative_Valuation|相对估值]]、[[Davis_Cycle|戴维斯双击]]

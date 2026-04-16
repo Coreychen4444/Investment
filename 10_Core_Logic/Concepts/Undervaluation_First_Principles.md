@@ -1,3 +1,12 @@
+---
+tags:
+  - core-logic
+  - concept
+aliases:
+  - 低估的第一性原理
+  - Undervaluation
+---
+
 # 低估的第一性原理 (Undervaluation First Principles)
 
 ## 核心洞察
@@ -72,5 +81,6 @@ $$PE = \frac{1}{r - g}$$
 - [ ] 如果我错了，止损点在哪？
 
 ---
-
-返回: [[Investment_First_Principles]]
+> 📍 **Navigation**
+> 上级：[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[DCF_Logic|DCF 估值逻辑]]、[[PE_Band|PE Band 历史估值]]、[[Relative_Valuation|相对估值]]

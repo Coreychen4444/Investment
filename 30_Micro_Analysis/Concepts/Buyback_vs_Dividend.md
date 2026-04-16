@@ -1,3 +1,14 @@
+---
+tags:
+  - micro
+  - concept
+aliases:
+  - 回购 vs 分红
+  - Buyback
+  - Dividend
+  - Shareholder Yield
+---
+
 # 资本配置：回购 vs 分红 (Capital Allocation)
 
 **Core Principle**: Capital allocation is the CEO's most important job. How management deploys retained earnings determines long-term shareholder value.
@@ -32,3 +43,8 @@ Even if the business creates zero extra profit, a 5% reduction in share count bo
 > - **Dividend Withholding Tax**: **30%**. Dividends paid by US companies are taxed at 30% before they reach you.
 >
 > Therefore, **$1 of Buyback > $1 of Dividend** for an SG investor.
+
+---
+> 📍 **Navigation**
+> 上级：[[Financial_Health_Returns|财务与股东回报]]
+> 相关：[[EPS_Business_Reality|EPS 企业现实]]、[[SBC_Trap|SBC 陷阱]]

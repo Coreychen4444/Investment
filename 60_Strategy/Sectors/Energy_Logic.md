@@ -1,3 +1,14 @@
+---
+tags:
+  - strategy
+  - sector
+aliases:
+  - 能源板块
+  - Energy Logic
+  - Nuclear
+  - SMR
+---
+
 # 能源板块：AI 的燃料 (Energy & Power)
 
 ## 核心逻辑 (Logic)
@@ -8,3 +19,8 @@
 ## 估值 (Valuation)
 - **公用事业**：EV/EBITDA
 - **安全边际**：股息率 (Yield)
+
+---
+> 📍 **Navigation**
+> 上级：[[2026_Investment_Plan|年度投资计划]]
+> 相关：[[AI_Logic|AI 板块]]、[[Aerospace_Logic|商业航天]]

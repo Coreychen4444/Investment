@@ -1,3 +1,11 @@
+---
+tags:
+  - trading
+  - review
+aliases:
+  - Perfect Price Trap Review
+---
+
 # Review — Perfect Price Trap
 
 ## Summary
@@ -66,3 +74,8 @@ The second tranche is for deeper weakness.
 ## Final line
 This miss was not bad luck.
 It was the direct consequence of optimizing for the prettiest possible trade instead of a repeatable one.
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]

@@ -1,3 +1,11 @@
+---
+tags:
+  - trading
+  - review
+aliases:
+  - Catalyst Day Early Entry Review
+---
+
 # Review — Catalyst Day Early Entry
 
 ## Summary
@@ -20,3 +28,8 @@ STOCK_A later did not need to be panic-sold, but the original entry was still st
 - Early strength on catalyst days is not confirmation.
 - Separate core thesis beneficiaries from high-beta sentiment beneficiaries.
 - Better confirmation at a worse-looking price is preferable to a prettier early entry.
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]

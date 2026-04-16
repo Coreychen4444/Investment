@@ -1,3 +1,13 @@
+---
+tags:
+  - core-logic
+  - concept
+aliases:
+  - 戴维斯双击
+  - 戴维斯双杀
+  - Davis Double Play
+---
+
 # 戴维斯周期：财富的乘数效应 (The Davis Cycle)
 
 戴维斯周期（Davis Cycle）描述了每股收益（EPS）和估值（PE）两个因素如何共同作用，对股价产生乘数效应。
@@ -27,3 +37,8 @@
 ## 3. 核心教训 (The Lesson)
 *   **警惕高估值**: 避免在 PE 极高时买入增速正在放缓的公司。一旦增长逻辑证伪，双杀的破坏力是毁灭性的。
 *   **寻找转折点**: 最佳的买入点往往是公司基本面好转，但市场估值尚未修复之时（潜在的双击起点）。
+
+---
+> 📍 **Navigation**
+> 上级：[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[EPS_Business_Reality|EPS 企业现实]]、[[PE_Market_Expectation|PE 市场预期]]

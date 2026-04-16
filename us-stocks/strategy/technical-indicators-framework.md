@@ -1,3 +1,14 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Technical Indicators
+  - 技术指标框架
+  - 60MA
+  - 250MA
+---
+
 # 技术指标操作框架
 
 Last updated: 2026-04-16
@@ -102,3 +113,8 @@ Last updated: 2026-04-16
 # 周线 K 线
 .venv/moomoo/bin/python3 scripts/market_data.py  # import get_kline(ticker, ktype="1w")
 ```
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[bottom-confirmation-signals|见底信号]]、[[trading-rules|Trading Rules]]

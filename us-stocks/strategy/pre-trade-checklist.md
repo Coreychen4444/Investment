@@ -1,3 +1,12 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Pre-Trade Checklist
+  - 交易前检查
+---
+
 # Pre-Trade Checklist
 
 ## 核心原则
@@ -164,3 +173,8 @@
 > 这笔交易，是让我更稳，还是只是让我感觉自己好像更聪明？
 
 如果答案偏后者，先别动。
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]、[[two-stage-entry-rules|Two-Stage Entry]]

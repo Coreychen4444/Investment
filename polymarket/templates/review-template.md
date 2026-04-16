@@ -1,3 +1,9 @@
+---
+tags:
+  - polymarket
+  - template
+---
+
 # Polymarket Review Template
 
 ## 复盘主题

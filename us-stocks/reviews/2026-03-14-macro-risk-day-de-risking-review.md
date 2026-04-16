@@ -1,3 +1,11 @@
+---
+tags:
+  - trading
+  - review
+aliases:
+  - Macro Risk Day Review
+---
+
 # Review — Macro Risk Day De-Risking
 
 ## Summary
@@ -22,3 +30,8 @@ The mistake was not de-risking itself. The mistake was applying nearly one clean
 - On macro-risk days, do not de-risk all positions the same way.
 - If a stock has meaningful 3-5 trading day catalysts, preserve an event-participation base position unless thesis is broken.
 - Engineer-style simplification is an execution flaw: correct macro view can still produce bad uniform action.
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]

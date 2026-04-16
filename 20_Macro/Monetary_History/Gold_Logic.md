@@ -1,3 +1,12 @@
+---
+tags:
+  - macro
+  - concept
+aliases:
+  - 黄金逻辑
+  - Gold
+---
+
 # 黄金逻辑：非主权资产的避险价值
 
 ## 黄金 vs 股票 (Gold vs Stocks)
@@ -9,3 +18,8 @@
 - **实际利率 (Real Interest Rates)**: 黄金与实际利率呈负相关。黄金厌恶高实际利率，喜爱负实际利率。
 - **央行购金**: 全球去美元化趋势下的战略储备。
 - **地缘政治**: 战争与不确定性推升避险需求。
+
+---
+> 📍 **Navigation**
+> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
+> 相关：[[Evolution_of_Money|货币演变史]]、[[USD_System|美元体系]]、[[Ten_Year_Treasury|10年期美债]]

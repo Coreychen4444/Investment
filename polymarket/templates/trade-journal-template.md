@@ -1,3 +1,9 @@
+---
+tags:
+  - polymarket
+  - template
+---
+
 # Polymarket Trade Journal Template
 
 ## 基本信息

@@ -1,3 +1,12 @@
+---
+tags:
+  - psychology
+  - framework
+aliases:
+  - 止损策略
+  - Stop Loss
+---
+
 # 止损策略：用纪律对抗人性
 
 ## 💔 血泪教训（案例）
@@ -117,4 +126,7 @@
 
 > "止损是投资中唯一可以控制的事情 — 你控制不了涨跌，但能控制亏多少。"
 
-返回: [[50_Psychology_Risk]]
+---
+> 📍 **Navigation**
+> 上级：[[Mindset_Risk_Control|交易心法与风控]]
+> 相关：[[Exit_Strategy|止盈止损]]、[[Position_Sizing|仓位管理]]

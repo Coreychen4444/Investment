@@ -1,3 +1,13 @@
+---
+tags:
+  - macro
+  - concept
+aliases:
+  - 经济指标
+  - Core PCE
+  - Non-Farm Payrolls
+---
+
 # 关键数据：PCE 与 非农就业
 
 在宏观交易中，数据发布日往往是市场波动最剧烈的时刻。以下是两个皇冠上的明珠。
@@ -25,3 +35,8 @@
 ### "金发姑娘" (Goldilocks Scenario)
 *   **理想状态**: 经济增长适度（不冷不热）+ 通胀稳步回落。
 *   **特征**: 既没有衰退的恐慌，也没有紧缩的压力。这是风险资产（股票）最舒适的环境。
+
+---
+> 📍 **Navigation**
+> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
+> 相关：[[Fed_Mechanics|美联储机制]]、[[Ten_Year_Treasury|10年期美债]]

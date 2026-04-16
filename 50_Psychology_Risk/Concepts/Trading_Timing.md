@@ -1,3 +1,13 @@
+---
+tags:
+  - psychology
+  - concept
+aliases:
+  - 交易时机
+  - 30分钟规则
+  - Opening Discipline
+---
+
 # 开盘后30分钟禁止交易 (No Trade First 30min)
 
 ## 🚫 核心规则
@@ -28,4 +38,7 @@
 
 > \"耐心是交易的最大武器，开盘冲动是最大敌人。\"
 
-返回: [[50_Psychology_Risk]]
+---
+> 📍 **Navigation**
+> 上级：[[Mindset_Risk_Control|交易心法与风控]]
+> 相关：[[Market_Sentiment|市场情绪]]、[[Exit_Strategy|止盈止损]]

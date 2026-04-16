@@ -1,3 +1,12 @@
+---
+tags:
+  - polymarket
+  - framework
+aliases:
+  - Valorant Strategy
+  - 核心策略
+---
+
 # Valorant Polymarket Core Strategy
 
 ## 核心观察
@@ -87,3 +96,8 @@ eco 局观察可作为短线 timing 优化器。
 
 因此这套策略本质上是：
 **利用机器人对硬数据的过度机械反应，交易赔率回归，而不是简单赌逆转。**
+
+---
+> 📍 **Navigation**
+> 上级：[[polymarket/Home|Polymarket Hub]]
+> 相关：[[pm-live-iron-rules|PM Iron Rules]]、[[valorant-pm-edge|PM Edge]]

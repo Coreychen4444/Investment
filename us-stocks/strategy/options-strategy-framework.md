@@ -1,3 +1,13 @@
+---
+tags:
+  - trading
+  - options
+  - framework
+aliases:
+  - Options Framework
+  - 期权交易框架
+---
+
 # 期权交易框架 v1
 
 ## 一、核心理念
@@ -527,3 +537,8 @@ Phase 2: Sell Covered Call（strike = trim zone）
 - `two-stage-entry-rules.md` — 两段式建仓（期权中 Long Call = 第一段 probe）
 - `event-risk-reduction-principle.md` — 事件前减仓（Protective Put 为替代方案）
 - `position_zones.json` — Zone 数据（Strike 选择的直接参考）
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[sell-put-rules|Sell Put Rules]]、[[trading-rules|Trading Rules]]

@@ -1,3 +1,13 @@
+---
+tags:
+  - psychology
+  - concept
+aliases:
+  - 市场情绪
+  - VIX
+  - Fear and Greed
+---
+
 # 市场情绪：逆势交易的罗盘
 
 ## VIX (恐慌指数)
@@ -28,3 +38,8 @@ CNN 恐惧与贪婪指数综合了 7 个指标来衡量市场情绪：
 - **操作原则**: 
     - 不要为了逆向而逆向，需结合基本面和趋势。
     - 真正的逆向是在趋势极度延伸、情绪极度一致时，寻找反转的催化剂。
+
+---
+> 📍 **Navigation**
+> 上级：[[Mindset_Risk_Control|交易心法与风控]]
+> 相关：[[PE_Market_Expectation|PE 市场预期]]、[[Position_Sizing|仓位管理]]

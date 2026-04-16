@@ -1,3 +1,11 @@
+---
+tags:
+  - trading
+  - template
+aliases:
+  - Holding Template
+---
+
 # _EXAMPLE_ — High-Beta Optics Name
 
 > This is an **example** holding note. Replace with your own positions.

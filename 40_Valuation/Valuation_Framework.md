@@ -1,3 +1,12 @@
+---
+tags:
+  - valuation
+  - hub
+aliases:
+  - 估值体系
+  - Valuation Framework
+---
+
 # 估值体系：寻找价格与价值的错配
 
 估值不是寻找“精确的正确”，而是避免“模糊的错误”。它是投资决策中最后也是最关键的一步，用于确定**安全边际**。
@@ -5,7 +14,7 @@
 我们将估值方法分为三大类，每种方法都有其适用场景和局限性。
 
 ## 0. 指标选择：什么公司用什么估值方法
-- **[[40_Valuation/Concepts/Valuation_Metric_Selection|估值指标选择指南]]**:
+- **[[Valuation_Metric_Selection|估值指标选择指南]]**:
     - **PE**: 成熟盈利公司
     - **PEG**: 高增长但已盈利公司
     - **PS**: 亏损但高增长的 SaaS/科技公司
@@ -17,7 +26,7 @@
 ## 1. 相对估值：市场情绪的温度计
 相对估值是通过比较来判断贵贱。它回答的是“相对于其竞争对手或历史水平，现在的价格是否合理？”
 
-- [[40_Valuation/Concepts/Relative_Valuation|相对估值详解]]
+- [[Relative_Valuation|相对估值详解]]
     - **Forward PE**: 为什么看未来比看过去重要。
     - **PEG Ratio**: 如何公平比较高增长与低增长公司（Peter Lynch 的秘密武器）。
     - **PS Ratio**: 亏损 SaaS 企业的生存指南。
@@ -25,7 +34,7 @@
 ## 2. 绝对估值：商业本质的锚
 绝对估值试图剥离市场情绪，通过企业产生现金流的能力来计算其内在价值。
 
-- [[40_Valuation/Concepts/DCF_Logic|DCF 绝对估值逻辑]]
+- [[DCF_Logic|DCF 绝对估值逻辑]]
     - **核心逻辑**: 企业的价值 = 未来现金流的折现。
     - **"Garbage In, Garbage Out"**: 警惕模型的脆弱性。
     - **Reverse DCF (反向 DCF)**: 一个更实用的工具——推算市场隐含的增长预期。
@@ -33,10 +42,15 @@
 ## 3. 历史估值：均值回归的引力
 通过观察个股自身的历史估值区间，利用市场情绪的周期性获利。
 
-- [[40_Valuation/Concepts/PE_Band|历史估值通道 (PE Band)]]
+- [[PE_Band|历史估值通道 (PE Band)]]
     - **策略**: 在历史底部买入，在顶部卖出。
     - **警告**: 警惕基本面崩塌导致的“价值陷阱”。
 
 ## 📚 推荐书单 (Recommended Reading)
 - **《价值评估》 (Valuation)** - *McKinsey & Company*: 估值领域的“蓝皮书”，涵盖了从 DCF 到 ROIC 分析的详尽框架。
 - **《学会估值，轻松投资》 (The Little Book of Valuation)** - *Aswath Damodaran*: 纽约大学估值教授的实战指南，比麦肯锡的书更通俗易懂。
+
+---
+> 📍 **Navigation**
+> 上级：[[00_Index/Home|Dashboard]]
+> 相关：[[Investment_First_Principles|投资第一性原理]]

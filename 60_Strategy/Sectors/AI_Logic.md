@@ -1,3 +1,13 @@
+---
+tags:
+  - strategy
+  - sector
+aliases:
+  - AI 板块
+  - AI Logic
+  - Physical AI
+---
+
 # AI 板块：从基建到应用 (Artificial Intelligence)
 
 ## 核心逻辑 (Logic)
@@ -11,3 +21,8 @@
 
 ## 风险 (Risk)
 - **Scaling Laws**：Scaling Laws 是否放缓？模型能力提升是否遇到瓶颈？
+
+---
+> 📍 **Navigation**
+> 上级：[[2026_Investment_Plan|年度投资计划]]
+> 相关：[[Energy_Logic|能源板块]]、[[Tech_Metrics|科技指标]]

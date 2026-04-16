@@ -1,3 +1,14 @@
+---
+tags:
+  - micro
+  - concept
+aliases:
+  - 科技指标
+  - Rule of 40
+  - DOI
+  - SaaS Metrics
+---
+
 # 硬核科技指标：SaaS 与 半导体
 
 分析科技股需要特定的行业指标，通用的 PE/PB 往往会失效。
@@ -30,3 +41,8 @@ $$ \text{Revenue Growth rate} (\%) + \text{Free Cash Flow Margin} (\%) \ge 40 $$
 **投资逻辑**：
 - 在库存周期的高点（DOI High, 股价 Low）买入。
 - 在库存周期的低点（DOI Low, 股价 High）卖出。
+
+---
+> 📍 **Navigation**
+> 上级：[[Financial_Health_Returns|财务与股东回报]]
+> 相关：[[Valuation_Metric_Selection|估值指标选择]]

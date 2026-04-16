@@ -1,3 +1,12 @@
+---
+tags:
+  - polymarket
+  - knowledge
+aliases:
+  - PM Edge
+  - Valorant PM Edge
+---
+
 # Valorant PM Edge Notes
 
 ## 当前 edge 假设
@@ -20,3 +29,8 @@
 - 当前地图是否有明显换边效应
 - 下一局是否 eco
 - 比分落后是否只是短期节奏，不是结构性碾压
+
+---
+> 📍 **Navigation**
+> 上级：[[polymarket/Home|Polymarket Hub]]
+> 相关：[[valorant-core-strategy|核心策略]]

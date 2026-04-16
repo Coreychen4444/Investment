@@ -1,3 +1,13 @@
+---
+tags:
+  - psychology
+  - concept
+aliases:
+  - 仓位管理
+  - Kelly Criterion
+  - Position Sizing
+---
+
 # 仓位管理：活下来的艺术
 
 ## Kelly Criterion (凯利公式)
@@ -29,3 +39,8 @@ $$ f^* = \frac{bp - q}{b} = \frac{p(b+1) - 1}{b} $$
     - 投资于高风险、高爆发力、早期阶段的标的 (如成长股、加密货币、期权)。
     - 目标是博取超额收益 (Alpha)。
     - 即使全部归零，也不会伤及元气；但如果成功，可能大幅提升总回报。
+
+---
+> 📍 **Navigation**
+> 上级：[[Mindset_Risk_Control|交易心法与风控]]
+> 相关：[[Exit_Strategy|止盈止损]]、[[Stop_Loss_Strategy|止损策略]]

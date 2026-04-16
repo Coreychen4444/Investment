@@ -1,3 +1,13 @@
+---
+tags:
+  - macro
+  - concept
+aliases:
+  - 美联储机制
+  - Fed Mechanics
+  - 联邦储备
+---
+
 # 美联储机制：双重使命与点阵图
 
 ## 双重使命 (The Dual Mandate)
@@ -18,3 +28,8 @@
 > **"Don't Fight the Fed" (不要与美联储作对)**
 
 当美联储处于紧缩周期（加息、缩表）并试图抽走流动性时，逆势做多通常是危险的。只有当美联储政策转向（Pivot）或释放鸽派信号时，顺风航行才更为容易。
+
+---
+> 📍 **Navigation**
+> 上级：[[Fed_and_Liquidity|宏观视角：美联储与流动性]]
+> 相关：[[Ten_Year_Treasury|10年期美债]]、[[Economic_Indicators|经济指标]]、[[PE_Market_Expectation|PE 市场预期]]

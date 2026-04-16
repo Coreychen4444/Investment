@@ -1,3 +1,13 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Trading Rules
+  - 交易规则
+  - Iron Rules
+---
+
 # Trading Rules
 
 Last major update: 2026-04-16. Absorbs event-day-trading-rules, opening-discipline, anti-fomo-rules into one master file. All source citations preserved.
@@ -198,3 +208,8 @@ Before any trade, ask:
 - `two-stage-entry-rules.md` — two-tranche entry framework
 - `event-risk-reduction-principle.md` — event risk reduction full framework
 - `sell-put-rules.md` — sell put discipline and scoring
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 框架连接：[[Position_Sizing|仓位管理]]、[[Exit_Strategy|止盈止损]]、[[Market_Sentiment|市场情绪]]、[[Trading_Timing|交易时机]]

@@ -1,3 +1,13 @@
+---
+tags:
+  - psychology
+  - hub
+aliases:
+  - 交易心法与风控
+  - Mindset
+  - Risk Control
+---
+
 # 交易心法与风控 (Psychology & Risk)
 
 在投资中，技术分析和基本面分析只贡献了成功的 20%，剩下的 80% 取决于心理素质和风险控制。没有良好的心态和风控，再好的策略最终也会归零。
@@ -32,3 +42,8 @@
 - **《思考，快与慢》 (Thinking, Fast and Slow)** - *Daniel Kahneman*: 行为经济学巨著，剖析人类在决策中的非理性偏差（如损失厌恶）。
 - **《股票作手回忆录》 (Reminiscences of a Stock Operator)** - *Edwin Lefèvre*: 杰西·利弗莫尔的传记，关于交易心理与人性博弈最精彩的实录。
 - **《随机漫步的傻瓜》 (Fooled by Randomness)** - *Nassim Taleb*: 理解市场中的运气成分与存活者偏差。
+
+---
+> 📍 **Navigation**
+> 上级：[[00_Index/Home|Dashboard]]
+> 相关：[[Stop_Loss_Strategy|止损策略]]、[[Trading_Timing|交易时机]]、[[Investment_First_Principles|投资第一性原理]]

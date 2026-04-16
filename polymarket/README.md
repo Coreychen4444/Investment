@@ -1,3 +1,10 @@
+---
+tags:
+  - polymarket
+aliases:
+  - Polymarket Overview
+---
+
 # Polymarket Workspace
 
 这个目录专门用于 **Polymarket / Valorant 比赛相关交易**。

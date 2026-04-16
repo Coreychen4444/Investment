@@ -1,3 +1,13 @@
+---
+tags:
+  - trading
+  - options
+  - framework
+aliases:
+  - Sell Put Rules
+  - 卖 Put 纪律
+---
+
 # 卖 Put 交易纪律卡
 
 ## 核心原则
@@ -132,3 +142,8 @@
 - expiry 太短
 - 临近重大事件
 - 被分配后会后悔
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[options-strategy-framework|期权交易框架]]、[[trading-rules|Trading Rules]]

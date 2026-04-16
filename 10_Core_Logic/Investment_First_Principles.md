@@ -1,3 +1,12 @@
+---
+tags:
+  - core-logic
+  - hub
+aliases:
+  - 投资第一性原理
+  - First Principles
+---
+
 # 投资第一性原理 (Investment First Principles)
 
 股票价格的波动并非随机，而是遵循一个核心公式。这是理解投资的基石。

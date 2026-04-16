@@ -1,3 +1,13 @@
+---
+tags:
+  - micro
+  - concept
+aliases:
+  - 护城河类型
+  - 晨星护城河
+  - Morningstar Moats
+---
+
 # 晨星护城河：企业的防御工事
 
 ## 1. 网络效应 (Network Effect)
@@ -37,3 +47,8 @@
 - **例子**：
     - **管道 (Pipelines)**: 铺设第二条平行管道的成本极高且回报极低。
     - **公用事业 (Utilities)**: 输电网络、供水系统等自然垄断行业。
+
+---
+> 📍 **Navigation**
+> 上级：[[Business_Quality_Moats|商业模式与护城河]]
+> 相关：[[Porters_Five_Forces|波特五力]]

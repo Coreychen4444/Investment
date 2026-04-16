@@ -1,3 +1,13 @@
+---
+tags:
+  - psychology
+  - concept
+aliases:
+  - 止盈止损
+  - Exit Strategy
+  - Trim and Trail
+---
+
 # 止盈止损：反人性的纪律
 
 ## 损失的数学 (The Math of Loss)
@@ -31,3 +41,8 @@
     - 剩下的仓位是 "House Money" (赌场的钱)，心理压力极小。
     - 对剩余仓位设置移动止损 (Trailing Stop)，让利润奔跑，直到趋势反转。
 - **目标止盈**: 达到预定的估值上限 (如 PE Band 上轨) 时分批卖出。
+
+---
+> 📍 **Navigation**
+> 上级：[[Mindset_Risk_Control|交易心法与风控]]
+> 相关：[[Stop_Loss_Strategy|止损策略]]、[[Position_Sizing|仓位管理]]

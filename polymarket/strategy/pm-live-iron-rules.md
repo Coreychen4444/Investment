@@ -1,3 +1,12 @@
+---
+tags:
+  - polymarket
+  - framework
+aliases:
+  - PM Iron Rules
+  - PM 铁律
+---
+
 # PM Live Iron Rules
 
 ## Rule 1 — One build, one add
@@ -21,3 +30,8 @@ PM live 盘交易的是 **赔率修复**，不是赌最终翻盘。
 ## Rule 5 — Soft-info edge is not a license to oversize
 懂 Valorant、懂软信息，不等于可以不断加仓。
 edge 只能给你入场优势，不能替代仓位纪律。
+
+---
+> 📍 **Navigation**
+> 上级：[[polymarket/Home|Polymarket Hub]]
+> 相关：[[valorant-core-strategy|核心策略]]

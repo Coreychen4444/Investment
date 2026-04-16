@@ -1,3 +1,12 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Event Risk Reduction
+  - 事件前减仓原则
+---
+
 # 事件前减仓原则（财报 / FOMC / 宏观风险叠加）
 
 ## 核心定义
@@ -111,3 +120,8 @@
 > 只需要让下行伤害可控，同时保留上行参与。
 
 这才是成熟的事件前仓位管理。
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[trading-rules|Trading Rules]]、[[Position_Sizing|仓位管理]]

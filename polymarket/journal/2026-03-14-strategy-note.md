@@ -1,3 +1,11 @@
+---
+tags:
+  - polymarket
+  - journal
+aliases:
+  - PM Strategy Note
+---
+
 # Strategy Note — Prediction Market Odds Repair
 
 ## 主题
@@ -29,3 +37,7 @@ Prediction market (esports) 盘口信息差套利初版
 - 是否需要加入"只做实力接近对局"的硬过滤条件？
 - 哪些比赛内容变化，足以判定"错价假设失效"？
 - 单场亏损上限应设为总资金或阶段盈利的多少比例？
+
+---
+> 📍 **Navigation**
+> 上级：[[polymarket/Home|Polymarket Hub]]

@@ -1,3 +1,12 @@
+---
+tags:
+  - core-logic
+  - concept
+aliases:
+  - EPS
+  - 每股收益
+---
+
 # EPS：商业世界的真实心跳 (Business Reality)
 
 **定义**: EPS (Earnings Per Share) = 净利润 / 流通股数。它是每一股股票所代表的“含金量”。
@@ -21,4 +30,6 @@ EPS 的增长决定了股价上涨的内生动力。
 - **警惕**: 长期只有 Non-GAAP 盈利而 GAAP 亏损的公司。
 
 ---
-返回: [[Investment_First_Principles]]
+> 📍 **Navigation**
+> 上级：[[Investment_First_Principles|投资第一性原理]]
+> 相关：[[Buyback_vs_Dividend|回购 vs 分红]]、[[SBC_Trap|SBC 陷阱]]、[[Davis_Cycle|戴维斯双击]]

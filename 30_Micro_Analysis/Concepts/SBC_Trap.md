@@ -1,3 +1,12 @@
+---
+tags:
+  - micro
+  - concept
+aliases:
+  - SBC 陷阱
+  - Stock-Based Compensation
+---
+
 # SBC 陷阱：警惕股权稀释
 
 在科技股投资中，SBC (Stock-Based Compensation, 股权激励) 是一个隐蔽但巨大的成本。
@@ -24,3 +33,8 @@ SBC 是公司用**股票期权 (Options)** 或 **限制性股票单位 (RSUs)** 
 在分析高成长科技股时，务必关注：
 1. **SBC as % of Revenue**: SBC 占营收的比例。如果高达 20-30% 且长期不降，说明这家公司是在为员工打工，而不是为股东打工。
 2. **Diluted Shares Outstanding Trend**: 稀释后流通股数的趋势。如果股价在涨，但股数也在猛增，你的每股价值其实被稀释了。
+
+---
+> 📍 **Navigation**
+> 上级：[[Financial_Health_Returns|财务与股东回报]]
+> 相关：[[EPS_Business_Reality|EPS 企业现实]]、[[Buyback_vs_Dividend|回购 vs 分红]]
