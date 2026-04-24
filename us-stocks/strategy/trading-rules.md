@@ -231,6 +231,19 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 
 ---
 
+## Narrative calibration
+
+39. **Bear narrative discount rule.**
+    After first-impression bearish signals (ATM dilution / insider selling / analyst downgrade / consensus target gap), hard-verify each source before sizing response. Verified strength is typically weaker than first impression.
+    Limit placement must be anchored to **confirmed technical structure (support levels in the current regime)**, not to "how bad the narrative justifies how deep the entry."
+    - Deep tranches = insurance against thesis-break scenarios
+    - Main tranche must sit **within the current zone** unless thesis is clearly broken
+    - Do NOT build exclusively deep-scenario ladders when narrative, on verification, does not meet "thesis broken" threshold
+    - Missing a mean-reversion bounce by over-anchoring to bear narrative is the same mistake as missing a breakout by waiting for a perfect price — both cost real participation.
+    _Source: AAOI 2026-04-24 — original $135 single-tranche limit replaced with $128/$118 deep split based on bear narrative (ATM + insider + analyst sell + $53 target). On hard verification: insider was 10b5-1 pre-scheduled, analyst sell was B. Riley 2025/11 already reverted 2026/2/27 to Neutral, consensus target actually $82-101 not $53, ATM was 3/12 news not fresh. Stock gapped up $142 on 4/24 with $140 low, rallied to $153+ (+11%) — neither deep tranche triggered, mean-reversion bounce fully missed. Corrective: $118 moved to $140 (zone2 下沿, within current regime)._
+
+---
+
 ## Five iron rules
 
 1. **No confirmation, no size.** (Rule #2)
@@ -239,11 +252,12 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 4. **Do not chase the prettiest price — protect the first tranche.** (Rules #14-16) _Source: perfect-price trap review, 2026-04-01_
 5. **No trading in the first 30 minutes.** (Rule #17) _Source: opening-discipline, 2026-03_
 
-## Three additional execution rules (2026-04-24)
+## Four additional execution rules (2026-04-24)
 
 6. **Short-dated option profit-taking is mandatory.** (Rule #30) _Source: NOK 0501 $11C, 2026-04-24_
 7. **Stay in circle of competence; hesitation = 24h stop.** (Rules #32-33) _Source: SMR impulsive entry, 2026-04-24_
 8. **Catalyst ≠ technical confirmation; no after-hours new positions; no falling knife; no zone upper-bound chase.** (Rules #34-38) _Source: AAOI $156.50 after-hours catch, 2026-04-21/24_
+9. **Bear narrative discount: verify before placing limits; main tranche stays within zone unless thesis is broken.** (Rule #39) _Source: AAOI mean-reversion bounce missed due to over-deep split, 2026-04-24_
 
 ---
 
@@ -261,6 +275,7 @@ Before any trade, ask:
 9. Did my hand hesitate on the order entry? If yes, stop for 24h.
 10. Is this an after-hours initiation? If yes, wait for regular session.
 11. If option, what's my profit-taking threshold at +50% / +100%?
+12. Have I hard-verified the bearish narrative driving my deep-limit placement, or am I anchoring on first-impression fear?
 
 ---
 
