@@ -175,7 +175,59 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     - Bull call spread caps upside but defines max loss. Appropriate for portfolio size constraints.
     - Know your breakeven, max profit, and time exit before entry.
 
-30. For sell put rules, reference `sell-put-rules.md`.
+30. **Short-dated option profit-taking is mandatory (not optional).**
+    - DTE ≤ 14 option at **+50% → trim 30-50%**
+    - DTE ≤ 14 option at **+100% → trim 50-70%**
+    - DTE ≤ 7: **no naked hold** — must trim or close entirely
+    - Earnings play: **24h before event, decide trim / roll / hold** (pick one, no deferral)
+    - Theta curve does not negotiate; "miracle hold" is not a strategy.
+    _Source: NOK 0501 $11C +119% peak decayed to -33%, 2026-04-24_
+
+31. For sell put rules, reference `sell-put-rules.md`.
+
+---
+
+## Circle of competence
+
+32. **Whitelist (in-competence):** AI optics, semis (HBM/memory), foundry, AI networks, Physical AI.
+    Outside whitelist (energy/nuclear/biotech/consumer/crypto/speculative small-cap):
+    - Paper trade 1 month + read ≥ 2 analyst reports before real money
+    - 3-day cooling period before any first real entry on a non-whitelist ticker
+    _Source: SMR call impulsive entry outside competence, 2026-04-24_
+
+33. **Physical hesitation is a veto.**
+    Order-entry mistakes, wrong limit parameters, three price edits, mis-clicks = 24h full stop.
+    Body is more honest than brain; a hesitating hand is the subconscious rejecting the trade.
+    _Source: SMR mis-entered limit then re-submitted on FOMO, 2026-04-24_
+
+---
+
+## Catalyst vs technical
+
+34. **Catalyst alone ≠ technical confirmation.**
+    A news/event catalyst without confirming price action earns probe size only (≤ 30% of planned full size).
+    Full size requires technical confirmation on the daily during the regular session.
+    _Source: AAOI after-hours $156.50 catalyst-only entry, 2026-04-21/24_
+
+35. **After-hours / pre-market: no new positions.**
+    AH and PM sessions have thin liquidity and unreliable prints. Only the following are allowed:
+    - Defensive trim / stop-loss execution
+    - Pre-planned limit orders already resting
+    New long/short initiations must wait for the regular cash session.
+    _Source: AAOI $156.50 after-hours buy, chased zone upper bound, 2026-04-21/24_
+
+36. **Zone stale + catalyst → refresh zone BEFORE entry.**
+    Cannot enter based on "feel" using obsolete zones.
+
+37. **"Falling knife" default no-go.**
+    Definition: single-day |change| > 10% without a clear technical support level being defended.
+    Required to enter: (a) next-session confirmation close in support, or (b) precise support touch with volume reversal + wick rejection.
+    Emotional "buy the dip" on a -10%+ day without structure = default no.
+    _Source: AAOI -13.2% day into $156.50 after-hours catch, 2026-04-21/24_
+
+38. **Trading lot entry position within a zone: mid or lower half only.**
+    Upper-bound-of-zone entry is chasing, not accumulating.
+    If price is at zone upper bound, wait for zone mid/lower touch before trading-lot entry.
 
 ---
 
@@ -186,6 +238,12 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 3. **Early strength on catalyst days is not confirmation.** (Rule #19) _Source: GTC day, 2026-03-17_
 4. **Do not chase the prettiest price — protect the first tranche.** (Rules #14-16) _Source: perfect-price trap review, 2026-04-01_
 5. **No trading in the first 30 minutes.** (Rule #17) _Source: opening-discipline, 2026-03_
+
+## Three additional execution rules (2026-04-24)
+
+6. **Short-dated option profit-taking is mandatory.** (Rule #30) _Source: NOK 0501 $11C, 2026-04-24_
+7. **Stay in circle of competence; hesitation = 24h stop.** (Rules #32-33) _Source: SMR impulsive entry, 2026-04-24_
+8. **Catalyst ≠ technical confirmation; no after-hours new positions; no falling knife; no zone upper-bound chase.** (Rules #34-38) _Source: AAOI $156.50 after-hours catch, 2026-04-21/24_
 
 ---
 
@@ -199,6 +257,10 @@ Before any trade, ask:
 5. Am I preserving the first tranche, or lowering it for a perfect price?
 6. Is there an event window I should respect?
 7. Has the opening 30 minutes passed?
+8. Is this ticker in my whitelist, or do I need a 3-day cooling period?
+9. Did my hand hesitate on the order entry? If yes, stop for 24h.
+10. Is this an after-hours initiation? If yes, wait for regular session.
+11. If option, what's my profit-taking threshold at +50% / +100%?
 
 ---
 
