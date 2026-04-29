@@ -18,8 +18,11 @@ aliases:
    - pre-trade-checklist.md
    - two-stage-entry-rules.md
    - bottom-confirmation-signals.md
+   - technical-indicators-framework.md
    - event-risk-reduction-principle.md
-   - sell-put-rules.md
+   - options/options-strategy-framework.md
+   - options/sell-put-rules.md
+   - options/greeks-discipline.md
 
 2. **读取本季度交易日志**：
    - Your trade journal (maintain separately)

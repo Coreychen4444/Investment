@@ -105,7 +105,7 @@ aliases:
 
 ## 四、期权交易专项检查
 
-期权完整框架（策略选择、Greeks、对冲场景、仓位规则）详见 `options-strategy-framework.md`。
+期权完整框架（策略选择、Greeks、对冲场景、仓位规则）详见 `options/options-strategy-framework.md`，Greeks 操作规则详见 `options/greeks-discipline.md`。
 
 ### 卖 Put 专项检查
 ### 核心原则

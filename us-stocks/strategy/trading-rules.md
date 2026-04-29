@@ -183,7 +183,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     - Theta curve does not negotiate; "miracle hold" is not a strategy.
     _Source: NOK 0501 $11C +119% peak decayed to -33%, 2026-04-24_
 
-31. For sell put rules, reference `sell-put-rules.md`.
+31. For sell put rules, reference `options/sell-put-rules.md`.
 
 ---
 
@@ -217,7 +217,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     _Source: AAOI $156.50 after-hours buy, chased zone upper bound, 2026-04-21/24_
 
 36. **Zone stale + catalyst → refresh zone BEFORE entry.**
-    Cannot enter based on "feel" using obsolete zones.
+    Cannot enter based on "feel" using obsolete zones. See `.claude/rules/zone-maintenance.md`.
 
 37. **"Falling knife" default no-go.**
     Definition: single-day |change| > 10% without a clear technical support level being defended.
@@ -284,7 +284,9 @@ Before any trade, ask:
 - `pre-trade-checklist.md` — full pre-trade checklist
 - `two-stage-entry-rules.md` — two-tranche entry framework
 - `event-risk-reduction-principle.md` — event risk reduction full framework
-- `sell-put-rules.md` — sell put discipline and scoring
+- `options/options-strategy-framework.md` — options framework (Greeks, strategy tiers, hedging)
+- `options/sell-put-rules.md` — sell put discipline and scoring
+- `options/greeks-discipline.md` — operational Greeks rules (theta/delta/vega/gamma)
 
 ---
 > 📍 **Navigation**
