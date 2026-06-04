@@ -25,7 +25,8 @@ aliases:
    - options/greeks-discipline.md
 
 2. **读取本季度交易日志**：
-   - Your trade journal (maintain separately)
+   - Your trade journal (maintain separately)（正股）+ `journals/options_journal.md`（期权）
+   - 机器可读 fill 流：`trade/us_stock/holding/events/<YYYY-MM>/trades.jsonl`
    - 统计本季度交易笔数、纪律评分分布（A/B/C/D）
 
 3. **规则分类**：

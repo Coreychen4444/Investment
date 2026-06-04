@@ -15,6 +15,15 @@ aliases:
 
 ---
 
+## 零、数据前置（硬性前提，任何分析/建议前）
+**禁止用 textbook/placeholder 数字分析**（"假设 STOCK_F $200"、"假设 LEAPS 一年吃 15-25% theta"）。任何标的判断（entry/exit/估值/期权）前**先拉实时数据**：
+- snapshot + K 线 + 具体 strike 链 via `.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/`
+- OpenD 不可用 → 明说"数据不可用"，不用 textbook 数字硬凑
+- 结构性 thesis（AI 需求/板块）要**结合**实时数据，不是**替代**它
+源：2026-04-24 STOCK_F LEAPS 讨论，我用虚构 $200 + textbook theta 得出错误结论（实际 STOCK_F $382、deep-ITM 仅 8.5%/yr theta），用户："你有个不好的习惯 — 不先获取信息再分析"。
+
+---
+
 ## 一、通用交易前检查
 ### 1. 这笔交易属于哪一类？
 - 加仓
@@ -137,6 +146,17 @@ aliases:
 如果会，必须明确承认：
 - 这不是纯防守
 - 这是条件性重新承担 downside 风险
+
+---
+
+### 期权持仓状态核实（动 trim/close/roll/报 PnL 前，硬前提）
+讨论任何期权动作前，**先核实合约真实状态**，别信 `agent.lots`（默认 STALE）：
+1. `.venv/moomoo/bin/python3 scripts/trade_history_sync.py`（拉最新 fill）
+2. `grep -i "<TICKER><EXPIRY><STRIKE>" trade/us_stock/holding/events/*/trades.jsonl`（确认最后 fill/close）
+3. 读 `state/positions.json` 的 `tickers["<OCC>"].broker`：`null`=已平 / `qty!=0`=仍 open（+ `status` 字段）
+4. 确认 open 后，才看 `agent.lots`/`zones` 取 context（cost basis / triggers）
+
+源：2026-05-01 STOCK_X 260515C11 我用 stale agent block 报 "+$1,060 未实现" 建议 G-01 trim，实际 用户 4/29 已 @ $1.24 平仓（+$620 realized）。"你的记忆是不是混乱了"。
 
 ---
 

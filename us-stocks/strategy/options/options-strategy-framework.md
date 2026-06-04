@@ -402,16 +402,51 @@ Phase 2: Sell Covered Call（strike = trim zone）
 
 ## 六、Strike 与 Expiry 选择规则
 
-### Strike 选择 — 映射 Zone 体系
+### Strike 选择基础原则（必读）
+
+**Zone 是 baseline，不是终点**。任何 strike 决定必须做 4 信号三角验证（详见 `../strike-triangulation.md`）：
+1. Zone 框架（baseline）
+2. Volume profile（近 25 日）
+3. Option OI cluster（机构定位）
+4. K-line 关键技术位
+
+**Spread Leg Construction 核心 logic（适用 bull put / bear call spread）**：
+- **SELL leg**：comfortable buffer + 收 sufficient premium 的位置
+- **BUY leg**：**AT 最强支撑/阻力（4-5 信号收敛点）**
+- 反 pattern：sell at strongest support = max assignment risk。最强支撑应是 buy leg 的 floor，不是 sell leg 的位置。
+
+**IV-Adjacent Strategy Pairing（关键决策原则）**：
+
+同样的方向观点 (bullish/bearish)，在 IV 极端区间应该用**反向策略**：
+
+| IV percentile | 推荐策略类型 | 反例（应避免） |
+|--------------|-----------|--------------|
+| < 30% | **买 premium**（long call/put, debit spread） | sell premium 收太薄 |
+| 30-60% | 中性，按 conviction 选 | — |
+| 60-70% | 偏 sell premium，买方需慎重 | naked long call/put 付 vega 税 |
+| **> 70%** | **必须 sell premium**（credit spread, sell put/call） | **买 long call = 双重支付（方向 + vega 税）** |
+
+逻辑：方向观点可通过相反 vehicle 表达。在 IV 极端，**vehicle 选择比方向更重要**。
+
+源案例（2026-04-30 STOCK_Y）：
+- Thesis：STOCK_Y 长期看涨 ($800 by 年底)
+- IV percentile = 78% (Barchart 数据)
+- Naked Jan 2027 $800 LEAPS = 双重付费（方向 + IV 78%ile vega 税）
+- Bull Put Spread $460/$450 = 同方向 thesis 但**收 IV peak premium**（卖方友好）
+- EV 对比：spread 比 naked LEAPS 高 3.6 倍
+
+### Strike 选择 — 映射 Zone 体系（基础参考）
 
 | 策略 | Strike 选择 | Zone 映射 |
 |------|-----------|----------|
-| Sell Put / Bull Put Spread 卖出腿 | accumulation zone1 上沿 | zone1 |
-| Sell Put / Bull Put Spread 保护腿 | accumulation zone2 下沿或 invalidation | zone2 / invalid_if |
-| Covered Call | trim zone 内 | trim_zone |
+| Sell Put / Bull Put Spread 卖出腿 | accumulation zone1 上沿（或 zone2 mid，看 buffer） | zone1 / zone2 |
+| Sell Put / Bull Put Spread 保护腿 | **4-5 信号收敛的最强支撑点** | 通常在 zone2 下沿 / invalid_if |
+| Covered Call | trim zone 内 + Call OI cluster | trim_zone |
 | Long Call（催化剂 play） | no_chase_above 附近 | no_chase |
 | Bull Call Spread 卖出腿 | trim zone 上沿或 target | trim_zone |
 | Protective Put | accumulation zone1 上沿 | zone1 |
+
+**所有上述 strike 必须再过三角验证**，不能仅用此表。
 
 ### Expiry 选择
 
@@ -529,14 +564,46 @@ Phase 2: Sell Covered Call（strike = trim zone）
 
 ---
 
+## 十一、组合 PnL 评估 + Vehicle 选择 + Bull Call Spread 模板（2026-06-04 补）
+
+### 11.1 多腿组合：先合并再评估，禁单腿下结论
+读 `state/positions.json` 期权持仓时，先按 **(underlying, expiry) group** 期权腿；同 group 出现 +/- 数量或 call/put 混合 → **默认假设是 spread**，确认前不给单腿建议。v2 schema 的 `agent.linked_spread` / `instrument.role`（如 `bull_call_spread_long_leg/short_leg`）显式标注配对。
+- 用**组合净 debit/credit vs 组合净市值**算真实 PnL，不看单腿数字。
+- 评估必含：净成本 / 当前净市值 / max payoff / max loss / breakeven / 内在 vs 时间价值。
+- 操作针对**整体组合**：bull call spread 接近 max → 持有到期 vs 提前 close，**不是 "roll call"**。
+- 不确定就问："这 N 腿是组合还是独立持仓？"
+源：2026-04-23 我把 STOCK_Y 440/500 当两条独立腿，误读 short leg −$3,535 建议 roll；实为 bull call spread 合并 +$1,042，结构已 cap 风险，无需 roll。
+
+### 11.2 Vehicle 选择：想买 X 先验证有没有可执行 vehicle
+"想买 X" → 先查 X 有没有**可执行的杠杆 vehicle**（美股期权？OI/价差/成交量？外国正股权限？）。纸面最优（纯标的）常执行性最差。
+- 纯标的不可执行 → ETF proxy，但明示 3 个代价：① **beta 稀释**（proxy ≠ 本尊）；② **验证 ETF 期权流动性**；③ **警惕篮子叠加已有持仓**。
+- 让 用户 清楚他买的是 proxy 不是本尊。
+源：2026-05-31 想买 STOCK_K —— 韩股 000660 需特殊权限、OTC ADR STOCK_HX 0 成交量无期权 → 唯一干净路径 = STOCK_D ETF（含 STOCK_Y = 间接给已有 STOCK_Y 加仓，需 flag）。
+
+### 11.3 Bull Call Spread 选腿模板（6 条，STOCK_Y 440/500 vintage）
+section 3 的精化。**有明确目标价的限定上涨** thesis 用此模板：
+
+| # | 规则 | Why |
+|---|------|-----|
+| 1 | Long strike = spot 0~+5%（略 OTM） | 便宜入场，thesis 兑现变 deep ITM |
+| 2 | Short strike = 你的 thesis 目标价 | call 对时正好 max profit |
+| 3 | DTE 90–120 | 覆盖 ≥1 财报；短=theta 压，长=extrinsic drag |
+| 4 | Debit / width = 25–35% | <25% thesis 太激进，>35% 入场太晚或 IV 太高 |
+| 5 | R:R ≥ 2.0× | 低于 2× edge 太薄（STOCK_Y 拿到 2.26×） |
+| 6 | 突破 + 回踩确认后入 | 避开 FOMO 顶 |
+
+⚠️ **封顶 caveat（2026-05-31）**：本模板只适用于**有明确目标价的限定上涨**。在"高确定性 + uncapped re-rating"（如 STOCK_Y $500→$580）上，short leg 封顶 = 真机会成本（少赚 ~$9k）；此时 naked long（认 IV/theta + probe size）可优于 spread。判断走 `../bayesian-decision-model.md` + 确定性 decomposition（`leaps-call-template.md` §11.4）。
+
 ## 相关文件
 
 - `trading-rules.md` — 核心交易规则（master）
 - `pre-trade-checklist.md` — 交易前完整检查清单（期权 checklist 配合使用）
 - `sell-put-rules.md` — 卖 put 纪律（已纳入本框架 5 问评分）
+- `leaps-call-template.md` — LEAPS Call 操作手册（DTE 365+，Long Call 的特殊变种）
+- `greeks-discipline.md` — Greeks 操作规则 G-01/G-02/G-03
 - `two-stage-entry-rules.md` — 两段式建仓（期权中 Long Call = 第一段 probe）
 - `event-risk-reduction-principle.md` — 事件前减仓（Protective Put 为替代方案）
-- `position_zones.json` — Zone 数据（Strike 选择的直接参考）
+- `state/positions.json` (`tickers["<T>"].agent.zones`) / `state/watchlist.json` — Zone 数据（Strike 选择的直接参考）
 
 ---
 > 📍 **Navigation**

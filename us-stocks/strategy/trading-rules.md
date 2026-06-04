@@ -181,7 +181,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     - DTE ≤ 7: **no naked hold** — must trim or close entirely
     - Earnings play: **24h before event, decide trim / roll / hold** (pick one, no deferral)
     - Theta curve does not negotiate; "miracle hold" is not a strategy.
-    _Source: NOK 0501 $11C +119% peak decayed to -33%, 2026-04-24_
+    _Source: STOCK_X 0501 $11C +119% peak decayed to -33%, 2026-04-24_
 
 31. For sell put rules, reference `options/sell-put-rules.md`.
 
@@ -193,12 +193,12 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     Outside whitelist (energy/nuclear/biotech/consumer/crypto/speculative small-cap):
     - Paper trade 1 month + read ≥ 2 analyst reports before real money
     - 3-day cooling period before any first real entry on a non-whitelist ticker
-    _Source: SMR call impulsive entry outside competence, 2026-04-24_
+    _Source: STOCK_R call impulsive entry outside competence, 2026-04-24_
 
 33. **Physical hesitation is a veto.**
     Order-entry mistakes, wrong limit parameters, three price edits, mis-clicks = 24h full stop.
     Body is more honest than brain; a hesitating hand is the subconscious rejecting the trade.
-    _Source: SMR mis-entered limit then re-submitted on FOMO, 2026-04-24_
+    _Source: STOCK_R mis-entered limit then re-submitted on FOMO, 2026-04-24_
 
 ---
 
@@ -207,14 +207,14 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 34. **Catalyst alone ≠ technical confirmation.**
     A news/event catalyst without confirming price action earns probe size only (≤ 30% of planned full size).
     Full size requires technical confirmation on the daily during the regular session.
-    _Source: AAOI after-hours $156.50 catalyst-only entry, 2026-04-21/24_
+    _Source: STOCK_Z after-hours $156.50 catalyst-only entry, 2026-04-21/24_
 
 35. **After-hours / pre-market: no new positions.**
     AH and PM sessions have thin liquidity and unreliable prints. Only the following are allowed:
     - Defensive trim / stop-loss execution
     - Pre-planned limit orders already resting
     New long/short initiations must wait for the regular cash session.
-    _Source: AAOI $156.50 after-hours buy, chased zone upper bound, 2026-04-21/24_
+    _Source: STOCK_Z $156.50 after-hours buy, chased zone upper bound, 2026-04-21/24_
 
 36. **Zone stale + catalyst → refresh zone BEFORE entry.**
     Cannot enter based on "feel" using obsolete zones. See `.claude/rules/zone-maintenance.md`.
@@ -223,7 +223,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     Definition: single-day |change| > 10% without a clear technical support level being defended.
     Required to enter: (a) next-session confirmation close in support, or (b) precise support touch with volume reversal + wick rejection.
     Emotional "buy the dip" on a -10%+ day without structure = default no.
-    _Source: AAOI -13.2% day into $156.50 after-hours catch, 2026-04-21/24_
+    _Source: STOCK_Z -13.2% day into $156.50 after-hours catch, 2026-04-21/24_
 
 38. **Trading lot entry position within a zone: mid or lower half only.**
     Upper-bound-of-zone entry is chasing, not accumulating.
@@ -240,7 +240,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
     - Main tranche must sit **within the current zone** unless thesis is clearly broken
     - Do NOT build exclusively deep-scenario ladders when narrative, on verification, does not meet "thesis broken" threshold
     - Missing a mean-reversion bounce by over-anchoring to bear narrative is the same mistake as missing a breakout by waiting for a perfect price — both cost real participation.
-    _Source: AAOI 2026-04-24 — original $135 single-tranche limit replaced with $128/$118 deep split based on bear narrative (ATM + insider + analyst sell + $53 target). On hard verification: insider was 10b5-1 pre-scheduled, analyst sell was B. Riley 2025/11 already reverted 2026/2/27 to Neutral, consensus target actually $82-101 not $53, ATM was 3/12 news not fresh. Stock gapped up $142 on 4/24 with $140 low, rallied to $153+ (+11%) — neither deep tranche triggered, mean-reversion bounce fully missed. Corrective: $118 moved to $140 (zone2 下沿, within current regime)._
+    _Source: STOCK_Z 2026-04-24 — original $135 single-tranche limit replaced with $128/$118 deep split based on bear narrative (ATM + insider + analyst sell + $53 target). On hard verification: insider was 10b5-1 pre-scheduled, analyst sell was B. Riley 2025/11 already reverted 2026/2/27 to Neutral, consensus target actually $82-101 not $53, ATM was 3/12 news not fresh. Stock gapped up $142 on 4/24 with $140 low, rallied to $153+ (+11%) — neither deep tranche triggered, mean-reversion bounce fully missed. Corrective: $118 moved to $140 (zone2 下沿, within current regime)._
 
 ---
 
@@ -254,10 +254,10 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 
 ## Four additional execution rules (2026-04-24)
 
-6. **Short-dated option profit-taking is mandatory.** (Rule #30) _Source: NOK 0501 $11C, 2026-04-24_
-7. **Stay in circle of competence; hesitation = 24h stop.** (Rules #32-33) _Source: SMR impulsive entry, 2026-04-24_
-8. **Catalyst ≠ technical confirmation; no after-hours new positions; no falling knife; no zone upper-bound chase.** (Rules #34-38) _Source: AAOI $156.50 after-hours catch, 2026-04-21/24_
-9. **Bear narrative discount: verify before placing limits; main tranche stays within zone unless thesis is broken.** (Rule #39) _Source: AAOI mean-reversion bounce missed due to over-deep split, 2026-04-24_
+6. **Short-dated option profit-taking is mandatory.** (Rule #30) _Source: STOCK_X 0501 $11C, 2026-04-24_
+7. **Stay in circle of competence; hesitation = 24h stop.** (Rules #32-33) _Source: STOCK_R impulsive entry, 2026-04-24_
+8. **Catalyst ≠ technical confirmation; no after-hours new positions; no falling knife; no zone upper-bound chase.** (Rules #34-38) _Source: STOCK_Z $156.50 after-hours catch, 2026-04-21/24_
+9. **Bear narrative discount: verify before placing limits; main tranche stays within zone unless thesis is broken.** (Rule #39) _Source: STOCK_Z mean-reversion bounce missed due to over-deep split, 2026-04-24_
 
 ---
 

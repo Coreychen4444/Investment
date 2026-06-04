@@ -30,9 +30,29 @@ required_realized = cost_total + floor_pnl_usd
 min_exit_qty = ⌈required_realized / (current_price × 100)⌉
 ```
 
+**`current_price` 的精确定义（避免与 fill price 混淆）**：
+
+指 **G-01 评估/执行那一刻的市场价 (mark-to-market)** — 不是 cost、不是限价单价格、不是事后查到的 fill price。
+
+- 触发瞬间，current_price 必然 ≥ 2 × cost_per_share（这就是 +100% 浮盈的定义）
+- 越晚执行 G-01，current_price 越高 → min_exit_qty 越少 → runner 越多
+- 当你的 sell limit 价位**恰好等于** +100% 触发价时，fill price 数字 = current_price 数字（巧合，不是定义）。当 sell limit > 触发价时，fill 时的 current_price = 你的 limit 价格，按 fill 时重算 min_exit_qty
+- **错误用法**：用 cost × 2 作为 current_price 来反推 min_exit_qty。这只在触发瞬间正好执行时成立
+
+**示例**（cost $0.62/张 × 10 张 = $620，Tier A floor $310 → required_realized $930）：
+
+| 执行时机 | current_price | min_exit_qty | Realized | Runner 张数 |
+|---------|--------------|--------------|----------|-------------|
+| $1.24 触发瞬间 | $1.24 | ⌈$930/$124⌉ = **8** | $992 | 2 |
+| $1.50 时（延后） | $1.50 | ⌈$930/$150⌉ = **7** | $1,050 | 3 |
+| $1.68 时（更晚） | $1.68 | ⌈$930/$168⌉ = **6** | $1,008 | 4 |
+| $2.00 时（深 ITM） | $2.00 | ⌈$930/$200⌉ = **5** | $1,000 | 5 |
+
+延后执行的代价是"晚锁 floor"（中间下跌风险全担），收益是"runner 张数更多"。**纪律上 G-01 强制在触发瞬间评估**，不鼓励延后博更高 current_price。
+
 **Step 3 — 最坏情况书面验证**
 
-在 `trade/us_stock/holding/trade_history/options_journal.md` 当前 entry 写：
+在 `trade/us_stock/holding/journals/options_journal.md` 当前 entry 写：
 
 > "若剩余 (total_qty − min_exit_qty) 张归零，净 PnL = realized − cost_total = +$X (+Y%)"
 
@@ -56,7 +76,7 @@ floor ≥ 浮盈 = 等价全平，不是 partial exit。partial exit 的本意�
 2. **结构性头寸**：spread / 多腿组合按整体 PnL 判断，不按单腿
 
 ### 源案例
-**NOK 5/01 11C，2026-04-10 至 2026-04-24**
+**STOCK_X 5/01 11C，2026-04-10 至 2026-04-24**
 - cost_total = 10 张 × $0.21 × 100 = **$210**
 - 4/13 收盘 $0.47 (+124%) — 触发 G-01
 - 风险档位：A（8 DTE + OTM）→ floor = max(50% × $210, $100) = **$105**
@@ -68,7 +88,7 @@ floor ≥ 浮盈 = 等价全平，不是 partial exit。partial exit 的本意�
   - vs floor 少赚 $109
   - vs floor + 剩余持有到 4/28 收盘 $0.48 少赚 $253
 
-_Source: NOK 5/01 11C +124% peak decayed to +5% exit, 2026-04-13 至 2026-04-24_
+_Source: STOCK_X 5/01 11C +124% peak decayed to +5% exit, 2026-04-13 至 2026-04-24_
 
 ---
 
@@ -89,7 +109,7 @@ _Source: NOK 5/01 11C +124% peak decayed to +5% exit, 2026-04-13 至 2026-04-24_
 全部不满足 → **默认 partial exit 至 DTE > 30 或全平**。
 
 ### 计算示例
-NOK 5/01 11C 18 DTE 时：
+STOCK_X 5/01 11C 18 DTE 时：
 - 期权价 ~$0.20，估算 daily theta ~$0.02
 - $0.02 / $0.20 = **10% > 5% 阈值** → 复核状态
 - 11 个交易日不复核 → 净 theta 损耗 ~$0.22（≈ 期权价 110%）
@@ -99,11 +119,11 @@ G-01 触发于 +100% 浮盈，G-02 触发于 DTE < 30。两者**独立判断、�
 - 如果同时触发，先按 G-01 partial exit 锁 floor，剩余仓位再按 G-02 每日复核
 
 ### 源案例
-**NOK 5/01 11C 18 DTE → 0 DTE，2026-04-10 至 2026-04-24**
+**STOCK_X 5/01 11C 18 DTE → 0 DTE，2026-04-10 至 2026-04-24**
 - 持有 11 个交易日，每日 theta 占期权价 5-15% 区间
 - 未启动每日复核机制 → 净 theta 损耗 ~$0.22
 
-_Source: NOK 5/01 11C theta-only loss ~$0.22 over 11 trading days, 2026-04-10 至 2026-04-24_
+_Source: STOCK_X 5/01 11C theta-only loss ~$0.22 over 11 trading days, 2026-04-10 至 2026-04-24_
 
 ---
 
@@ -146,14 +166,14 @@ _Source: NOK 5/01 11C theta-only loss ~$0.22 over 11 trading days, 2026-04-10 �
 - 实际市场预期 1-σ move 通常已价入 4-6%，所以需要 8-12% 的实际 move 才能 net 赚
 
 ### 源案例
-**NOK 5/01 11C 财报 2026-04-23**
+**STOCK_X 5/01 11C 财报 2026-04-23**
 - 财报前 5 日（4/16）期权 $0.38（+81%）— 此时应触发 G-03
 - 财报前 1 日（4/22）期权 $0.27（已回吐到 +29%）
 - 财报当日（4/23）盘中触底 $0.09，收 $0.16（-24%）
 - 单日故事：股价 +4.8%，期权 -41%
 - IV crush 单项侵蚀 ~$0.20-$0.30（占财报前期权价 70%+）
 
-_Source: NOK 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intraday low to -24% close_
+_Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intraday low to -24% close_
 
 ---
 
@@ -165,7 +185,7 @@ _Source: NOK 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intraday l
 - Gamma 在 ATM 临近到期的爆炸性 + pin risk
 - Delta 的等效股数转换（组合 beta 管理）
 
-### 多腿组合操作规则（待 MU 440/500 spread 复盘后写）
+### 多腿组合操作规则（待 STOCK_Y 440/500 spread 复盘后写）
 - Spread max gain / max loss / breakeven 计算
 - 单腿赋格关闭 vs 整体平仓的判断
 - Iron Condor / Butterfly 触发条件
@@ -200,7 +220,7 @@ _Source: NOK 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intraday l
 
 ## 引用案例索引
 
-- **NOK 5/01 11C** (2026-04-10 至 2026-04-24): G-01, G-02, G-03 三规则共同源案例
-- **MU 440/500 spread**: 待复盘 → 多腿组合规则
-- **AAOI 5/22 P103 short put**: 待复盘 → 卖方 short Γ + short V 案例
-- **SMR 6/18 20C deep OTM**: 待复盘 → 深度 OTM long call 反例
+- **STOCK_X 5/01 11C** (2026-04-10 至 2026-04-24): G-01, G-02, G-03 三规则共同源案例
+- **STOCK_Y 440/500 spread**: 待复盘 → 多腿组合规则
+- **STOCK_Z 5/22 P103 short put**: 待复盘 → 卖方 short Γ + short V 案例
+- **STOCK_R 6/18 20C deep OTM**: 待复盘 → 深度 OTM long call 反例

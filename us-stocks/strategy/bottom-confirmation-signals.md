@@ -100,7 +100,7 @@ K 线形态单独可信度有限，必须配合量价和位置（支撑位/zone�
 
 ## 五、与 Zone 系统联动
 
-读取 `position_zones.json`，底部信号在不同 zone 的含义不同：
+读取 `state/positions.json` 的 `tickers["<T>"].agent.zones`（active）或 `state/watchlist.json` 同位置（候选），底部信号在不同 zone 的含义不同：
 
 | 位置 | 底部信号含义 | 操作建议 |
 |------|------------|---------|

@@ -2,7 +2,7 @@
 
 期权专属复盘模板，正股使用 `../trade_journal.md` 模板。
 
-每个期权 entry 记录到 `trade/us_stock/holding/trade_history/options_journal.md`，格式如下：
+每个期权 entry 记录到 `trade/us_stock/holding/journals/options_journal.md`，格式如下：
 
 ---
 
@@ -56,7 +56,7 @@
 
 ---
 
-## 引用（路径相对于 `trade/us_stock/holding/trade_history/options_journal.md`）
+## 引用（路径相对于 `trade/us_stock/holding/journals/options_journal.md`）
 - Greeks 操作规则：`../../strategy/options/greeks-discipline.md`
 - 期权框架：`../../strategy/options/options-strategy-framework.md`
 - 卖 put 纪律：`../../strategy/options/sell-put-rules.md`
