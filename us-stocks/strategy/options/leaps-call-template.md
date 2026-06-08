@@ -5,6 +5,13 @@
 
 LEAPS（Long-term Equity Anticipation Securities）= **DTE > 365 天的 long call/put**。本文件聚焦 long LEAPS call。
 
+### 框架定位（先过上两层，再用本手册）
+本手册是**执行层**，坐在两个更高层之下。选 LEAPS 之前必须先过：
+1. **决策层 — Bayesian 概率模型**（`../bayesian-decision-model.md`）：该不该押、押多大，用后验分布 + EV 决定，不是看 thesis 顺不顺眼。本手册只回答"押了之后用什么 vehicle / strike / DTE / expiry"，**不回答"该不该押"**。
+2. **Vehicle 选择 — IV regime 闸门**（memory `feedback_iv_adjacent_pairing`）：IV > 70%ile **倾向** sell premium（spread / sold put）而非买 long LEAPS。先确认 LEAPS 是对的 vehicle，再进本手册选 strike。
+
+> 把本手册当孤立的 LEAPS 选择器 = 丢掉概率层和 vehicle 层 = 系统性偏 OTM + 在高 IV 乱买 long call。这正是外部框架（如纯 GPT-discussion 版）最容易缺的两层。
+
 ---
 
 ## 一、与短期 Long Call 的本质差异
@@ -21,6 +28,19 @@ LEAPS（Long-term Equity Anticipation Securities）= **DTE > 365 天的 long cal
 ### Mental model
 - 短期 Long Call = 高 gamma + 高 theta 的**方向 sprint**
 - LEAPS Call = 高 vega + 低 theta 的**方向 marathon + IV 押注**
+
+### 上涨路径的 Greeks 演化（轻度 OTM LEAPS 被正股拉起时，2026-06-08 back-port）
+买入时 Δ0.4 的轻度 OTM LEAPS，若正股一路上涨，期权性质会**分三段质变**：
+
+| 阶段 | Δ 变化 | Gamma | Vega | 含义 |
+|------|--------|-------|------|------|
+| **OTM → ATM** | 0.40 → 0.55 | 上升至峰值 | 高 | **最肥的 convexity 段**：正股涨 + Δ 升 + gamma 加速 +（若 IV expansion）vega 助攻 → call 涨得最猛 |
+| **ATM → ITM** | 0.55 → 0.80 | 开始下降 | 开始下降 | 仍赚，但最强凸性已过 ATM，加速度递减 |
+| **深度 ITM** | → 接近 1 | 明显下降 | 下降 | 从爆发仓**质变为类正股仓**，后续走势 ≈ 100 股正股 |
+
+**操作含义**：轻度 OTM 涨成深度 ITM 后，**原始交易逻辑已经变了**——它不再是高 convexity 押注，而是低杠杆类正股仓。此时强制重估：继续持有 / G-01 锁利 / roll up / 转正股。最肥的 OTM→ATM→ITM 段吃完 ≈ 该兑现的信号。
+
+> ⚠️ **LEAPS 专属 caveat（外部框架普遍缺）**：这条 convexity 路径默认 move 发生时 **DTE 仍长**。若正股大涨发生在 12 月 LEAPS 的第 11 个月，gamma 早已随 DTE 缩短衰减，"最肥的一段"被时间吃掉。这是 §11.4「strike 和 DTE 不能赌不同的事」的镜像：**convexity 需要 DTE 配合，OTM + 短 DTE = 两头不靠**。
 
 ---
 
@@ -216,6 +236,27 @@ Underlying close < zone1 下沿 + IV 飙升 → 评估 vega 收割（IV crush �
 3. **资本机会成本**：花这笔 premium 而不买正股，因为什么？（资本受限 / 分散需求 / 杠杆需求）
 4. **流动性**：bid-ask < 8%、OI > 50、daily volume > 5？
 5. **退出预案**：DTE 90 决策点你计划怎么走？write 下来
+
+### 入场前必算两个数（2026-06-08 back-port）
+checklist 不只勾选——这两个数必须算出来写下：
+
+1. **有效杠杆** = `Δ × 正股现价 ÷ Call 权利金`
+   - 例：正股 $100、Δ0.55、premium $25 → 0.55×100÷25 = **2.2×**（正股涨 1%，call 理论涨 ~2.2%）
+   - 动态值，随股价 / Δ / IV / DTE 变化。**判断**：ATM LEAPS 若只有 ~1.5× 却扛着归零 + IV + theta 三重期权风险 → 不如直接买正股；轻度 OTM 有 3–5× 且 thesis 强才值得做
+2. **Break-even**（到期口径）= `Strike + 权利金`
+   - 算完接 Bayesian 那一问：**"我的时间窗口内，正股到达并超过 break-even 的后验概率 × 赔率 = EV 正不正？"** 答不上 = 直觉，不是投资
+   - 注：这是**到期** break-even（保守）。LEAPS 基本提前平，提前 exit 因保留剩余时间价值，实际 break-even 更低
+
+### 赔率三情景（入场前填，叠在评分卡之上）
+不只算单点目标——三个情景一起看，这才是"方向对、涨幅不够也可能亏"的 LEAPS 本质：
+
+| 情景 | 正股到价 | Call 到期内在值 | 判断 |
+|------|---------|----------------|------|
+| **目标兑现** | 你的乐观 PT | max(PT − strike, 0) | 上行收益率够不够补归零风险 |
+| **只涨一半** | (现价 + PT) / 2 | max(· − strike, 0) | **关键诊断**：半程还赚吗？OTM 半程常仍亏 |
+| **横盘 3–6 月** | ≈ 现价 | 仅剩时间价值（损耗） | theta 扛得住吗？（LEAPS 温柔但非零） |
+
+> "只涨一半仍亏" = strike 选太远，你在赌幅度不是赌方向 → 往 ATM/DITM 收，或承认这是 lottery 仓（按 §九 trading-tier 小 size + target/stop/time）。
 
 ### 评分卡
 
