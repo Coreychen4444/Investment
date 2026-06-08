@@ -25,6 +25,7 @@
 - **Emotion / salience update**：已知风险被讲得更生动 / 一根大红 K / 一篇有说服力的文章（近因偏差）。
 - **自检**：说得出"哪个数字改了哪个具体概率" = 真更新，调仓有据；只是一股不安 = salience，不动。
 - **源案例**：STOCK_Z 看空研报对 用户 是信息型（客户集中度 / FCF 量级他没纳入过）；但 -12% 板块恐慌 K = salience，不更新。
+- **增量信息检验（new info vs already-counted，2026-06-08 加）**：即使是真 information（不是 salience），也要问"它相对我**已经计入**的证据，增量解释力是多少"。3 篇都指向同一个 driver 的研报 = **1 个信号，不是 3 个**；相关证据重复计数 → 后验过度更新 → 假自信（穿量化外衣的近因偏差）。正交化检验在 research 库执行（`knowledge/research/README.md` 第一原则 #5）。源：@RuujSs 量化框架模块 4（边际信息 / 正交化）。
 
 ### 3. 更新前先验证事实
 posterior update 只在**前提为真**时合法。先用 OpenD / WebSearch 核实，不在 misread 上调仓。
@@ -54,6 +55,8 @@ posterior update 只在**前提为真**时合法。先用 OpenD / WebSearch 核�
 - **entry-timing-ev-framework.md**：binary catalyst 入场是本模型的具体应用（target 从 K 线 / ATR / cluster 推导 = 量化 likelihood）。
 - **position-tiers.md / concentration**：机会成本铁律（#4）的组合层约束。
 - **trading-discipline.md Post-Trade Rubric**：铁律 #6 的执行细则。
+- **kelly-position-sizing.md**：本模型给出后验概率 p；Kelly 把 p → size 上限，是"概率→下注比例"的缺失环节。真实 size = `MIN(分数Kelly, concentration, ladder)`。"仓位 = 概率加权的赌注"这句话的执行公式。
+- **endogenous-market-model.md**：市场结构层。**共识溢价压缩 / 机械踩踏 = 结构驱动的波动，对个股 EPS×PE thesis 信息量最低 → 不该移动后验**（铁律 #2 的市场结构版）。短期幅度看结构，中长期方向才回基本面。
 
 ## 源对话
 2026-06-04 STOCK_Z LEAPS 讨论（研报合理性核查 → 是否调整 LEAPS）。本模型 4 个 refinement（#1 agent-relative / #2 info-vs-salience / #3 verify-before-update / #4–5 机会成本 + pre-commit）全部从该次对话逼出，非教科书移植。

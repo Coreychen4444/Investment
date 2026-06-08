@@ -1,6 +1,6 @@
 # 不确定性下的理性加仓系统 (Uncertainty Execution System)
 
-> Status: active · 建立 2026-06-06 · 源案例 DRAM 6/5 reactive add 复盘
+> Status: active · 建立 2026-06-06 · 源案例 STOCK_D 6/5 reactive add 复盘
 > 决策层(Bayesian)与执行层的桥。**优先级:本系统是 `trading-discipline.md` Pre-Trade Quick Check 的 sizing 层补充,不替代铁律。**
 
 ---
@@ -99,6 +99,7 @@
 - 放量 climax + 反转K线(放量**单独看是模糊的**,必须配价格确认)
 - VIX backwardation / put-call 飙 / Fear&Greed 极端
 - **higher-low 确认 = 唯一"确认转向"信号,但天然滞后**(用"晚"换"确定",放弃最低点)
+- **右尾警惕(接 `endogenous-market-model.md` §4)**:跌不动 / 缩量 / 局部反弹 = 边际卖压衰减 → 继续看空是**赔率**问题不是方向问题;你是结构多头 → **别在 washout 底 panic-sell,机械砸点是 +EV 加仓**
 
 ### Q-D:vol 贵贱? → vehicle 【期权专属,杠杆最高】
 - **标的自己的 IV Rank/Percentile**(不是 VIX):>80%ile = vol 贵 → spread / 别买 naked;<30%ile = 买 long premium 便宜
@@ -140,8 +141,8 @@
 一条命令把 Q-A~Q-D 量化,输出 **regime 标签 + size 修正系数 + vehicle 判决**(**不输出买卖信号**)。复用 `technical.py` 全部指标。
 
 ```bash
-.venv/moomoo/bin/python3 scripts/regime_score.py DRAM \
-    --peers SMH,SOXX,MU --option DRAM270115C60000 \
+.venv/moomoo/bin/python3 scripts/regime_score.py STOCK_D \
+    --peers SMH,SOXX,STOCK_Y --option STOCK_D270115C60000 \
     --vix 21.5 --vix-chg 40 --budget-remaining 2
 ```
 
@@ -150,9 +151,9 @@
 - VIX = OpenD 取不稳 → WebSearch 后用 `--vix` / `--vix-chg` 传入
 - 期权 IV = 取的是 **spot IV** 不是 **IV Rank**(OpenD 无 IV 历史)。当前用 spot + 经验阈值粗判(脚本大声标注);**真百分位需逐日攒 IV** → 见 §10 TODO
 
-### 8.1 DRAM 6/5 worked example(真实输出)
+### 8.1 STOCK_D 6/5 worked example(真实输出)
 ```
-Q-A 资格 : 标的 -15.08% | 同业均 -10.97%(SMH -9.2/SOXX -10.4/MU -13.3) | VIX 21.5 (+40%)
+Q-A 资格 : 标的 -15.08% | 同业均 -10.97%(SMH -9.2/SOXX -10.4/STOCK_Y -13.3) | VIX 21.5 (+40%)
            → MACRO/SECTOR PANIC → GO(若 thesis intact)
 Q-B 阶段 : RSI 52.2 | 收盘在日内 7% 分位 | 连阴 2 | 距20d高 -20.5%
            → MID-SLIDE 续跌(收当日低位 + 连阴)— 早,不是底
@@ -160,7 +161,7 @@ Q-C 衰竭 : 评分 C + 否决"放量破位(恐慌性下跌,非承接)" → 别�
 Q-D vol  : IV 88% = 高 → SPREAD / 等 IV 降;别买 naked
 处方     : GO + MID-SLIDE + VOL-RICH → 这一档 ≈ 剩余预算 15% ≈ 0.3 张 + spread
 ```
-**对照现实**:Corey 实际 = 反射性 2 张 naked。系统处方 = 接近 0 张 / 顶多一个 spread。**系统没预测底,只告诉他"这不是底 + 用错 vehicle",足以把 size 做对。**
+**对照现实**:用户 实际 = 反射性 2 张 naked。系统处方 = 接近 0 张 / 顶多一个 spread。**系统没预测底,只告诉他"这不是底 + 用错 vehicle",足以把 size 做对。**
 
 ---
 
@@ -174,7 +175,7 @@ Q-D vol  : IV 88% = 高 → SPREAD / 等 IV 降;别买 naked
 ---
 
 ## 10. Ladder discipline 三处修正(并入本系统)
-源:Corey 6/6 从 DRAM reactive add 逆推 ladder 本质,80% 正确,修正 20%:
+源:用户 6/6 从 STOCK_D reactive add 逆推 ladder 本质,80% 正确,修正 20%:
 1. **"价格越低加仓越多 = 金字塔" 讲反了**。越低越多 = 倒金字塔/Martingale = 失败者陷阱。真金字塔 size 递减(Iron Rule #2B)。
 2. **ladder ≠ 降成本**(见 §6 表末行)。
 3. **三方向 EV 不对称**:抄底/买跌 = Iron Rule #2A(最多 1 次,接飞刀风险);追涨 = #2B(higher-low + 递减)。技术上"分批>all-in"三向都成立,但方向风险天差地别。
@@ -190,7 +191,9 @@ Q-D vol  : IV 88% = 高 → SPREAD / 等 IV 降;别买 naked
 - `.claude/rules/trading-discipline.md`(Pre-Trade Quick Check + Iron Rule #2A/#2B + Post-Trade Rubric)
 - `.claude/rules/macro-context-check.md`(Q-A 的规则化前身)
 - `trade/us_stock/strategy/bayesian-decision-model.md`(决策层)
+- `trade/us_stock/strategy/kelly-position-sizing.md`(本系统给 ladder 节奏,Kelly 给**单档 size 上限** = 分数凯利;每档 size = MIN(Kelly, concentration, 本档预算))
+- `trade/us_stock/strategy/endogenous-market-model.md`(§4 跌不动/右尾 = Q-C 的市场结构解释;washout = 共识溢价压缩,别 panic-sell)
 - `trade/us_stock/strategy/bottom-confirmation-signals.md`(Q-C 信号定义)
-- `scripts/technical.py`(指标库) · `scripts/regime_score.py`(本系统的 CLI)
+- `scripts/technical.py`(指标库) · `scripts/regime_score.py`(本系统的 CLI) · `scripts/kelly_size.py`(size 上限) · `scripts/chain_layers.py`(同层冗余 → 联合 Kelly)
 - memory: `feedback_uncertainty_execution_system` · `feedback_bayesian_decision_model` · `feedback_embrace_uncertainty`
-- journal 源案例: `holding/journals/options_journal.md` 2026-06-05 DRAM
+- journal 源案例: `holding/journals/options_journal.md` 2026-06-05 STOCK_D

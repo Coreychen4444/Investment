@@ -259,6 +259,12 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 8. **Catalyst ≠ technical confirmation; no after-hours new positions; no falling knife; no zone upper-bound chase.** (Rules #34-38) _Source: STOCK_Z $156.50 after-hours catch, 2026-04-21/24_
 9. **Bear narrative discount: verify before placing limits; main tranche stays within zone unless thesis is broken.** (Rule #39) _Source: STOCK_Z mean-reversion bounce missed due to over-deep split, 2026-04-24_
 
+## Ladder discipline (2026-06-06)
+
+10. **Buy a sized rung ≠ bet on the bottom.** Eligibility (macro-vs-idiosyncratic, Q-A) and size (phase, Q-B/C) are separate knobs — "可以碰" never means "full size." _Source: STOCK_D reactive add, 2026-06-05_
+11. **Pre-define total size before adding; "越低越多" is an inverted pyramid (Martingale), not a pyramid.** Real pyramid size decreases (1/0.75/0.5/0.25); size follows evidence (exhaustion signals), not price. ladder ≠ cost-reduction. _Source: STOCK_D ladder corrections, 2026-06-05_
+12. **Reactive add = process D, even if it lands in a preset zone (luck ≠ skill).** Run Q-A→Q-D (`regime_score.py`) before clicking. _Source: STOCK_D 6/5, see uncertainty-execution-system.md_
+
 ---
 
 ## Quick reminder prompt
@@ -276,6 +282,7 @@ Before any trade, ask:
 10. Is this an after-hours initiation? If yes, wait for regular session.
 11. If option, what's my profit-taking threshold at +50% / +100%?
 12. Have I hard-verified the bearish narrative driving my deep-limit placement, or am I anchoring on first-impression fear?
+13. If adding/averaging: did I pre-define total size, and is this a sized rung (not a bet on the bottom)? Did I run Q-A→Q-D, or am I reacting to red?
 
 ---
 
@@ -287,6 +294,7 @@ Before any trade, ask:
 - `options/options-strategy-framework.md` — options framework (Greeks, strategy tiers, hedging)
 - `options/sell-put-rules.md` — sell put discipline and scoring
 - `options/greeks-discipline.md` — operational Greeks rules (theta/delta/vega/gamma)
+- `uncertainty-execution-system.md` — 不确定性下的加仓执行系统 (Q-A 资格 / Q-B·C 节奏 / Q-D 工具; `scripts/regime_score.py`)
 
 ---
 > 📍 **Navigation**
