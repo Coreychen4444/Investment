@@ -1,3 +1,14 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Kelly Position Sizing
+  - 分数凯利仓位
+  - Fractional Kelly
+  - 凯利公式
+---
+
 # Kelly Position Sizing — 从后验概率到 size 的映射
 
 > **状态**：active · 建立 2026-06-08 · 源：@RuujSs《The Math That Runs Every Hedge Fund》模块 2(分数凯利)整合
@@ -150,3 +161,8 @@ at-risk $   = 分数f × bankroll
 - `risk-capital-framework.md` §3 —— concentration cap;与 Kelly 取 MIN
 - `scripts/chain_layers.py` —— 同层冗余检测,决定哪些仓位套联合 Kelly(第 7 条)
 - `.claude/rules/position-tiers.md` —— 三层 size 递减是 Kelly 的纪律表达
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[bayesian-decision-model|Bayesian 决策模型]]、[[uncertainty-execution-system|不确定性执行系统]]、[[risk-capital-framework|风控框架]]、[[trading-rules|Trading Rules]]

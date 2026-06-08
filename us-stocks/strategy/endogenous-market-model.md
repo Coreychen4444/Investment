@@ -1,3 +1,14 @@
+---
+tags:
+  - trading
+  - framework
+aliases:
+  - Endogenous Market Model
+  - 内生市场论
+  - Consensus Premium
+  - 共识溢价
+---
+
 # 内生市场论 — 短期波动的结构驱动模型
 
 > **状态**：active · 建立 2026-06-08 · 源：《内生市场论》长文整合(篇 2)
@@ -126,3 +137,8 @@ VIX 反映**不确定性的 rate-of-change**,不是坏消息本身。地缘问�
 - `zone-maintenance.md` —— parabolic 诊断 + 边际买家枯竭维度(§3 信号 6)
 - `feedback_dont_distort_for_comfort`(memory)—— §7 边界的镜像
 - P = EPS × PE —— §7 中长期方向锚
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[bayesian-decision-model|Bayesian 决策模型]]、[[uncertainty-execution-system|不确定性执行系统]]、[[bottom-confirmation-signals|见底信号]]、[[trading-rules|Trading Rules]]
