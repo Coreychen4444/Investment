@@ -1,3 +1,14 @@
+---
+tags:
+  - trading
+  - options
+  - framework
+aliases:
+  - LEAPS Call Template
+  - LEAPS 操作手册
+  - LEAPS
+---
+
 # LEAPS Call 操作手册
 
 ## 核心原则
@@ -370,3 +381,8 @@ section 四的 Jan+2 默认是"单张 PnL"视角。**等资金视角相反**：
 
 - 待第一笔 LEAPS 实际开仓后，按 `options-journal-template.md` 格式回填
 - 参考案例（非 LEAPS 但邻近）：STOCK_M 8/21 C150 (DTE 116, Δ ~0.65) — Thesis Expression 准 LEAPS 用法
+
+---
+> 📍 **Navigation**
+> 上级：[[us-stocks/Home|US Stocks Hub]]
+> 相关：[[options-strategy-framework|期权交易框架]]、[[greeks-discipline|Greeks Discipline]]
