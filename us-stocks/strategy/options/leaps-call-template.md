@@ -369,6 +369,43 @@ section 四的 Jan+2 默认是"单张 PnL"视角。**等资金视角相反**：
 → **DTE 必须匹配 thesis 兑现窗口**：re-rating 早期 = 大头在 1–2 年后 = 需长 DTE。**strike 和 DTE 不能赌不同的事**：OTM=赌大空间（需时间发酵）+ 短 DTE=赌短期 → 两头不靠。
 源：2026-05-31 STOCK_D/STOCK_K —— EPS 已兑现（+900%/+127%），PE re-rating 才开始（6x，大头在 2027）→ 选 STOCK_D 2027-06 而非 2026-12。
 
+### 11.5 Strike 收益量化：crossover vs 目标价 + IV 调整（2026-06-09）
+**"越 OTM → delta 越低 → 杠杆越高 → 收益越可观" 是 IV + 目标价的条件命题，不是无条件真。** 入场前用量化脚本（crossover + BS 情景）算，别凭直觉判断收益。
+> ⚠️ 本节 = **Mode A：hold-to-expiry / 持有期 IV 下行**。**提前平仓 + IV 上行**（催化剂 ramp 型）下更 OTM 反而会赢 —— 见 §11.6。先判断属于哪个 mode 再用本节。
+
+**到期 crossover**（同方向同到期两 strike，K₁<K₂，premium p₁>p₂）：`S* = (p₂·K₁ − p₁·K₂) / (p₂ − p₁)`
+- 标的到期 **> S*** → 更 OTM 的 K₂ 收益才反超 K₁；目标价 **< S*** → 低 strike K₁ 更高（OTM 杠杆没激活，move 不够大）
+
+**为什么高 IV 杀 OTM 杠杆**：OTM 加杠杆的前提是 OTM strike 便宜到补偿放弃的 intrinsic。IV 越高 → OTM extrinsic 越贵 → 同样 premium 差换不回足够 intrinsic → **crossover 被推高、远离目标价**。两条推论：
+- **washout / 事件恐慌入场 = IV 峰值 = 买 OTM 最差时机** → 反而该往 DITM / 低 strike 靠（多拿 intrinsic、少付被吹高的 extrinsic）。与 §11.1（DITM=支撑）同向。
+- 涨到目标的**路径**若 IV 回落 → 高 vega 的 OTM 双重受损（到期内在值低 + 路径 vega 流血）。
+
+**入场前必跑量化脚本**：填 strikes + premiums + 目标价 + 入场 IV，先确认目标价 > crossover，再谈"往 OTM 推"；目标价 < crossover 还选 OTM = 赌一个连目标价都没覆盖的更大空间。
+**与 §11.4 接口**：§11.4 管时间维度（strike/DTE 匹配兑现窗口）；§11.5 管空间 + 波动率维度（strike 收益 = crossover + IV 的函数）。
+
+源：2026-06-09 STOCK_D washout 后选 strike，$60C vs $70C，目标 $100。crossover ≈ $109.6 > 目标 → at-expiry $60C 收益更高（2.88x vs 2.70x），$70C 要标的 > $110 才反超。错因：washout 峰值 IV（~88%）把 $70C 的 extrinsic 吹贵。**高 conviction 长期 thesis 也不该无脑往 OTM 推，除非目标 > crossover 且 IV 不在峰值。**
+
+### 11.6 Mode B — 提前平仓：gamma + IV 方向（at-expiry crossover 在这里失效）（2026-06-09 补强）
+§11.5 的 crossover **只管 hold-to-expiry**。**催化剂 / 动量交易多数是提前平仓** —— 这时时间价值（gamma + vega）主导，crossover 会给出**相反的错答案**。
+
+§11.5 没算的两股力：
+- **Gamma**：大涨把 OTM 从深 OTM 拉向 ATM，delta 飙升 → OTM % 收益被放大。**移动够大，OTM 杠杆才激活**（温和移动则低 strike 赢）。
+- **Vega / IV 方向**：**IV 升**（催化剂前 ramp）→ 高 vega 的 OTM 被吹大 → 利好 OTM；**IV 降**（washout 峰值后 crush）→ 利好低 strike。
+
+**镜像源案例（必须成对记）**：STOCK_M $150C vs $200C，提前平。**同一标的价，strike 排名完全相反**：持到到期 $150C +14% / $200C −75%（at-expiry crossover 说低 strike 完胜）；提前平 $150C +61% / $200C **+82%**（高 strike 赢）。差异 100% 是时间价值（gamma + 催化剂前 IV ramp）。对照 STOCK_D washout（IV crush）则低 strike 赢 —— 互为镜像。
+
+**完整规则 —— 选 strike 前先答三问：**
+1. **持到到期 还是 提前平？** 到期 → Mode A crossover；提前平 → Mode B。
+2. **移动多大？** 温和 → 低 strike；大涨（冲过 crossover 区）→ OTM gamma 才激活。
+3. **持有期 IV 升还是降？** 催化剂前 ramp（升）→ OTM；washout 峰值后（降）→ 低 strike。
+
+**实操推论（三情景验证；前提：总是提前平仓 = 永远 Mode B）**：同一 move（如 $60→$70）、同两 strike、同提前平，赢家完全由 IV 方向决定 —— IV 升 → 高 strike 大胜；IV 平 → 高 strike 小胜；IV crush → 低 strike 赢（高 strike 甚至亏钱，即使方向全对）。
+- **两个旋钮分开，别焊死**：**先验概率定 size**（越高赌越大，Kelly）；**IV 方向定 strike**（低/升 IV → OTM；峰值 IV → 低 strike/DITM）。"先验越高越买 OTM" 把两旋钮焊成一个 —— 错。
+- **washout 抄底的特别陷阱**："非基本面 washout → 高先验 → 买 OTM" 里，washout 本身 = 峰值 IV 入场，反弹常伴 IV crush —— **给你高先验的那个事件，正是制造 IV 逆风的同一个事件** → washout 抄底反偏低 strike/DITM。
+
+**OTM LEAPS 的两轴证伪（持仓纪律）**：正股无限期，只看"基本面证伪"够；**LEAPS 有 DTE，会死于时间，即使 thesis 没坏**。退出是**两条轴**：① thesis 被破坏 → 退出；② thesis 完好 + 按时兑现 → 持有/滚动；③ **thesis 完好但 stalled（re-rating 没在 DTE 窗口内发生）→ 软退出**（theta + DTE 在清算它，"你对了只是太早"）。"thesis 没坏就一直 roll" = §六 滚动续命反模式。
+→ **每张 OTM LEAPS 入场即配进度 checkpoint**："re-rating 必须在 {日期 / 财报} 之前显现"，到点没动静 = 软退出。即 OTM LEAPS 的证伪含"时间到了还没穿越 K"，不只是"基本面坏了"。接 §11.4。
+
 ## 与期权框架的关系
 
 本文件为 LEAPS Call 单一策略的操作手册。完整期权策略体系（决策树、其他策略）详见 `options-strategy-framework.md`。Greeks 操作规则（G-01/02/03）详见 `greeks-discipline.md`。
