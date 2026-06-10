@@ -260,6 +260,13 @@ STOCK_Y $440/$500 spread @ $18.40 — 风险 $1,840 / 最大回报 $4,160，R:R 
 #### Strike 选择
 accumulation zone1 上沿（锁住 zone 以上的利润）
 
+#### ⚠️ 误用边界（buy-put ≠ reduce-risk）
+Protective Put 的前提是**被保护的仓位有"无底下行"**：正股（可跌到 $0）或 DITM long call 当 stock-replacement（大量 intrinsic 要护）。**不要用 put 去"保护"一个下行已封顶的 long call / spread** —— 它的 max loss 已经 = premium，封死了；再买 put = 给已上保险的东西重复买保险，净效果是一对方向相反、久期错配的 long 腿 = 错配 strangle = 赌大波动（且两腿都付被事件抬高的 IV）。
+- 想"降事件风险" → 默认 **trim**（做减法：直接减 delta + 减 vega），不是买 long put 腿（做加法）。
+- 真要对冲整个组合过事件 → trim 最大浮盈 winner 或买板块 ETF（如半导体 ETF）put，**别用单一低-beta 票的末日 put**（金额是零头 + beta 错配）。
+- reactive（板块刚砸完才想买保护）= 付峰值 put IV，按 process > outcome 评为流程错误。
+- 源案例：某低-beta 半导体票无正股，却买末日 put "保护" 一张 long call —— 下行本已封顶，该 put 实为反方向的赌注，非对冲。
+
 ---
 
 ### 7. Wheel Strategy（轮转策略）
@@ -537,6 +544,8 @@ Phase 2: Sell Covered Call（strike = trim zone）
 | Earnings 前买贵期权 | IV 膨胀时买入 long call/put | 用 spread 对冲 vega；或等 IV crush 后再买 |
 | 被 assign 后恐慌 | 卖 put 被 assign 不在计划内 | 卖之前就想好：被 assign = 在 zone 内建仓 |
 | 期权当正股补仓 | 正股亏了想用 long call "翻本" | 这是 revenge trading，禁止 |
+| buy-put 当"减风险" | 想降仓位风险却去买 long put 腿（尤其 hedge 一个下行已封顶的 long call/spread） | 减风险 = trim（做减法）；put 只对无底下行（正股/DITM）有意义。见 §6 Protective Put 误用边界 |
+| reactive 砸完买保险 | 板块刚暴跌 → 害怕 → 买 put/加仓 | 付峰值 IV，按 process > outcome 评为流程错误；先确认"原来的 plan 是什么"再动 |
 | 不计 max loss 就开仓 | "spread 只花 $200 嘛" | $200 是成本，max loss 可能是 $500。算清楚 |
 | 到期前不管 | 忘记期权要到期 | 到期前 3-5 天必须决策：平仓 / roll / 让到期 |
 
