@@ -252,6 +252,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 
 39. **Bear narrative discount rule.**
     After first-impression bearish signals (ATM dilution / insider selling / analyst downgrade / consensus target gap), hard-verify each source before sizing response. Verified strength is typically weaker than first impression.
+    Verification toolchain (2026-06-11, broker API): insider-trade list (10b5-1 预设 vs discretionary), short interest / daily short volume (做空压力真值), analyst consensus / rating summary (评级与 target 现值, 不是 stale 报道) — WebSearch 只做补充, 不做主源.
     Limit placement must be anchored to **confirmed technical structure (support levels in the current regime)**, not to "how bad the narrative justifies how deep the entry."
     - Deep tranches = insurance against thesis-break scenarios
     - Main tranche must sit **within the current zone** unless thesis is clearly broken

@@ -9,6 +9,12 @@ aliases:
 
 # 两段式建仓规则卡
 
+> **定位（2026-06-11 补）**：本卡是建仓执行的**哲学内核**（2026-03 形成，刻意保持简单）。
+> 后续执行栈都建在这两句之上，复杂场景查对应细化层：
+> 加仓节奏/资格 → `uncertainty-execution-system.md`（Q-A/B/C/D 三旋钮）；
+> binary catalyst 的"现在买 vs 等" → `entry-timing-ev-framework.md`；
+> size 上限 → `kelly-position-sizing.md`。本卡与它们冲突时，以细化层为准。
+
 ## 核心原则
 > 轻仓买价格，重仓买确认。
 

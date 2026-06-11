@@ -65,6 +65,10 @@
 
 Binary catalyst 入场前必跑。Anchor 选择因 use case 不同而不同。
 
+> **历史校准数据源（2026-06-11 起可用）**：broker API 的 earnings-price-move 接口
+> 直接返回标的历次财报前后 ±N 日 OHLC——implied move 预测 vs 实际反应的回测数据不再手工拼 K 线。
+> 每次跑完 Step 0-5 把 worksheet 落决策日志（校准曲线随数据自动出现）。
+
 ### Step 0a — Implied move @ 决策时刻（pre-earnings entry decision）
 
 适用：**正在做入场决策的此刻**（未到财报前最后 close）。
@@ -233,7 +237,7 @@ target_option = current_option - (current_underlying - target_underlying) × Δ
 |------|------|------|
 | **P_fill** | 目标限价被打到的概率 | Step 2 计算 |
 | **D_over** | 现价 - 目标价（确定的"被套"成本） | $/share × 100 (option) 或 × qty (stock) |
-| **D_chase** | 踏空后被迫追的估价 - 目标价 | catalyst 期望 gap × Δ × 衰减系数 |
+| **D_chase** | 踏空后被迫追的估价 - 目标价 | catalyst 期望 gap × Δ × 衰减系数（**默认 0.9**——worked example 取值沉淀为标准默认；beat 场景概率混合默认 60/40。可按标的历史调整但必须写明取值，2026-06-11 量化默认） |
 | **P_right** | Thesis 概率 | **不进决策公式**（两边都乘 P_right 抵消）；仅做 sanity gate — 若 < 50% 根本不该入场 |
 
 ### 公式

@@ -149,7 +149,7 @@
 **数据缺口(诚实)**:
 - RSI/ATR/MA/量/K线/见底评分 = OpenD 今天就能算 ✓
 - VIX = OpenD 取不稳 → WebSearch 后用 `--vix` / `--vix-chg` 传入
-- 期权 IV = 取的是 **spot IV** 不是 **IV Rank**(OpenD 无 IV 历史)。当前用 spot + 经验阈值粗判(脚本大声标注);**真百分位需逐日攒 IV** → 见 §10 TODO
+- 期权 IV percentile = ✅ 数据管道已建(2026-06-11):每日落 IV 历史,样本 <60 个交易日输出明示不可靠,期间仍用外部源手查 + 标注。Q-D 从"经验阈值粗判"过渡到真百分位
 
 ### 8.1 STOCK_D 6/5 worked example(真实输出)
 ```
@@ -181,8 +181,8 @@ Q-D vol  : IV 88% = 高 → SPREAD / 等 IV 降;别买 naked
 3. **三方向 EV 不对称**:抄底/买跌 = Iron Rule #2A(最多 1 次,接飞刀风险);追涨 = #2B(higher-low + 递减)。技术上"分批>all-in"三向都成立,但方向风险天差地别。
 
 ### TODO(让系统更完整)
-- [ ] 逐日 log 各持仓标的 spot IV → 攒出 IV Rank,让 Q-D 用真百分位而非经验阈值
-- [ ] VIX 自动取数源(替代手动 --vix)
+- [x] 逐日 log 各持仓标的 IV(2026-06-11 上线,每日任务;60 样本后 Q-D 用真百分位)
+- [x] VIX 自动取数源 → FRED keyless(regime_score 已接)
 - [ ] regime_score 接入 heartbeat / pre-trade,异动日自动跑
 
 ---

@@ -511,7 +511,7 @@ Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 �
 - [ ] **策略匹配**：这个意图用什么策略最合适？（查决策树）
 - [ ] **Max loss 可接受吗？** 这笔全亏你不影响心态？
 - [ ] **Expiry 覆盖催化剂吗？** 有足够时间窗口？
-- [ ] **IV 水平**：当前 IV 偏高还是偏低？买方要低 IV，卖方要高 IV
+- [ ] **IV 水平**：查 IV percentile 对照 §六闸门表（<30 买方友好 / ≥60 默认 sell premium）；样本不足时外部源手查 + 标注，不拿 spot IV 当 percentile
 - [ ] **流动性**：bid-ask spread < 10%？OI > 100？太差不做
 - [ ] **事件检查**：窗口内有 earnings / FOMC / CPI 吗？
 - [ ] **与正股 entry 合并计算**：算上这笔，这是 averaging down（限 1 次）还是 pyramiding up（size 递减）？（Iron Rule #2 v2）

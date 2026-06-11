@@ -67,6 +67,12 @@ aliases:
 
 ---
 
+## 一点五、Size 量化（2026-06-11 补——仓位纪律的数字层）
+1. **Size 上限算了吗？** 分数 Kelly 计算 → 真实 size = **MIN(分数 Kelly, 25% concentration cap, ladder 预算)**，取最紧
+2. **同层冗余查了吗？** 同一子驱动层 ≥2 个名字 → 套联合 Kelly
+3. **期权 vehicle**：IV percentile 对照闸门表（options-framework §六）
+4. **落库**：跑过 Kelly / EV 的，落决策日志——不落 = 永远无法校准
+
 ## 二、仓位纪律
 ### 1. 这是核心仓，还是高 beta 仓？
 - 核心 thesis 仓：不轻易乱动，但也不能无条件死扛
@@ -143,9 +149,7 @@ aliases:
 则默认卖 put 更激进。
 
 ### 5. 这笔卖 put 会不会抵消我刚完成的防守动作？
-如果会，必须明确承认：
-- 这不是纯防守
-- 这是条件性重新承担 downside 风险
+**会 = 硬 veto，直接不做**（2026-06-11 与 sell-put-rules.md canonical 对齐：本问从计分项升级为一票否决，undoing defense 不是"承认了就能做"的事）。
 
 ---
 

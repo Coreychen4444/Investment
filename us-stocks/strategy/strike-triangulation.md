@@ -26,7 +26,7 @@ for day in last_25_days:
     buckets[bucket] += volume
 ```
 解读：
-- 单 bucket > 60M = 强支撑/阻力
+- 单 bucket 量 ≥ 邻近 bucket 中位数 × 3 = 强支撑/阻力（相对定义，跨标的可迁移；旧绝对股数阈值仅适用高流通股标的，2026-06-11 相对化）
 - 集中分布 (top 2 buckets > 50% total) = 价格记忆点高浓度区
 - 离散分布 = 当前价格区域无明显锚定
 
