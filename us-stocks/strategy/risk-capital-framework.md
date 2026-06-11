@@ -7,7 +7,7 @@
 ## 1. Buying Power vs Cash —— 评估加仓 capacity
 评估"有没有空间加仓"时，用**真实购买力**，不是单看 `cash` 字段。
 
-- Capacity = broker `power`（margin-aware 购买力，`get_portfolio.py --currency USD`）+ off-broker near-cash（IBKR `state/positions.json` broker.source=secondary_broker；SGD 货币基金 [FUND_ACCT] redeemable fund）。**不是 `cash` 一项。**
+- Capacity = broker `power`（margin-aware 购买力）+ off-broker near-cash（第二券商余额；场外 redeemable 货币基金）。**不是 `cash` 一项。**（具体账户标识不入策略文档）
 - `risk_status` LEVEL1–5 = margin 风险等级标签，**不是"不能交易"信号**。LEVEL5 仍可加仓，只是占用更多 margin headroom。
 - **加仓的真实约束通常不是现金**，而是：(a) 单票集中度 cap，(b) zone / no-chase 纪律，(c) 财报前风险窗口。说"不加"时必须点名真实约束（集中度 19% / zone1 上沿 / earnings 8 天），不能用"没现金"搪塞。
 - **源案例**：2026-04-30 我用 `cash` $X,XXX + LEVEL5 误判"加仓空间≈0"；实际 power $X,XXX + off-broker ~$X,XXX ≈ $X,XXX deployable。

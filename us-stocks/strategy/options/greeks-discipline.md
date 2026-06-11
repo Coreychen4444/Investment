@@ -185,15 +185,14 @@ _Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intrad
 - Gamma 在 ATM 临近到期的爆炸性 + pin risk
 - Delta 的等效股数转换（组合 beta 管理）
 
-### 多腿组合操作规则（待 STOCK_Y 440/500 spread 复盘后写）
-- Spread max gain / max loss / breakeven 计算
-- 单腿赋格关闭 vs 整体平仓的判断
-- Iron Condor / Butterfly 触发条件
+### 多腿组合操作规则（✅ 已落地——STOCK_Y 440/500 复盘完成）
+正文在 `options-strategy-framework.md` §11.1（多腿先识别组合再算合并 PnL + spread 76.7% max 早平 EV 决策）。本节不再重复维护。
 
-### IV percentile / IV rank 应用规则
-- 卖方择时：IV rank > 50% 才考虑卖
-- 买方择时：IV rank < 30% 才考虑买
+### IV percentile / IV rank 应用规则（阈值跟随 canonical 闸门表 §六）
+- 卖方择时：IV percentile ≥ 60 优先 sell premium（capital-deployment 触发线）
+- 买方择时：IV percentile < 30 买方友好；≥60 需 4 条 override
 - IV term structure（远月低 IV、近月高 IV → 买远卖近的 calendar）
+- 数据源：每日记录 IV 历史自建 percentile（攒满 60 天前用外部源手查并标注）
 
 ### 期权专属反模式
 - IV crush 误判为方向错误
@@ -221,6 +220,6 @@ _Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intrad
 ## 引用案例索引
 
 - **STOCK_X 5/01 11C** (2026-04-10 至 2026-04-24): G-01, G-02, G-03 三规则共同源案例
-- **STOCK_Y 440/500 spread**: 待复盘 → 多腿组合规则
-- **STOCK_Z 5/22 P103 short put**: 待复盘 → 卖方 short Γ + short V 案例
-- **STOCK_R 6/18 20C deep OTM**: 待复盘 → 深度 OTM long call 反例
+- **STOCK_Y 440/500 spread** ✅: 复盘完成（+$2,760, 23 天捕 76.7% max）→ 多腿规则已入 options-framework §11.1
+- **STOCK_Z deep-OTM short put** ✅: 复盘完成（+$685, 收割 77% + pre-earnings de-risk）→ G-02×earnings 联动已入 sell-put-rules 评分卡补充触发
+- **STOCK_R 短月 deep OTM call** ✅: 复盘归入 `../natural-humility-anchor.md` 源案例（force close -$780）

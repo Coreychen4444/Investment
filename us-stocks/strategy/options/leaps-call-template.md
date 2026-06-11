@@ -171,12 +171,12 @@ LEAPS 期权链通常只有 **Jan 系列**（每年 1 月第三个周五）。
 
 | 检查项 | 标准 | 不达标怎么办 |
 |--------|------|--------------|
-| IV percentile | < 50% | 等 IV 回归再入 |
+| IV percentile | < 60%（canonical 闸门表：`options-strategy-framework.md` §六） | ≥60 默认不入；4 条 override 全满足才放行（parabolic AI + uncapped chain + LEAPS DTE + size 减档），且偏 DITM |
 | Bid-ask spread | < 8% of mid | 换个 strike 或 expiry |
 | Open Interest | > 50 contracts | 流动性不足，弃 |
 | Volume (近 5 日均) | > 5/day | 流动性不足，弃 |
 | Underlying thesis | ≥ 12 月可信 | 短期 long call 替代 |
-| Position sizing | 单笔 ≤ 账户 5% | 减 size 或弃 |
+| Position sizing | MIN(分数 Kelly, 25% concentration cap, ladder 预算)——`kelly-position-sizing.md`；LEAPS independent book 不进 stock pyramid 链但受同 ticker cap | 减 size 或弃 |
 
 ### 监控节奏（不像短期那样敏感）
 
@@ -243,7 +243,7 @@ Underlying close < zone1 下沿 + IV 飙升 → 评估 vega 收割（IV crush �
 
 ### LEAPS 专项 5 问
 1. **Thesis 持续度**：这个 thesis 12 个月后还成立吗？2 年呢？
-2. **IV 时机**：当前 IV percentile < 50% 吗？（> 60 不要入）
+2. **IV 时机**：当前 IV percentile < 60% 吗？（≥60 默认不入，除非 §六闸门表 4 条 override 全满足）
 3. **资本机会成本**：花这笔 premium 而不买正股，因为什么？（资本受限 / 分散需求 / 杠杆需求）
 4. **流动性**：bid-ask < 8%、OI > 50、daily volume > 5？
 5. **退出预案**：DTE 90 决策点你计划怎么走？write 下来
@@ -274,7 +274,7 @@ checklist 不只勾选——这两个数必须算出来写下：
 | 项目 | 2分 | 1分 | 0分 |
 |------|-----|-----|-----|
 | Thesis 持续度 | 强（多季度催化） | 一般 | 短期 catalyst（用短期 call 不是 LEAPS） |
-| IV 时机 | percentile < 30 | 30-50 | > 50（贵的保险） |
+| IV 时机 | percentile < 30 | 30-60 | > 60（贵的保险；override 入场计 0 分如实扣） |
 | 资本理由 | 明确（杠杆/分散/资本受限） | 一般 | 没想清楚 |
 | 流动性 | 优（< 5% bid-ask, OI > 200） | 中 | 差（> 10% bid-ask 或 OI < 50） |
 | 退出预案 | 写清楚 | 模糊 | 没想 |
@@ -315,11 +315,11 @@ checklist 不只勾选——这两个数必须算出来写下：
 3. Delta 0.80+ 体感接近持股，不容易被波动吓出
 4. 最坏 "亏 25-40% premium 但跑赢卖股票"
 
-**具体配置建议**（首次）：
-- 标的：base 仓 thesis 最强（你现状下推荐 STOCK_Y 或 STOCK_F — 多年 cycle）
+**具体配置建议**（保守首选模板；实际第一批 LEAPS 走了 §11 的 aggressive 路径，见下方源案例）：
+- 标的：base 仓 thesis 最强的多年 cycle 名
 - Strike：现价 -15% 到 -20%（DITM Δ 0.80-0.85）
 - Expiry：Jan +2 年
-- Size：账户 4-6%（$1,000-$1,500）
+- Size：MIN(分数 Kelly, concentration cap, ladder 预算)，不写死 %（2026-06-11 去掉过时的账户金额）
 
 **避免第一笔做的事**：
 - 不做 OTM LEAPS lottery（赔率好但归零率高）
@@ -414,10 +414,14 @@ section 四的 Jan+2 默认是"单张 PnL"视角。**等资金视角相反**：
 
 ---
 
-## 源案例（待填）
+## 源案例（2026-06-11 回填）
 
-- 待第一笔 LEAPS 实际开仓后，按 `options-journal-template.md` 格式回填
-- 参考案例（非 LEAPS 但邻近）：STOCK_M 8/21 C150 (DTE 116, Δ ~0.65) — Thesis Expression 准 LEAPS 用法
+- **STOCK_X 远月 $15C ×16**（三档 ladder）：no-chase 锁死现货 → LEAPS 替代；IV 71% 走 4 条 override；Jan+1 timing bet 显式声明（§11.2 等资金对比的活案例）
+- **STOCK_Z 远月 $140C**（入场 + roll 延 expiry）：DITM Δ0.78 四信号 4/4；roll = 时间 arbitrage（per-day extension cost < theta drag，§11.2 crossover 实算）；independent book 概念诞生处
+- **STOCK_M 8/21→远月 $150C roll**：时间错配修正（6 月爆发 thesis vs DTE 102）；EV 量化 favor roll；§11.5 Mode A/B 源头
+- **STOCK_IN 远月 $120C**：错杀 dip 单张 single-shot，后 promote core Tier1
+- **STOCK_D 两档 ladder**：probe 首档 A 级 vs reactive 加仓 D 级——同一标的两种 process 的对照组
+- 反例参考：STOCK_R 短月 deep OTM call（非 LEAPS 赌幅度 → humility anchor → force close -$780），见 `../natural-humility-anchor.md`
 
 ---
 > 📍 **Navigation**

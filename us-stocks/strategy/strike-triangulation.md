@@ -33,7 +33,7 @@ for day in last_25_days:
 ### 信号 3: Option Open Interest (OI) 集群
 来源：`get_stock_quote.py` 各 strike option codes 取 `open_interest` 字段
 方法：
-- 看目标 expiry (5/29, 6/18, 7/17 ...) 的 put OI 横向对比
+- 看目标 expiry（近月 / 次月 / 季月三个到期日）的 put OI 横向对比
 - 找出"OI 比邻近 strike 高 ≥ 3x"的 strike → 机构级 OI cluster
 
 解读：
@@ -130,7 +130,7 @@ for day in last_25_days:
 | 仅用 zone 选 strike | 错过机构级 OI 信号 / volume 真实支撑 | 必须查 OI + volume profile |
 | 看到 OI MAX 就 sell at that strike | sell at strongest support = max assignment risk | OI MAX = buy leg 锚定，不是 sell leg |
 | 用单日 K-line 锚定 zone | 缺乏 volume 验证 = 假支撑 | 至少叠加 volume + OI |
-| 不查 OI 在多个 expiry 的分布 | 误把短期 hedge cluster 当结构性支撑 | 看 5/29 + 6/18 + 7/17 OI 是否同向 |
+| 不查 OI 在多个 expiry 的分布 | 误把短期 hedge cluster 当结构性支撑 | 看近月 + 次月 + 季月三个 expiry OI 是否同向 |
 | 在 invalid_if 下方 sell put | 即使 OI 大也不算 thesis 支撑（institutional tail-risk hedge） | OI 信号必须落在 invalid_if 之上才纳入收敛 |
 
 ---

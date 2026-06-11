@@ -10,10 +10,25 @@ aliases:
 
 # Trading Rules
 
-Last major update: 2026-04-16. Absorbs event-day-trading-rules, opening-discipline, anti-fomo-rules into one master file. All source citations preserved.
+Last major update: 2026-06-11 (master index 补全决策栈). 2026-04-16 absorbs event-day-trading-rules, opening-discipline, anti-fomo-rules. All source citations preserved.
 
 ## Core purpose
 Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, and confusing correct logic with correct timing.
+
+## 决策栈索引（master index — 本文件是入口，不是全部）
+
+**优先级声明：Bayesian 决策层高于任何单点 thesis 和本文件任何单条规则**（[[bayesian-decision-model|Bayesian 决策模型]] 六铁律）。
+
+| 层 | 文件 | 角色 |
+|----|------|------|
+| 决策层 | `bayesian-decision-model.md` | 一切以概率为主：后验 + EV，6 铁律 |
+| Sizing 层 | `kelly-position-sizing.md` + `risk-capital-framework.md` + 三层仓位管理 | 分数凯利上限 / capacity 与 cash% 压测 / 25% concentration cap |
+| 结构层 | `endogenous-market-model.md` + `options/dealer-gamma-positioning.md` | 共识溢价/拥挤/反身性 + dealer gamma 路径 lens |
+| 执行层 | `uncertainty-execution-system.md` + `two-stage-entry-rules.md` + `entry-timing-ev-framework.md` + `strike-triangulation.md` | 三旋钮加仓系统 / 两段式建仓 / binary catalyst EV / strike 四信号 |
+| 技术层 | `bottom-confirmation-signals.md` + `technical-indicators-framework.md` | 见底信号量化 / 指标 SOP |
+| 期权层 | `options/options-strategy-framework.md`（IV 闸门表 §六）+ `options/sell-put-rules.md` + `options/greeks-discipline.md` + `options/leaps-call-template.md` | 框架 / 卖 put / Greeks / LEAPS 手册 |
+| 框架层 | `capital-deployment-while-waiting.md` + `sell-fly-vs-rebalance.md` + `natural-humility-anchor.md` + `post-trade-scoring.md` | 等待期部署 / 卖飞判别 / 谦逊锚 / 事后评分 |
+| 事件层 | `event-risk-reduction-principle.md` + `pre-trade-checklist.md` | 事件前减脆弱性 / 完整 checklist |
 
 ---
 
@@ -34,8 +49,10 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
    - What proves me wrong?
    - Where do I reduce/exit if wrong?
 
-4. Same thesis: maximum 2 entries total.
-   No third add. _Iron Rule #2_
+4. Same-thesis adds follow _Iron Rule #2 v2_ (2026-04-22):
+   - **Averaging down** (new price < avg cost): max 1 per thesis; must be in zone1/zone2; size ≤ 50% of original entry.
+   - **Pyramiding up** (new price > avg cost): open-ended but disciplined — higher low confirmed, size ≤ 75% of previous entry, within concentration cap.
+   - Never mix averaging down and pyramiding up in the same session.
    Override requires explicit acknowledgment with reasoning documented in trade journal.
 
 5. Confirmation signal checklist — at least 2 of:
@@ -165,7 +182,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 27. Long calls / call spreads:
     - Time decay is real cost. Do not hold through expiry hoping for a miracle.
     - Set time-based exit: exit or roll at 50% of remaining time if position is underwater.
-    - Probe → confirmed upgrade is allowed, but still counts toward max 2 entries per thesis.
+    - Probe → confirmed upgrade is allowed; the upgrade add counts as a pyramiding entry under Iron Rule #2 v2 (higher low + decaying size).
 
 28. Choose expiry with buffer:
     - Earnings play: expiry should cover earnings + at least 2-3 weeks of reaction time.
@@ -247,7 +264,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 ## Five iron rules
 
 1. **No confirmation, no size.** (Rule #2)
-2. **Max two entries per thesis.** (Rule #4)
+2. **Same-thesis adds per Iron Rule #2 v2 — averaging down max 1 (zone + half-size), pyramiding up disciplined (higher low + decaying size).** (Rule #4)
 3. **Early strength on catalyst days is not confirmation.** (Rule #19) _Source: GTC day, 2026-03-17_
 4. **Do not chase the prettiest price — protect the first tranche.** (Rules #14-16) _Source: perfect-price trap review, 2026-04-01_
 5. **No trading in the first 30 minutes.** (Rule #17) _Source: opening-discipline, 2026-03_

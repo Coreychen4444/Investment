@@ -422,18 +422,23 @@ Phase 2: Sell Covered Call（strike = trim zone）
 - **BUY leg**：**AT 最强支撑/阻力（4-5 信号收敛点）**
 - 反 pattern：sell at strongest support = max assignment risk。最强支撑应是 buy leg 的 floor，不是 sell leg 的位置。
 
-**IV-Adjacent Strategy Pairing（关键决策原则）**：
+**IV-Adjacent Strategy Pairing（关键决策原则 — 全系统 canonical IV 闸门表）**：
 
-同样的方向观点 (bullish/bearish)，在 IV 极端区间应该用**反向策略**：
+> 2026-06-11 统一：此表是 IV percentile 阈值的**唯一真源**。其他文档（leaps-call-template /
+> capital-deployment 等）引用本表，不再各自定数。tilt 非硬 veto。
+> ⚠️ 数据源：IV percentile 需要 IV 历史（每日记录自建，攒满 60 天前先用外部数据手查 + 标注来源）；
+> spot IV 不是 percentile，别混用。
 
-| IV percentile | 推荐策略类型 | 反例（应避免） |
-|--------------|-----------|--------------|
-| < 30% | **买 premium**（long call/put, debit spread） | sell premium 收太薄 |
-| 30-60% | 中性，按 conviction 选 | — |
-| 60-70% | 偏 sell premium，买方需慎重 | naked long call/put 付 vega 税 |
-| **> 70%** | **必须 sell premium**（credit spread, sell put/call） | **买 long call = 双重支付（方向 + vega 税）** |
+| IV percentile | 闸门 | 反例（应避免） |
+|--------------|-----|--------------|
+| < 30% | **买 premium 友好**（long call/put, debit spread） | sell premium 收太薄 |
+| 30-60% | 中性，按 conviction 选 vehicle | — |
+| **≥ 60%** | **偏 sell premium**（capital-deployment 触发线）；long premium 默认不入，**除非 4 条 override 全满足**：① parabolic AI 名 ② uncapped catalyst chain ③ LEAPS 级 DTE ④ size 减档 | naked long call/put 付 vega 税 |
+| **≥ 70%** | **强 sell-premium tilt**（credit spread, sell put/call）；long premium 仅 4 条 override + 偏 DITM 低 strike（多拿 intrinsic 少付 extrinsic） | ATM/OTM long = 双重支付（方向 + vega 税） |
+| **≥ 80%** | 极端：**禁 naked long**；卖方也要压测 tail | — |
 
 逻辑：方向观点可通过相反 vehicle 表达。在 IV 极端，**vehicle 选择比方向更重要**。
+Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 条 override + DITM 倾斜入场。
 
 源案例（2026-04-30 STOCK_Y）：
 - Thesis：STOCK_Y 长期看涨 ($800 by 年底)
@@ -485,8 +490,8 @@ Phase 2: Sell Covered Call（strike = trim zone）
 | Covered call | 已持有的 100 股 | 不额外占资金 |
 
 ### 与正股合并计算
-- **同一 thesis 的正股 + 期权合计最多 2 笔 entry**（Iron Rule #2）
-- 卖 put = 条件性 entry，算 1 笔
+- **同一 thesis 的正股 + 期权 entry 合并受 Iron Rule #2 v2 管理**（averaging down 全 thesis 合计最多 1 次；pyramiding up 按纪律开放 — higher low + size 递减）
+- 卖 put = 条件性 entry，按方向计入
 - Long call 不算 entry（不增加持仓），但算 exposure
 - Spread 的 max loss 计入该 ticker 的总风险暴露
 
@@ -509,7 +514,7 @@ Phase 2: Sell Covered Call（strike = trim zone）
 - [ ] **IV 水平**：当前 IV 偏高还是偏低？买方要低 IV，卖方要高 IV
 - [ ] **流动性**：bid-ask spread < 10%？OI > 100？太差不做
 - [ ] **事件检查**：窗口内有 earnings / FOMC / CPI 吗？
-- [ ] **与正股 entry 合并计算**：算上这笔，同一 thesis 几笔了？
+- [ ] **与正股 entry 合并计算**：算上这笔，这是 averaging down（限 1 次）还是 pyramiding up（size 递减）？（Iron Rule #2 v2）
 
 ### 卖方额外检查（Sell Put / Covered Call / Spread 卖出端）
 - [ ] **接货/被叫走你接受吗？** 被 assign 不难受？
@@ -517,21 +522,19 @@ Phase 2: Sell Covered Call（strike = trim zone）
 - [ ] **有保护腿吗？** 默认用 spread，裸卖需要额外理由
 - [ ] **会抵消防守动作吗？** 刚 trim/止损完就卖 put = undoing defense
 
-### Sell Put 专项 5 问评分
+### Sell Put 专项评分（4 项计分 + 1 硬 veto）
 
-详见 `sell-put-rules.md`。
+Canonical：`sell-put-rules.md`（2026-06-11 统一——旧版 max 8 / max 10 两套并存已废）。
 
-| 项目 | 2分 | 1分 | 0分 |
+| 计分项 | 2分 | 1分 | 0分 |
 |------|-----|-----|-----|
 | Intent | 真想接货 | 一半接货一半收租 | 纯赚权利金 |
 | Strike | 很舒服 | 勉强可接受 | 会后悔 |
 | Expiry | 14-30天 | 7-14天 | 7天内 |
 | Event risk | 平静期 | 一般 | 财报/FOMC/密集事件 |
-| 抵消防守？ | 不抵消 | 部分抵消 | 完全抵消 |
 
-- 7-8：健康，执行
-- 5-6：可做，偏激进
-- ≤4：赌博，不做
+- 满分 8：7-8 健康执行 / 5-6 可做偏激进 / ≤4 赌博不做
+- **硬 veto（不计分）**：抵消防守 = undoing defense → 分数再高也不做
 
 ---
 

@@ -13,21 +13,14 @@ aliases:
 
 ## Steps
 
-1. **读取全部策略文件**：
-   - trading-rules.md
-   - pre-trade-checklist.md
-   - two-stage-entry-rules.md
-   - bottom-confirmation-signals.md
-   - technical-indicators-framework.md
-   - event-risk-reduction-principle.md
-   - options/options-strategy-framework.md
-   - options/sell-put-rules.md
-   - options/greeks-discipline.md
+1. **读取全部策略文件**：以 `trading-rules.md` 顶部 master index（决策栈表）为准——
+   **不在本模板硬编码文件清单**（2026-06-11 修正：旧清单只覆盖 9/25 个文件，防漂移模板自己漂移最重）。
+   逐文件检查：是否有与 master index 脱节的孤儿、内部矛盾阈值、过期 placeholder。
 
-2. **读取本季度交易日志**：
-   - Your trade journal (maintain separately)（正股）+ `journals/options_journal.md`（期权）
-   - 机器可读 fill 流：`trade/us_stock/holding/events/<YYYY-MM>/trades.jsonl`
-   - 统计本季度交易笔数、纪律评分分布（A/B/C/D）
+2. **读取本季度交易日志 + 跑量化报告**：
+   - 量化绩效报告（realized/胜率/分层/classification/process×outcome 矩阵，统计不再手数）
+   - Your trade journal (maintain separately)（正股 + 期权叙事）
+   - 结构化评分文件 + 机器可读 fill 流（append-only events ledger）
 
 3. **规则分类**：
    - **永恒纪律**：任何市场环境都适用（position sizing, stop rules, FOMO protection, confirmation > price）
