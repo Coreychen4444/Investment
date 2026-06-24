@@ -51,6 +51,7 @@ aliases:
 2. **Outcome bias**: "这次赚了所以决定是对的" → process 错也可能赚，**process 错 + 结果好 = D 级 不是 A 级**。
 3. **省钱 framing**: "省了 $X entry cost" → 转换为 process 维度："你用了什么数据推导那个 target？" 答不上 = 直觉，过程 fail。
 4. **猜对底/顶庆祝**: "我说会跌到 $X 吧！" → "variance ≠ skill，下次同样直觉会失败"。
+5. **"我止损了所以这笔成功"**: 及时止损是 **EXIT 步骤**的 A 级 process，但**不自动**让整笔交易变 A —— entry edge 仍单独评分。否则"及时止损=成功"沦为低 edge 入场的免罪符（comfort-trap 镜像：用"我守了纪律"掩盖入场 process 漏洞）。一笔交易可以 = 好 exit (A) + 薄 entry → 整笔 **B**。亏损≠失败为真，但它说的是"process 对的亏损不该后悔"，不是"止了损的交易入场就免检"。
 
 ## 双向对称 trap（永远成对警惕）
 
@@ -65,6 +66,8 @@ aliases:
 - **2026-06-05 STOCK_D reactive add = D**：恰落 zone2 = 运气位置非计划触发；若最终盈利 = variance 非 skill
 - **2026-06-10 STOCK_IN 末日 put = D**：buy-put≠reduce-risk 结构性错误 + reactive 付峰值 IV
 - **2026-06-01 STOCK_S 清仓 = A（后 +34%）**：process 对 + variance 坏，下次仍这么卖
+- **2026-06 STOCK_RK = B**：指数纳入类事件 bounce（短期 OTM call，−$1,200）；纳入日 sell-the-news 破 stop，纪律平仓 = exit 对，但 entry edge 薄（事件型 catalyst sell-the-news 是已知 front-run 模式）→ 整笔 B 非 A（exit≠整笔，见 anti-pattern #5）
+- **2026-06 STOCK_AX = B**：超跌博反弹 probe（短期 OTM call，−$740）；次日无反弹即止损 = exit 对，但 entry 接飞刀（当日大跌中买 ~26% OTM）+ 深 OTM 短期 call 差 vehicle → 整笔 B
 
 ## 引用根基原则
 **Rule foundation**: 交易哲学核心（"后悔无价值，复盘有价值"）+ [[bayesian-decision-model|Bayesian 决策模型]] 铁律 #6（process > outcome）。

@@ -67,8 +67,9 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 
 ## Exit rules
 
-6. Exits are for one of three reasons:
-   - Thesis/event has been priced
+6. Exits are for one of these reasons:
+   - Thesis/event has been priced (success exit)
+   - **Entry thesis falsified** — subsequent price action contradicts the reason you entered (the bounce never comes, the catalyst sells the news, support fails) → exit decisively, no "扛". See "Thesis-invalidation exit discipline" below.
    - Structure has weakened
    - Time window ended
 
@@ -282,6 +283,12 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 10. **Buy a sized rung ≠ bet on the bottom.** Eligibility (macro-vs-idiosyncratic, Q-A) and size (phase, Q-B/C) are separate knobs — "可以碰" never means "full size." _Source: STOCK_D reactive add, 2026-06-05_
 11. **Pre-define total size before adding; "越低越多" is an inverted pyramid (Martingale), not a pyramid.** Real pyramid size decreases (1/0.75/0.5/0.25); size follows evidence (exhaustion signals), not price. ladder ≠ cost-reduction. _Source: STOCK_D ladder corrections, 2026-06-05_
 12. **Reactive add = process D, even if it lands in a preset zone (luck ≠ skill).** Run Q-A→Q-D (`regime_score.py`) before clicking. _Source: STOCK_D 6/5, see uncertainty-execution-system.md_
+
+## Thesis-invalidation exit discipline (2026-06-24)
+
+13. **Entry thesis falsified by subsequent price action = exit, decisively, no hesitation.** Every trade is entered for a stated reason; when the market moves against that reason, the thesis is dead — exit, do not "扛" (hold-and-hope). This is the single most important exit trigger for losers. _Source: two 2026-06 short-dated OTM call bounce/event bets (STOCK_RK index-inclusion bounce −$1,200; STOCK_AX oversold bounce −$740) — both correctly cut on thesis-break._
+14. **Hesitation on a thesis-broken exit is the leak — pre-commit kills it.** Define the invalidation (price / event / time) at entry (Rule #18); when it triggers, execute mechanically without re-deliberating. Hesitation enters only when you re-open the decision inside a drawdown — so don't re-open it. (Bayesian #5 pre-commit.) _Source: same two cuts were correct but slow._
+15. **Loss ≠ failure — but a timely stop scores the EXIT (A-grade), not the whole trade.** Trading is a probability game; a clean stop on a broken thesis is a successful exit, not a failed trade. This does NOT auto-grade the trade an A — entry edge is scored separately ([[post-trade-scoring|Post-Trade Scoring]]). A clean stop does not redeem a thin-edge entry; "I stopped out so it was a success" must not become a license for low-edge entries. _Source: both = B (exit A, entry thin: short-dated OTM calls betting a bounce/event)._
 
 ---
 
