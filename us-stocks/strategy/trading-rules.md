@@ -28,6 +28,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 | 技术层 | `bottom-confirmation-signals.md` + `technical-indicators-framework.md` | 见底信号量化 / 指标 SOP |
 | 期权层 | `options/options-strategy-framework.md`（IV 闸门表 §六）+ `options/sell-put-rules.md` + `options/greeks-discipline.md` + `options/leaps-call-template.md` | 框架 / 卖 put / Greeks / LEAPS 手册 |
 | 框架层 | `capital-deployment-while-waiting.md` + `sell-fly-vs-rebalance.md` + `natural-humility-anchor.md` + `post-trade-scoring.md` | 等待期部署 / 卖飞判别 / 谦逊锚 / 事后评分 |
+| 退出层 | `trend-exit-system.md` | 赢家侧退出栈：利润棘轮（+50%保本 / +100%回吐上限 1/3）+ 趋势死亡线（3×ATR / 5d×0.92）+ 重进协议；宏观不豁免 |
 | 事件层 | `event-risk-reduction-principle.md` + `pre-trade-checklist.md` | 事件前减脆弱性 / 完整 checklist |
 
 ---
