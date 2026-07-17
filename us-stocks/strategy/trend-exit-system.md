@@ -99,7 +99,7 @@ aliases:
 
 监控脚本每轮巡逻（6h）自动跑：HWM/地板/趋势线/G-01 档位/结构标签/margin 全量检查，状态文件地板与 HWM 只升不降，fired 标志一次性防重复告警。盘前简报输出**每标的开盘操作手册**（8 级优先级：margin > 棘轮 stage2 > stage1 > 趋势线破 > invalid_if > no-add lock > zone 加仓 > 持有；宏观事件日 CPI/NFP/FOMC 自动降级加仓动作，减仓不延期）。
 
-**2026-07-17 起的两个扩展**：平仓自动撤防时，结构破坏中离场的标的移入重进监控（🔓，§3 机械化）；**入口侧对称的入场闸门（entry guard）** 对 watchlist 候选每日输出 verdict（GO/WAIT/STALE/VETO/NEEDS_CARD）+ 3 档 ladder 价位 + 分类 size cap（early_risky = 机械 veto，实证 4/4 全亏）× N-unit 取小 + 结构位/2N 双线止损预设，GO 计划落决策日志——出口机械化一年后，入口终于对称（此前入场检查只靠对话触发）。
+**2026-07-17 起的两个扩展**：平仓自动撤防时，结构破坏中离场的标的移入重进监控（🔓，§3 机械化）；**入口侧对称的入场闸门（entry guard）** 对 watchlist 候选每日输出 verdict（GO/WAIT/STALE/VETO/NEEDS_CARD）+ 3 档 ladder 价位 + 分类 size cap（early_risky = 机械 veto，实证 4/4 全亏）× N-unit 取小 + 结构位/2N 双线止损预设，GO 计划落决策日志——出口机械化（2026-07-04）十三天后，入口补齐对称（此前入场检查只靠对话触发）。
 
 ## §8 参数记录
 
