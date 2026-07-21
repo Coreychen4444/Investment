@@ -24,7 +24,7 @@ Protect against FOMO, early entry, one-size-fits-all actions, emotional trades, 
 | 决策层 | `bayesian-decision-model.md` | 一切以概率为主：后验 + EV，6 铁律 |
 | Sizing 层 | `kelly-position-sizing.md` + `risk-capital-framework.md` + 三层仓位管理 | 分数凯利上限 / capacity 与 cash% 压测 / 25% concentration cap |
 | 结构层 | `endogenous-market-model.md` + `options/dealer-gamma-positioning.md` | 共识溢价/拥挤/反身性 + dealer gamma 路径 lens |
-| 执行层 | `uncertainty-execution-system.md` + `two-stage-entry-rules.md` + `entry-timing-ev-framework.md` + `strike-triangulation.md` | 三旋钮加仓系统 / 两段式建仓 / binary catalyst EV / strike 四信号 |
+| 执行层 | `uncertainty-execution-system.md` + `two-stage-entry-rules.md` + `zone-touch-confirmation.md` + `entry-timing-ev-framework.md` + `strike-triangulation.md` | 三旋钮加仓系统 / 两段式建仓 / zone 触碰判读（60m×日线，A/B/C 三分类） / binary catalyst EV / strike 四信号 |
 | 技术层 | `bottom-confirmation-signals.md` + `technical-indicators-framework.md` | 见底信号量化 / 指标 SOP |
 | 期权层 | `options/options-strategy-framework.md`（IV 闸门表 §六）+ `options/sell-put-rules.md` + `options/greeks-discipline.md` + `options/leaps-call-template.md` | 框架 / 卖 put / Greeks / LEAPS 手册 |
 | 框架层 | `capital-deployment-while-waiting.md` + `sell-fly-vs-rebalance.md` + `natural-humility-anchor.md` + `post-trade-scoring.md` | 等待期部署 / 卖飞判别 / 谦逊锚 / 事后评分 |

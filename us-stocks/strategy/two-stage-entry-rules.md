@@ -13,6 +13,7 @@ aliases:
 > 后续执行栈都建在这两句之上，复杂场景查对应细化层：
 > 加仓节奏/资格 → `uncertainty-execution-system.md`（Q-A/B/C/D 三旋钮）；
 > binary catalyst 的"现在买 vs 等" → `entry-timing-ev-framework.md`；
+> zone 触碰日盘中判读（60m×日线，触碰方式 A/B/C 决定接法 + 确认 bar 量化）→ `zone-touch-confirmation.md`；
 > size 上限 → `kelly-position-sizing.md`。本卡与它们冲突时，以细化层为准。
 
 ## 核心原则
