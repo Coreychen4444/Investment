@@ -5,7 +5,7 @@
 **英文名：** Market Traffic-Signal Phase Theory  
 **作者：** Corey  
 **理论形成日期：** 2026 年 8 月 30 日  
-**版本：** 2.1（左右侧对称修订版）  
+**版本：** 2.2（交通工程依据增强版）  
 **文稿性质：** 原创理论论文 / 可证伪研究纲领
 
 > **宏观交易者看灯的运行逻辑，技术交易者统计灯的历史规律，投机交易者甚至不看灯——他直接看车。**
@@ -84,6 +84,8 @@
 3. **红灯清空区间：** 当前方向已经变红，但冲突方向暂未获得绿灯，让已经进入路口的车辆先离开冲突区域。
 
 完成清空后，系统才把通行权交给下一个相位。
+
+> **交通工程依据：** 这套“相位—变化—清空”的结构并不是为了金融类比而临时创造的术语。美国联邦公路管理局（FHWA）的《Traffic Signal Timing Manual》将信号相位解释为控制一个或多个交通运动的控制器计时单元，并援引《Manual on Uniform Traffic Control Devices》（MUTCD）指出，一个信号相位包含分配给特定交通运动或运动组合的通行权、黄灯变化和红灯清空区间。FHWA 还说明，红灯清空区间的目的，是让黄灯期间已进入路口的车辆在下一个冲突方向获得绿灯之前离开冲突区域。参见 [FHWA《Traffic Signal Timing Manual》第 4 章：Phasing Overview](https://ops.fhwa.dot.gov/publications/fhwahop08024/chapter4.htm)、[第 5 章：Vehicular Change and Clearance Intervals](https://ops.fhwa.dot.gov/publications/fhwahop08024/chapter5.htm)，以及现行 [MUTCD 第 11 版](https://mutcd.fhwa.dot.gov/pdfs/11th_Edition/mutcd11theditionhl.pdf)。
 
 不同路口的具体程序可能完全不同。有的先放直行，有的单独放左转，有的根据实时车流改变时长。因此，理解一个路口不能只背诵“红灯持续多少秒”，还要知道它的相位怎样排列、什么条件会改变顺序。
 
@@ -649,11 +651,13 @@
 1. Federal Highway Administration. *Traffic Signal Timing Manual*, Chapter 4: Traffic Signal Design and Chapter 5: Change and Clearance Intervals. U.S. Department of Transportation.  
    https://ops.fhwa.dot.gov/publications/fhwahop08024/chapter4.htm  
    https://ops.fhwa.dot.gov/publications/fhwahop08024/chapter5.htm
-2. Hamilton, J. D. (1989). “A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle.” *Econometrica*, 57(2), 357–384.  
+2. Federal Highway Administration. *Manual on Uniform Traffic Control Devices for Streets and Highways*, 11th ed., 2023, especially Part 4.  
+   https://mutcd.fhwa.dot.gov/pdfs/11th_Edition/mutcd11theditionhl.pdf
+3. Hamilton, J. D. (1989). “A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle.” *Econometrica*, 57(2), 357–384.  
    https://doi.org/10.2307/1912559
-3. Lo, A. W., Mamaysky, H., & Wang, J. (2000). “Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation.” *The Journal of Finance*, 55(4), 1705–1765.  
+4. Lo, A. W., Mamaysky, H., & Wang, J. (2000). “Foundations of Technical Analysis: Computational Algorithms, Statistical Inference, and Empirical Implementation.” *The Journal of Finance*, 55(4), 1705–1765.  
    https://doi.org/10.1111/0022-1082.00265
-4. Easley, D., López de Prado, M. M., & O’Hara, M. (2012). “Flow Toxicity and Liquidity in a High-Frequency World.” *The Review of Financial Studies*, 25(5), 1457–1493.  
+5. Easley, D., López de Prado, M. M., & O’Hara, M. (2012). “Flow Toxicity and Liquidity in a High-Frequency World.” *The Review of Financial Studies*, 25(5), 1457–1493.  
    https://doi.org/10.1093/rfs/hhs053
 
 ---
