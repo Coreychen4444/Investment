@@ -31,6 +31,9 @@ aliases:
 - **《巴菲特的护城河》 (The Little Book That Builds Wealth)** - *Pat Dorsey*: 晨星公司护城河理论的奠基之作，系统分类企业竞争优势。
 - **《竞争战略》 (Competitive Strategy)** - *Michael Porter*: 波特五力模型的教科书级原著，深入理解行业竞争格局。
 
+## 🔗 在实盘系统中
+护城河与商业模式的判断写进标的卡的 thesis 框架：假设 → 驱动 → 空头与证伪条件 → 估值交叉验证 → 下一催化剂预注册（到期必须对账）。它决定「值不值得进候选池」，不决定「今天能不能买」。见 [[fundamental-frame|基本面框架]]。
+
 ---
 > 📍 **Navigation**
 > 同级：[[Financial_Health_Returns|财务与股东回报]]

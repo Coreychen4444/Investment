@@ -7,9 +7,9 @@ aliases:
   - 2026-04-24 三条执行教训
 date: 2026-04-24
 tickers:
-  - NOK
-  - SMR
-  - AAOI
+  - STOCK_X
+  - STOCK_R
+  - STOCK_Z
 ---
 
 # 2026-04-24 Three Execution Lessons Review
@@ -20,19 +20,19 @@ Self-initiated review covering three execution mistakes across the 4/21-4/24 win
 
 Three lessons extracted, each spawning durable rules:
 
-1. **NOK 0501 $11C** — held through +119% peak, decayed to -33% (theta + IV crush on earnings gap-up fade). Rule: mandatory short-dated option profit-taking.
-2. **SMR call** — impulsive entry into out-of-competence sector after physical order-entry mistake. Rule: circle of competence + hesitation = 24h stop.
-3. **AAOI $156.50** — after-hours chase on catalyst alone with stale zone and zone upper-bound entry. Rule: catalyst ≠ confirmation, no after-hours initiations, no falling knife, no upper-bound chase.
+1. **STOCK_X 0501 $11C** — held through +119% peak, decayed to -33% (theta + IV crush on earnings gap-up fade). Rule: mandatory short-dated option profit-taking.
+2. **STOCK_R call** — impulsive entry into out-of-competence sector after physical order-entry mistake. Rule: circle of competence + hesitation = 24h stop.
+3. **STOCK_Z $156.50** — after-hours chase on catalyst alone with stale zone and zone upper-bound entry. Rule: catalyst ≠ confirmation, no after-hours initiations, no falling knife, no upper-bound chase.
 
 ---
 
-## Case 1: NOK 0501 $11C — Missed Profit-Taking
+## Case 1: STOCK_X 0501 $11C — Missed Profit-Taking
 
 ### Timeline
-- **2026-04-14**: Entered 10 contracts @ $0.21 ($210 cost) as probe on NOK breakout, ahead of 4/23 Q1 earnings catalyst.
-- **2026-04-22 close**: NOK $9.86 (-5% de-risking selloff); option ~$0.26.
-- **2026-04-23 open (earnings day)**: NOK gapped up to $10.76 on strong Q1 beat (AI/Cloud +49%, Optical +20%, guidance raised). Option spiked to $0.46 intraday high = **+119% from entry, unrealized $250 profit**.
-- **2026-04-23 intraday fade**: NOK sold-the-news + IV crush. Closed $10.175. Option decayed to $0.14 late in session = **-33% from entry, -$70 if closed**.
+- **2026-04-14**: Entered 10 contracts @ $0.21 ($210 cost) as probe on STOCK_X breakout, ahead of 4/23 Q1 earnings catalyst.
+- **2026-04-22 close**: STOCK_X $9.86 (-5% de-risking selloff); option ~$0.26.
+- **2026-04-23 open (earnings day)**: STOCK_X gapped up to $10.76 on a strong Q1 beat (guidance raised). Option spiked to $0.46 intraday high = **+119% from entry, unrealized $250 profit**.
+- **2026-04-23 intraday fade**: STOCK_X sold-the-news + IV crush. Closed $10.175. Option decayed to $0.14 late in session = **-33% from entry, -$70 if closed**.
 - **Net swing**: $320 round-trip wiped out by not trimming at peak.
 
 ### What Went Wrong
@@ -55,15 +55,15 @@ Three lessons extracted, each spawning durable rules:
 
 ---
 
-## Case 2: SMR Call — Out-of-Competence Impulsive Entry
+## Case 2: STOCK_R Call — Out-of-Competence Impulsive Entry
 
 ### Timeline
-- Impulsive entry into SMR (nuclear power small-cap) after seeing sector strength.
+- Impulsive entry into STOCK_R (nuclear power small-cap) after seeing sector strength.
 - Order mis-entered (wrong limit parameter) on first attempt.
 - Re-submitted on second attempt, overriding the mis-entry.
 
 ### What Went Wrong
-- **Outside circle of competence.** Nuclear/energy is not in Corey's active research universe. Whitelist: AI optics, semis (HBM/memory), foundry, AI networks, Physical AI.
+- **Outside circle of competence.** Nuclear/energy is not in the trader's active research universe. Whitelist: AI optics, semis (HBM/memory), foundry, AI networks, Physical AI.
 - **Physical hesitation ignored.** A mis-entered limit is the subconscious rejecting the trade. Re-submitting overrode that signal with FOMO.
 - **No preparation.** No paper trade, no analyst reports, no cooling period.
 
@@ -76,18 +76,18 @@ Three lessons extracted, each spawning durable rules:
 > **Rule #33**: Physical hesitation is a veto. Order-entry mistakes, wrong parameters, three price edits, or mis-clicks = 24h full stop. Body is more honest than brain.
 
 ### Forward Action
-No active SMR position. Rule enforcement from 2026-04-24 onward. If nuclear/energy interest returns, start with paper trading for 1 month minimum.
+No active STOCK_R position. Rule enforcement from 2026-04-24 onward. If nuclear/energy interest returns, start with paper trading for 1 month minimum.
 
 ---
 
-## Case 3: AAOI $156.50 — After-Hours Catalyst Chase
+## Case 3: STOCK_Z $156.50 — After-Hours Catalyst Chase
 
 ### Timeline
-- **2026-04-21 ET session**: AAOI hit new ATH $173.41 intraday, then crashed to $149.68 low on Iran ceasefire fears (Trump earlier said no extension). Broad market also down (S&P -0.63%, Nasdaq -0.59%). Closed $150.57 (-13.2% from high).
+- **2026-04-21 ET session**: STOCK_Z hit new ATH $173.41 intraday, then crashed to $149.68 low on Iran ceasefire fears (Trump earlier said no extension). Broad market also down (S&P -0.63%, Nasdaq -0.59%). Closed $150.57 (-13.2% from high).
 - **2026-04-21 post-market**: Trump reversed — announced ceasefire extension. Futures rallied.
-- **2026-04-21 ET 21:58 (SGT 4/22 09:58) after-hours**: Corey bought 10 shares @ $156.50 as "trading lot" on catalyst-resolution logic.
+- **2026-04-21 ET 21:58 after-hours**: bought 10 shares @ $156.50 as "trading lot" on catalyst-resolution logic.
 - **Problem at time of entry**: Zone was stale (old trim $148-160 from 4/13). New zone1 of $150-156 had not yet been computed. Entry at $156.50 was at upper bound of the (yet-to-be-written) new zone1.
-- **2026-04-22 regular session**: AAOI opened $155.50, intraday dropped to $138.62 (-11.4% vs prev close intraday), closed $149.42. Trading lot underwater -4.5%.
+- **2026-04-22 regular session**: STOCK_Z opened $155.50, intraday dropped to $138.62 (-11.4% vs prev close intraday), closed $149.42. Trading lot underwater -4.5%.
 
 ### What Went Wrong
 - **Catalyst alone, no technical confirmation.** Trump's extension was a real catalyst, but there was no price-action confirmation when the entry was made.
@@ -115,28 +115,28 @@ Position is now managed per existing trading-lot rules (stop $144 close basis, t
 
 ---
 
-## Meta-lesson
+## The lesson behind the lessons
 
 All three mistakes share one pattern: **a pre-defined rule existed (or should have existed), and emotion overrode it**.
 
-- NOK: "take profit at +100%" rule existed implicitly, ignored for greed.
-- SMR: "stay in competence" rule existed, ignored for FOMO.
-- AAOI: "no after-hours initiations" / "no zone upper-bound chase" rule should have been explicit, wasn't written down, and catalyst-resolution emotion filled the vacuum.
+- STOCK_X: "take profit at +100%" rule existed implicitly, ignored for greed.
+- STOCK_R: "stay in competence" rule existed, ignored for FOMO.
+- STOCK_Z: "no after-hours initiations" / "no zone upper-bound chase" rule should have been explicit, wasn't written down, and catalyst-resolution emotion filled the vacuum.
 
-The countermeasure is not more willpower. It is **making the rules explicit, written, and self-triggering**, so that violating them becomes a conscious decision rather than an automatic emotional response. This is why today's work is encoded as Rules #30, #32-33, #34-38 in `trading-rules.md`.
+The countermeasure is not more willpower. It is **making the rules explicit, written, and self-triggering**, so that violating them becomes a conscious decision rather than an automatic emotional response. This is why today's work is encoded as Rules #30, #32-33, #34-38 in [[trading-rules]].
 
 ---
 
 ## Rules added to doctrine
 
-- `trading-rules.md` #30 — Short-dated option profit-taking
-- `trading-rules.md` #32 — Circle of competence whitelist + cooling period
-- `trading-rules.md` #33 — Physical hesitation = 24h stop
-- `trading-rules.md` #34 — Catalyst ≠ technical confirmation
-- `trading-rules.md` #35 — No after-hours initiations
-- `trading-rules.md` #36 — Refresh stale zone before entry
-- `trading-rules.md` #37 — Falling knife default no-go
-- `trading-rules.md` #38 — Trading lot entry position = zone mid/lower
+- [[trading-rules]] #30 — Short-dated option profit-taking
+- [[trading-rules]] #32 — Circle of competence whitelist + cooling period
+- [[trading-rules]] #33 — Physical hesitation = 24h stop
+- [[trading-rules]] #34 — Catalyst ≠ technical confirmation
+- [[trading-rules]] #35 — No after-hours initiations（2026-07-25 撤销：时段本身不含信息，真实约束归 #34 / #38，见 Rule #35 修订版）
+- [[trading-rules]] #36 — Refresh stale zone before entry
+- [[trading-rules]] #37 — Falling knife default no-go
+- [[trading-rules]] #38 — Trading lot entry position = zone mid/lower
 
 Cross-linked in:
 - Local memory: `trading_lessons.md`

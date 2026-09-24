@@ -6,7 +6,6 @@ aliases:
   - Pre-Trade Checklist
   - 交易前检查
 ---
-
 # Pre-Trade Checklist
 
 ## 核心原则
@@ -17,8 +16,8 @@ aliases:
 
 ## 零、数据前置（硬性前提，任何分析/建议前）
 **禁止用 textbook/placeholder 数字分析**（"假设 STOCK_F $200"、"假设 LEAPS 一年吃 15-25% theta"）。任何标的判断（entry/exit/估值/期权）前**先拉实时数据**：
-- snapshot + K 线 + 具体 strike 链 via `.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/`
-- OpenD 不可用 → 明说"数据不可用"，不用 textbook 数字硬凑
+- snapshot + K 线 + 具体 strike 链 via `python3 .claude/skills/openapi/scripts/quote/`
+- 券商网关 不可用 → 明说"数据不可用"，不用 textbook 数字硬凑
 - 结构性 thesis（AI 需求/板块）要**结合**实时数据，不是**替代**它
 源：2026-04-24 STOCK_F LEAPS 讨论，我用虚构 $200 + textbook theta 得出错误结论（实际 STOCK_F $382、deep-ITM 仅 8.5%/yr theta），用户："你有个不好的习惯 — 不先获取信息再分析"。
 
@@ -68,10 +67,11 @@ aliases:
 ---
 
 ## 一点五、Size 量化（2026-06-11 补——仓位纪律的数字层）
-1. **Size 上限算了吗？** 分数 Kelly 计算 → 真实 size = **MIN(分数 Kelly, 25% concentration cap, ladder 预算)**，取最紧
-2. **同层冗余查了吗？** 同一子驱动层 ≥2 个名字 → 套联合 Kelly
-3. **期权 vehicle**：IV percentile 对照闸门表（options-framework §六）
-4. **落库**：跑过 Kelly / EV 的，落决策日志——不落 = 永远无法校准
+1. **Size 上限算了吗？** `python3 quant/risk/kelly_size.py --p <后验> --b <赔率> --bankroll <X>`
+   → 真实 size = **MIN(分数 Kelly, `sizing.entry_cap()` 六臂机械上限, ladder 预算)**，取最紧（entry_guard 输出已含机械上限）
+2. **同层冗余查了吗？** `python3 quant/risk/chain_layers.py`（同一子驱动层 ≥2 个名字 → 套联合 Kelly）
+3. **期权 vehicle**：IV percentile 查了吗？`quant/data/iv_logger.py --percentile <T>` 对照闸门表（options-framework §六）
+4. **落库**：跑过 Kelly / EV 的，`quant/journal/decision_log.py` 落 worksheet——不落 = 永远无法校准
 
 ## 二、仓位纪律
 ### 1. 这是核心仓，还是高 beta 仓？
@@ -120,7 +120,7 @@ aliases:
 
 ## 四、期权交易专项检查
 
-期权完整框架（策略选择、Greeks、对冲场景、仓位规则）详见 `options/options-strategy-framework.md`，Greeks 操作规则详见 `options/greeks-discipline.md`。
+期权完整框架（策略选择、Greeks、对冲场景、仓位规则）详见 [[options-strategy-framework]]，Greeks 操作规则详见 [[greeks-discipline]]。
 
 ### 卖 Put 专项检查
 ### 核心原则
@@ -149,15 +149,15 @@ aliases:
 则默认卖 put 更激进。
 
 ### 5. 这笔卖 put 会不会抵消我刚完成的防守动作？
-**会 = 硬 veto，直接不做**（2026-06-11 与 sell-put-rules.md canonical 对齐：本问从计分项升级为一票否决，undoing defense 不是"承认了就能做"的事）。
+**会 = 硬 veto，直接不做**（2026-06-11 与 [[sell-put-rules]] canonical 对齐：本问从计分项升级为一票否决，undoing defense 不是"承认了就能做"的事）。
 
 ---
 
 ### 期权持仓状态核实（动 trim/close/roll/报 PnL 前，硬前提）
 讨论任何期权动作前，**先核实合约真实状态**，别信 `agent.lots`（默认 STALE）：
-1. `.venv/moomoo/bin/python3 scripts/trade_history_sync.py`（拉最新 fill）
-2. `grep -i "<TICKER><EXPIRY><STRIKE>" trade/us_stock/holding/events/*/trades.jsonl`（确认最后 fill/close）
-3. 读 `state/positions.json` 的 `tickers["<OCC>"].broker`：`null`=已平 / `qty!=0`=仍 open（+ `status` 字段）
+1. `python3 quant/sync/trade_history_sync.py`（拉最新 fill）
+2. `grep -i "<TICKER><EXPIRY><STRIKE>" trade/portfolio/events/*/trades.jsonl`（确认最后 fill/close）
+3. 读 `state/positions.json` 的 `tickers["<OCC>"].broker`：`qty==0` 或 `status=="closed"` = 已平 / `qty!=0` = 仍 open（2026-06-11 schema 口径修正：closed 持仓保留 broker block，不是 null）
 4. 确认 open 后，才看 `agent.lots`/`zones` 取 context（cost basis / triggers）
 
 源：2026-05-01 STOCK_X 260515C11 我用 stale agent block 报 "+$1,060 未实现" 建议 G-01 trim，实际 用户 4/29 已 @ $1.24 平仓（+$620 realized）。"你的记忆是不是混乱了"。
@@ -186,7 +186,7 @@ aliases:
 - 不是只有 headline 瞬间拉升
 - 量能确认（缩量止跌 / 放量承接）
 
-技术面确认框架参考 `technical-indicators-framework.md`，见底信号评分参考 `bottom-confirmation-signals.md`。
+技术面确认框架参考 [[technical-indicators-framework]]，见底信号评分参考 [[bottom-confirmation-signals]]。
 
 ### 4. 我会不会把两段式建仓做成无纪律摊平？
 如果你准备在未确认阶段越跌越补，那这不是两段式建仓，而是在给提前重仓找借口。

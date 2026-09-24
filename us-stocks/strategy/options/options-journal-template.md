@@ -2,7 +2,7 @@
 
 期权专属复盘模板，正股使用 `../trade_journal.md` 模板。
 
-每个期权 entry 记录到 `trade/us_stock/holding/journals/options_journal.md`，格式如下：
+每个期权 entry 记录到 期权日志，格式如下：
 
 ---
 
@@ -52,11 +52,11 @@
   - IV 对错？___（事件后 IV crush 是否吃掉收益？）
 - **Greeks 教训**：（哪个 Greek 的影响超出预期？）
 - **可改进点**：___
-- **规则更新**（若适用）：写入 `greeks-discipline.md` 或 `trading-rules.md` 第 N 条
+- **规则更新**（若适用）：写入 [[greeks-discipline]] 或 [[trading-rules]] 第 N 条
 
 ---
 
-## 引用（路径相对于 `trade/us_stock/holding/journals/options_journal.md`）
-- Greeks 操作规则：`../../strategy/options/greeks-discipline.md`
-- 期权框架：`../../strategy/options/options-strategy-framework.md`
-- 卖 put 纪律：`../../strategy/options/sell-put-rules.md`
+## 引用（路径相对于 期权日志）
+- Greeks 操作规则：[[greeks-discipline]]
+- 期权框架：[[options-strategy-framework]]
+- 卖 put 纪律：[[sell-put-rules]]

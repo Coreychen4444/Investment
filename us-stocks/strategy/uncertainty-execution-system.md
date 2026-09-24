@@ -1,7 +1,7 @@
 # 不确定性下的理性加仓系统 (Uncertainty Execution System)
 
 > Status: active · 建立 2026-06-06 · 源案例 STOCK_D 6/5 reactive add 复盘
-> 决策层(Bayesian)与执行层的桥。**优先级:本系统是 `trading-discipline.md` Pre-Trade Quick Check 的 sizing 层补充,不替代铁律。**
+> 决策层(Bayesian)与执行层的桥。**优先级:本系统是 [[trading-discipline]] Pre-Trade Quick Check 的 sizing 层补充,不替代铁律。**
 
 ---
 
@@ -11,7 +11,7 @@
 
 ---
 
-## 1. 三层架构(接 CLAUDE.md)
+## 1. 三层架构(接 AGENTS.md)
 
 | 层 | 回答 | 工具 |
 |---|---|---|
@@ -99,7 +99,7 @@
 - 放量 climax + 反转K线(放量**单独看是模糊的**,必须配价格确认)
 - VIX backwardation / put-call 飙 / Fear&Greed 极端
 - **higher-low 确认 = 唯一"确认转向"信号,但天然滞后**(用"晚"换"确定",放弃最低点)
-- **右尾警惕(接 `endogenous-market-model.md` §4)**:跌不动 / 缩量 / 局部反弹 = 边际卖压衰减 → 继续看空是**赔率**问题不是方向问题;你是结构多头 → **别在 washout 底 panic-sell,机械砸点是 +EV 加仓**
+- **右尾警惕(接 [[endogenous-market-model]] §4)**:跌不动 / 缩量 / 局部反弹 = 边际卖压衰减 → 继续看空是**赔率**问题不是方向问题;你是结构多头 → **别在 washout 底 panic-sell,机械砸点是 +EV 加仓**
 
 ### Q-D:vol 贵贱? → vehicle 【期权专属,杠杆最高】
 - **标的自己的 IV Rank/Percentile**(不是 VIX):>80%ile = vol 贵 → spread / 别买 naked;<30%ile = 买 long premium 便宜
@@ -136,20 +136,20 @@
 
 ---
 
-## 8. 工具:`scripts/regime_score.py`
+## 8. 工具:`quant/decision/regime_score.py`
 
 一条命令把 Q-A~Q-D 量化,输出 **regime 标签 + size 修正系数 + vehicle 判决**(**不输出买卖信号**)。复用 `technical.py` 全部指标。
 
 ```bash
-.venv/moomoo/bin/python3 scripts/regime_score.py STOCK_D \
+python3 quant/decision/regime_score.py STOCK_D \
     --peers SMH,SOXX,STOCK_Y --option STOCK_D270115C60000 \
     --vix 21.5 --vix-chg 40 --budget-remaining 2
 ```
 
-**数据缺口(诚实)**:
-- RSI/ATR/MA/量/K线/见底评分 = OpenD 今天就能算 ✓
-- VIX = OpenD 取不稳 → WebSearch 后用 `--vix` / `--vix-chg` 传入
-- 期权 IV percentile = ✅ 数据管道已建(2026-06-11):每日落 IV 历史,样本 <60 个交易日输出明示不可靠,期间仍用外部源手查 + 标注。Q-D 从"经验阈值粗判"过渡到真百分位
+**数据缺口(2026-06-11 更新——两个缺口已补)**:
+- RSI/ATR/MA/量/K线/见底评分 = 券商网关 今天就能算 ✓
+- VIX = ✅ 已自动化:`--vix` 省略时 regime_score 自动从 FRED 免费源拉取(`lib/macro_fetch.py`),失败再手动传
+- 期权 IV percentile = ✅ 数据管道已建:`quant/data/iv_logger.py` 每日落 `market/iv_history/`,`--percentile <T>` 查询;**样本 <60 个交易日(~2026-09 前)输出会明示不可靠,期间仍用外部源手查 + 标注**。Q-D 从"经验阈值粗判"过渡到真百分位
 
 ### 8.1 STOCK_D 6/5 worked example(真实输出)
 ```
@@ -181,19 +181,19 @@ Q-D vol  : IV 88% = 高 → SPREAD / 等 IV 降;别买 naked
 3. **三方向 EV 不对称**:抄底/买跌 = Iron Rule #2A(最多 1 次,接飞刀风险);追涨 = #2B(higher-low + 递减)。技术上"分批>all-in"三向都成立,但方向风险天差地别。
 
 ### TODO(让系统更完整)
-- [x] 逐日 log 各持仓标的 IV(2026-06-11 上线,每日任务;60 样本后 Q-D 用真百分位)
-- [x] VIX 自动取数源 → FRED keyless(regime_score 已接)
+- [x] 逐日 log 各持仓标的 IV → `quant/data/iv_logger.py`(2026-06-11 上线,overnight 任务每日跑;60 样本后 Q-D 用真百分位)
+- [x] VIX 自动取数源 → FRED keyless(`lib/macro_fetch.py`,regime_score 已接)
 - [ ] regime_score 接入 heartbeat / pre-trade,异动日自动跑
 
 ---
 
 ## Cross-refs
-- `.claude/rules/trading-discipline.md`(Pre-Trade Quick Check + Iron Rule #2A/#2B + Post-Trade Rubric)
-- `.claude/rules/macro-context-check.md`(Q-A 的规则化前身)
-- `trade/us_stock/strategy/bayesian-decision-model.md`(决策层)
-- `trade/us_stock/strategy/kelly-position-sizing.md`(本系统给 ladder 节奏,Kelly 给**单档 size 上限** = 分数凯利;每档 size = MIN(Kelly, concentration, 本档预算))
-- `trade/us_stock/strategy/endogenous-market-model.md`(§4 跌不动/右尾 = Q-C 的市场结构解释;washout = 共识溢价压缩,别 panic-sell)
-- `trade/us_stock/strategy/bottom-confirmation-signals.md`(Q-C 信号定义)
-- `scripts/technical.py`(指标库) · `scripts/regime_score.py`(本系统的 CLI) · `scripts/kelly_size.py`(size 上限) · `scripts/chain_layers.py`(同层冗余 → 联合 Kelly)
-- memory: `feedback_uncertainty_execution_system` · `feedback_bayesian_decision_model` · `feedback_embrace_uncertainty`
-- journal 源案例: `holding/journals/options_journal.md` 2026-06-05 STOCK_D
+- [[trading-discipline]](Pre-Trade Quick Check + Iron Rule #2A/#2B + Post-Trade Rubric)
+- [[macro-context-check]](Q-A 的规则化前身)
+- [[bayesian-decision-model]](决策层)
+- [[kelly-position-sizing]](本系统给 ladder 节奏,Kelly 给**单档 size 上限** = 分数凯利;每档 size = MIN(Kelly, concentration, 本档预算))
+- [[endogenous-market-model]](§4 跌不动/右尾 = Q-C 的市场结构解释;washout = 共识溢价压缩,别 panic-sell)
+- [[bottom-confirmation-signals]](Q-C 信号定义)
+- `quant/core/technical.py`(指标库) · `quant/decision/regime_score.py`(本系统的 CLI) · `quant/risk/kelly_size.py`(size 上限) · `quant/risk/chain_layers.py`(同层冗余 → 联合 Kelly)
+- memory: `decision_models.md` §1-2 · `philosophy_core.md`
+- journal 源案例: 期权日志 2026-06-05 STOCK_D

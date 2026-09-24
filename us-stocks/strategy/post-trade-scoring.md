@@ -8,10 +8,12 @@ aliases:
   - 事后评分准则
   - Process over Outcome
 ---
-
 # Post-Trade Scoring Rubric（事后评分准则）
 
-> Canonical（2026-06-11 自行为触发层迁入 strategy）。评分应同时落结构化文件（不要 prose-only），统计用绩效报告的 Process × Outcome 矩阵 + D 级赢单检测。
+> Canonical（2026-06-11 自 [[trading-discipline]] 迁入，内容不变）。
+> 触发条件 + 评分矩阵的速查版保留在 [[trading-discipline]]；本文件是完整准则。
+> **结构化落库**：每个评分写 `journals/scores.jsonl`（`quant/journal/annotate_event.py --score`），
+> 统计看 `quant/report/perf_report.py` 的 Process × Outcome 矩阵 + D 级赢单检测。
 
 > 所有交易事后复盘**必须**用 process 维度评分，不用结果维度。
 
@@ -63,14 +65,14 @@ aliases:
 两者都是放弃 process 换 dopamine。**唯一的解 = 不论哪次成功，都坚持 process 复盘**（即使是 A 级，也要写下"为什么 process 通过"以确认 reusable）。
 
 ## 源案例（process ≠ outcome 的实证）
-- **2026-06-05 STOCK_D reactive add = D**：恰落 zone2 = 运气位置非计划触发；若最终盈利 = variance 非 skill
-- **2026-06-10 STOCK_IN 末日 put = D**：buy-put≠reduce-risk 结构性错误 + reactive 付峰值 IV
-- **2026-06-01 STOCK_S 清仓 = A（后 +34%）**：process 对 + variance 坏，下次仍这么卖
-- **2026-06 STOCK_RK = B**：指数纳入类事件 bounce（短期 OTM call，−$1,200）；纳入日 sell-the-news 破 stop，纪律平仓 = exit 对，但 entry edge 薄（事件型 catalyst sell-the-news 是已知 front-run 模式）→ 整笔 B 非 A（exit≠整笔，见 anti-pattern #5）
-- **2026-06 STOCK_AX = B**：超跌博反弹 probe（短期 OTM call，−$740）；次日无反弹即止损 = exit 对，但 entry 接飞刀（当日大跌中买 ~26% OTM）+ 深 OTM 短期 call 差 vehicle → 整笔 B
+- **2026-06-05 STOCK_D Jan27 $60C reactive add = D**：恰落 zone2 = 运气位置非计划触发；若最终盈利 = variance 非 skill（options_journal 6/5）
+- **2026-06-10 STOCK_IN 末日 put = D**：buy-put≠reduce-risk 结构性错误 + reactive 付峰值 IV（options_journal 6/10）
+- **2026-06-01 STOCK_S 清仓 = A（后 +34%）**：process 对 + variance 坏，下次仍这么卖（trade_journal 6/3）
+- **2026-06-22 STOCK_RK 0918 120C = B**：指数纳入 inclusion-bounce sell-the-news（−$1,200）；6/22 破 $100 stop 纪律平仓 = exit 对，但 entry edge 薄（指数纳入 sell-the-news 是已知模式）→ 整笔 B 非 A（exit≠整笔，见 anti-pattern #5；options_journal 6/24）
+- **2026-06-24 STOCK_AX 0918 100C = B**：超跌博反弹 probe（−$740）；次日无反弹即止损 = exit 对，但 entry 接飞刀（现货 ~$79 买 $100 call ≈ 26% OTM）+ 深 OTM 短期 call 差 vehicle → 整笔 B（options_journal 6/24）
 
 ## 引用根基原则
-**Rule foundation**: 交易哲学核心（"后悔无价值，复盘有价值"）+ [[bayesian-decision-model|Bayesian 决策模型]] 铁律 #6（process > outcome）。
+**Rule foundation**: `philosophy_core.md`（memory）+ `trading_lessons.md` 顶部 "Foundational Principle" + [[bayesian-decision-model]] 铁律 #6（process > outcome）。
 
 ---
 > 📍 **Navigation**

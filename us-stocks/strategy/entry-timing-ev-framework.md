@@ -38,12 +38,12 @@
 | 错 | 好 | **D（最危险，reinforce 错习惯）** |
 | 错 | 坏 | C（提取教训）|
 
-**详见**: `feedback_discipline_perfect_vs_actual_perfect.md`（根基级原则）
+**详见**: memory `philosophy_core.md`（根基级原则）
 
 ---
 
 不适用场景：
-- 无近端 catalyst 的纯位置建设 → 用 ladder framework（参考 `feedback_greedy_bid_trap.md`）
+- 无近端 catalyst 的纯位置建设 → 用 ladder framework（参考 memory `entry_execution.md` §greedy-bid）
 - Parabolic 末段（已是减仓区不是入场区）
 - 短 DTE options（theta 主导，另套数学）
 
@@ -65,9 +65,9 @@
 
 Binary catalyst 入场前必跑。Anchor 选择因 use case 不同而不同。
 
-> **历史校准数据源（2026-06-11 起可用）**：broker API 的 earnings-price-move 接口
+> **历史校准数据源（2026-06-11 起可用）**：`get_financials_earnings_price_move.py`（openapi skill）
 > 直接返回标的历次财报前后 ±N 日 OHLC——implied move 预测 vs 实际反应的回测数据不再手工拼 K 线。
-> 每次跑完 Step 0-5 把 worksheet 落决策日志（校准曲线随数据自动出现）。
+> 每次跑完 Step 0-5 把 worksheet 用 `quant/journal/decision_log.py` 落库（`analytics/calibration.py` 出校准曲线）。
 
 ### Step 0a — Implied move @ 决策时刻（pre-earnings entry decision）
 
@@ -139,7 +139,7 @@ implied move > 15% → -50% size or skip
 ### Anti-pattern
 
 ❌ **"等股价跌了再赌财报" 作 entry gate**
-- 这是 perfect-price-trap 的财报特化版（参考 `feedback_wait_for_pullback.md`）
+- 这是 perfect-price-trap 的财报特化版（参考 memory `entry_execution.md` §wait-for-pullback）
 - Drop 是 sizing 信息（drop quality diagnostic 后），不是 binary entry filter
 - 选择性偏差：跳过"没跌但 thesis 强 + 财报 beat"的有效入场（如 STOCK_Z 5/6 if Q1 had cleanly beat）
 - Hindsight 错误：pre-earnings 你不知道"thesis intact"，only confirmed post-fact
@@ -158,7 +158,7 @@ implied move > 15% → -50% size or skip
 
 ### 工具
 
-`scripts/implied_move.py {ticker} [{anchor_close_date}]` — 自动拉 ATM straddle + 计算 bounds + Stop/Strike/Size 检查。
+`quant/options/implied_move.py {ticker} [{anchor_close_date}]` — 自动拉 ATM straddle + 计算 bounds + Stop/Strike/Size 检查。
 
 ---
 
@@ -237,7 +237,7 @@ target_option = current_option - (current_underlying - target_underlying) × Δ
 |------|------|------|
 | **P_fill** | 目标限价被打到的概率 | Step 2 计算 |
 | **D_over** | 现价 - 目标价（确定的"被套"成本） | $/share × 100 (option) 或 × qty (stock) |
-| **D_chase** | 踏空后被迫追的估价 - 目标价 | catalyst 期望 gap × Δ × 衰减系数（**默认 0.9**——worked example 取值沉淀为标准默认；beat 场景概率混合默认 60/40。可按标的历史调整但必须写明取值，2026-06-11 量化默认） |
+| **D_chase** | 踏空后被迫追的估价 - 目标价 | catalyst 期望 gap × Δ × 衰减系数（**默认 0.9**——5/6 STOCK_Z worked example 取值，沉淀为标准默认；beat 场景概率混合默认 60/40。两者均可按标的历史调整但必须写明取值，2026-06-11 量化默认，原"框架最大 EV 输入仍靠直觉"缺口关闭） |
 | **P_right** | Thesis 概率 | **不进决策公式**（两边都乘 P_right 抵消）；仅做 sanity gate — 若 < 50% 根本不该入场 |
 
 ### 公式
@@ -365,11 +365,11 @@ Q1: 48h 内有 binary catalyst？
 
 ## Cross-references
 
-- `trade/us_stock/strategy/strike-triangulation.md` — 姊妹方法论（解决 strike 选择，本文件解决 entry timing）
-- `feedback_wait_for_pullback.md` — 等回调 trap 的定性描述（本框架是其量化补充）
-- `feedback_greedy_bid_trap.md` — 单档深跌挂单 anti-pattern
-- `feedback_iv_adjacent_pairing.md` — 高 IV 名字的策略选择（与本框架并行考虑）
-- `.claude/rules/trading-discipline.md` — Rule #14 perfect-price trap（本框架 Q4 的等价表述）
+- [[strike-triangulation]] — 姊妹方法论（解决 strike 选择，本文件解决 entry timing）
+- memory `entry_execution.md` §wait-for-pullback — 等回调 trap 的定性描述（本框架是其量化补充）
+- memory `entry_execution.md` §greedy-bid — 单档深跌挂单 anti-pattern
+- memory `options_vehicle_selection.md` §IV-pairing — 高 IV 名字的策略选择（与本框架并行考虑）
+- [[trading-discipline]] — Rule #14 perfect-price trap（本框架 Q4 的等价表述）
 
 ---
 

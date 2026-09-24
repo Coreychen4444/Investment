@@ -7,7 +7,6 @@ aliases:
   - Options Framework
   - 期权交易框架
 ---
-
 # 期权交易框架 v1
 
 ## 一、核心理念
@@ -263,9 +262,9 @@ accumulation zone1 上沿（锁住 zone 以上的利润）
 #### ⚠️ 误用边界（buy-put ≠ reduce-risk）
 Protective Put 的前提是**被保护的仓位有"无底下行"**：正股（可跌到 $0）或 DITM long call 当 stock-replacement（大量 intrinsic 要护）。**不要用 put 去"保护"一个下行已封顶的 long call / spread** —— 它的 max loss 已经 = premium，封死了；再买 put = 给已上保险的东西重复买保险，净效果是一对方向相反、久期错配的 long 腿 = 错配 strangle = 赌大波动（且两腿都付被事件抬高的 IV）。
 - 想"降事件风险" → 默认 **trim**（做减法：直接减 delta + 减 vega），不是买 long put 腿（做加法）。
-- 真要对冲整个组合过事件 → trim 最大浮盈 winner 或买板块 ETF（如半导体 ETF）put，**别用单一低-beta 票的末日 put**（金额是零头 + beta 错配）。
-- reactive（板块刚砸完才想买保护）= 付峰值 put IV，按 process > outcome 评为流程错误。
-- 源案例：某低-beta 半导体票无正股，却买末日 put "保护" 一张 long call —— 下行本已封顶，该 put 实为反方向的赌注，非对冲。
+- 真要对冲整个 book 过事件 → trim 最大浮盈 winner 或买板块 ETF（SMH）put，**别用单一低-beta 票的末日 put**（金额是零头 + beta 错配）。
+- reactive（板块刚砸完才想买保护）= 付峰值 put IV，flag 为 process D。
+- 源案例：2026-06-10 STOCK_IN 末日 put（无正股却买 put "保护" Jan $120C）—— 见 期权日志 2026-06-10 + memory `position_management.md` §buy-put≠reduce-risk。
 
 ---
 
@@ -411,7 +410,7 @@ Phase 2: Sell Covered Call（strike = trim zone）
 
 ### Strike 选择基础原则（必读）
 
-**Zone 是 baseline，不是终点**。任何 strike 决定必须做 4 信号三角验证（详见 `../strike-triangulation.md`）：
+**Zone 是 baseline，不是终点**。任何 strike 决定必须做 4 信号三角验证（详见 [[strike-triangulation]]）：
 1. Zone 框架（baseline）
 2. Volume profile（近 25 日）
 3. Option OI cluster（机构定位）
@@ -425,9 +424,16 @@ Phase 2: Sell Covered Call（strike = trim zone）
 **IV-Adjacent Strategy Pairing（关键决策原则 — 全系统 canonical IV 闸门表）**：
 
 > 2026-06-11 统一：此表是 IV percentile 阈值的**唯一真源**。其他文档（leaps-call-template /
-> capital-deployment 等）引用本表，不再各自定数。tilt 非硬 veto。
-> ⚠️ 数据源：IV percentile 需要 IV 历史（每日记录自建，攒满 60 天前先用外部数据手查 + 标注来源）；
-> spot IV 不是 percentile，别混用。
+> capital-deployment / uncertainty Q-D / discipline）引用本表，不再各自定数。
+> tilt 非硬 veto（memory `options_vehicle_selection.md` §IV-pairing）。
+> **2026-09-02 例外（用户 裁「硬门槛」，canonical [[2026-09-02-long-call-entry-directive]]）**：
+> 单腿 long call 的**入场** IV 门是硬的——percentile <40（≥60 样本可信）/ 序列不足时 **HV20 的 252 日分位代理**
+> （2026-09-11 用户「要看 IVP 不同标的 IV 绝对值本身就不一样」，阈值同为 <40，`core/book.hv20_percentile_of`）/
+> 两个分位都没有才退绝对 ATM IV <50% 兜底 / 无数据不放行（`quant/core/sizing.long_call_iv_gate`，option_plan 与 entry_guard 同读）。本表对
+> long call 只剩情报分档意义，4 条 override 对 long call 不再是通道；依据 = 见底点恰是 IV 峰值
+> （STOCK_Z gate1 149%→gate2 112%），long call 在那里付的是最贵的 vega。
+> ⚠️ 数据源：IV percentile 需要 IV 历史。`quant/data/iv_logger.py` 每日落 `market/iv_history/`，
+> 攒满 60 天前先用 Barchart 等手查 + 标注来源；spot IV 不是 percentile，别混用。
 
 | IV percentile | 闸门 | 反例（应避免） |
 |--------------|-----|--------------|
@@ -435,10 +441,10 @@ Phase 2: Sell Covered Call（strike = trim zone）
 | 30-60% | 中性，按 conviction 选 vehicle | — |
 | **≥ 60%** | **偏 sell premium**（capital-deployment 触发线）；long premium 默认不入，**除非 4 条 override 全满足**：① parabolic AI 名 ② uncapped catalyst chain ③ LEAPS 级 DTE ④ size 减档 | naked long call/put 付 vega 税 |
 | **≥ 70%** | **强 sell-premium tilt**（credit spread, sell put/call）；long premium 仅 4 条 override + 偏 DITM 低 strike（多拿 intrinsic 少付 extrinsic） | ATM/OTM long = 双重支付（方向 + vega 税） |
-| **≥ 80%** | 极端：**禁 naked long**；卖方也要压测 tail | — |
+| **≥ 80%** | 极端：**禁 naked long**（uncertainty Q-D）；卖方也要压测 tail | — |
 
 逻辑：方向观点可通过相反 vehicle 表达。在 IV 极端，**vehicle 选择比方向更重要**。
-Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 条 override + DITM 倾斜入场。
+Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 条 override + DITM 倾斜入场（见 options_journal）。
 
 源案例（2026-04-30 STOCK_Y）：
 - Thesis：STOCK_Y 长期看涨 ($800 by 年底)
@@ -490,7 +496,7 @@ Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 �
 | Covered call | 已持有的 100 股 | 不额外占资金 |
 
 ### 与正股合并计算
-- **同一 thesis 的正股 + 期权 entry 合并受 Iron Rule #2 v2 管理**（averaging down 全 thesis 合计最多 1 次；pyramiding up 按纪律开放 — higher low + size 递减）
+- **同一 thesis 的正股 + 期权 entry 合并受 Iron Rule #2 v2 管理**（averaging down 全 thesis 合计最多 1 次；pyramiding up 按纪律开放 — higher low + size 递减；canonical 见 [[trading-discipline]]）
 - 卖 put = 条件性 entry，按方向计入
 - Long call 不算 entry（不增加持仓），但算 exposure
 - Spread 的 max loss 计入该 ticker 的总风险暴露
@@ -504,14 +510,14 @@ Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 �
 
 ## 八、期权 Pre-Trade Checklist
 
-每笔期权交易前过一遍（与 `pre-trade-checklist.md` 配合使用）：
+每笔期权交易前过一遍（与 [[pre-trade-checklist]] 配合使用）：
 
 ### 通用检查（所有期权策略）
 - [ ] **分类**：Confirmed / Probe / Early-risky？
 - [ ] **策略匹配**：这个意图用什么策略最合适？（查决策树）
 - [ ] **Max loss 可接受吗？** 这笔全亏你不影响心态？
 - [ ] **Expiry 覆盖催化剂吗？** 有足够时间窗口？
-- [ ] **IV 水平**：查 IV percentile 对照 §六闸门表（<30 买方友好 / ≥60 默认 sell premium）；样本不足时外部源手查 + 标注，不拿 spot IV 当 percentile
+- [ ] **IV 水平**：跑 `quant/data/iv_logger.py --percentile <T>` 对照 §六闸门表（<30 买方友好 / ≥60 默认 sell premium）；样本不足时外部源手查 + 标注，不拿 spot IV 当 percentile
 - [ ] **流动性**：bid-ask spread < 10%？OI > 100？太差不做
 - [ ] **事件检查**：窗口内有 earnings / FOMC / CPI 吗？
 - [ ] **与正股 entry 合并计算**：算上这笔，这是 averaging down（限 1 次）还是 pyramiding up（size 递减）？（Iron Rule #2 v2）
@@ -524,7 +530,7 @@ Override 实战史：STOCK_X LEAPS @ IV 71%、STOCK_Z LEAPS @ IV 132% 均走 4 �
 
 ### Sell Put 专项评分（4 项计分 + 1 硬 veto）
 
-Canonical：`sell-put-rules.md`（2026-06-11 统一——旧版 max 8 / max 10 两套并存已废）。
+Canonical：[[sell-put-rules]]（2026-06-11 统一——旧版 max 8 / max 10 两套并存已废）。
 
 | 计分项 | 2分 | 1分 | 0分 |
 |------|-----|-----|-----|
@@ -548,7 +554,7 @@ Canonical：`sell-put-rules.md`（2026-06-11 统一——旧版 max 8 / max 10 �
 | 被 assign 后恐慌 | 卖 put 被 assign 不在计划内 | 卖之前就想好：被 assign = 在 zone 内建仓 |
 | 期权当正股补仓 | 正股亏了想用 long call "翻本" | 这是 revenge trading，禁止 |
 | buy-put 当"减风险" | 想降仓位风险却去买 long put 腿（尤其 hedge 一个下行已封顶的 long call/spread） | 减风险 = trim（做减法）；put 只对无底下行（正股/DITM）有意义。见 §6 Protective Put 误用边界 |
-| reactive 砸完买保险 | 板块刚暴跌 → 害怕 → 买 put/加仓 | 付峰值 IV，按 process > outcome 评为流程错误；先确认"原来的 plan 是什么"再动 |
+| reactive 砸完买保险 | 板块刚暴跌 → 害怕 → 买 put/加仓 | 付峰值 IV + process D；先问"原来的 plan 是什么"再动（memory `position_management.md` §buy-put≠reduce-risk） |
 | 不计 max loss 就开仓 | "spread 只花 $200 嘛" | $200 是成本，max loss 可能是 $500。算清楚 |
 | 到期前不管 | 忘记期权要到期 | 到期前 3-5 天必须决策：平仓 / roll / 让到期 |
 
@@ -604,17 +610,17 @@ section 3 的精化。**有明确目标价的限定上涨** thesis 用此模板�
 | 5 | R:R ≥ 2.0× | 低于 2× edge 太薄（STOCK_Y 拿到 2.26×） |
 | 6 | 突破 + 回踩确认后入 | 避开 FOMO 顶 |
 
-⚠️ **封顶 caveat（2026-05-31）**：本模板只适用于**有明确目标价的限定上涨**。在"高确定性 + uncapped re-rating"（如 STOCK_Y $500→$580）上，short leg 封顶 = 真机会成本（少赚 ~$9k）；此时 naked long（认 IV/theta + probe size）可优于 spread。判断走 `../bayesian-decision-model.md` + 确定性 decomposition（`leaps-call-template.md` §11.4）。
+⚠️ **封顶 caveat（2026-05-31）**：本模板只适用于**有明确目标价的限定上涨**。在"高确定性 + uncapped re-rating"（如 STOCK_Y $500→$580）上，short leg 封顶 = 真机会成本（少赚 ~$9k）；此时 naked long（认 IV/theta + probe size）可优于 spread。判断走 [[bayesian-decision-model]] + 确定性 decomposition（[[leaps-call-template]] §11.4）。
 
 ## 相关文件
 
-- `trading-rules.md` — 核心交易规则（master）
-- `pre-trade-checklist.md` — 交易前完整检查清单（期权 checklist 配合使用）
-- `sell-put-rules.md` — 卖 put 纪律（已纳入本框架 5 问评分）
-- `leaps-call-template.md` — LEAPS Call 操作手册（DTE 365+，Long Call 的特殊变种）
-- `greeks-discipline.md` — Greeks 操作规则 G-01/G-02/G-03
-- `two-stage-entry-rules.md` — 两段式建仓（期权中 Long Call = 第一段 probe）
-- `event-risk-reduction-principle.md` — 事件前减仓（Protective Put 为替代方案）
+- [[trading-rules]] — 核心交易规则（master）
+- [[pre-trade-checklist]] — 交易前完整检查清单（期权 checklist 配合使用）
+- [[sell-put-rules]] — 卖 put 纪律（已纳入本框架 5 问评分）
+- [[leaps-call-template]] — LEAPS Call 操作手册（DTE 365+，Long Call 的特殊变种）
+- [[greeks-discipline]] — Greeks 操作规则 G-01/G-02/G-03
+- [[two-stage-entry-rules]] — 两段式建仓（期权中 Long Call = 第一段 probe）
+- [[event-risk-reduction-principle]] — 事件前减仓（Protective Put 为替代方案）
 - `state/positions.json` (`tickers["<T>"].agent.zones`) / `state/watchlist.json` — Zone 数据（Strike 选择的直接参考）
 
 ---

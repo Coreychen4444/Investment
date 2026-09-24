@@ -61,7 +61,13 @@ aliases:
 **提炼的规则**：
 1. 每笔买入必须有文档化的 thesis（为什么现在？需求/估值/催化剂？）
 2. FOMO/"便宜"的感觉 → 暂停 24 小时再决策
-3. 如果说不清这笔是 Confirmed/Probe/Early，就不要动
+3. 如果说不清这笔的授权状态（结构修复了吗？regime cap 给了吗？爬到第几个 gate？），就不要动
+   _（2026-08-13 起 Confirmed/Probe/Early 分类轴退役，改由结构修复 + 二值 cap + gate 档位回答「能不能做、做多大」，见 [[position-tiers|仓位分层与 sizing]]）_
+
+## 🔗 在实盘系统中
+- 座右铭与第零问：「宁可错过，不可失序」——这笔不在今天的节奏里，答案就是错过。见 [[trading-discipline|交易纪律触发器]]
+- 心态的资格由结构授予，不由 conviction 授予：[[mindset-structure-pairing|心态×结构配对]]
+- process 与结果分开打分，process 错 + 结果好 = D：[[post-trade-scoring|事后评分准则]]
 
 ---
 > 📍 **Navigation**

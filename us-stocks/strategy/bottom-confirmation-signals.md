@@ -6,26 +6,25 @@ aliases:
   - Bottom Signals
   - 见底信号
 ---
-
 # 技术性底部确认信号
 
 ## 核心逻辑
 > 底部不是"猜"出来的，是等信号共振后确认的。宁可错过前 10% 的涨幅，不在底部未稳时重仓。
 
-本文件定义加仓/建仓时的底部确认标准。与 two-stage-entry-rules.md 配合使用：
+本文件定义加仓/建仓时的底部确认标准。与 [[two-stage-entry-rules]] 配合使用：
 - 底部信号初现 → 价格仓（轻仓参与）
 - 底部信号共振确认 → 确认仓（加主仓）
 
 ## 数据源
-所有数据通过 Moomoo OpenD 获取（`.venv/moomoo/bin/python3`），底层共享 `common.py`：
-- **行情获取**：`scripts/market_data.py`（K 线、报价、快照、分时，可 import）
-- **技术指标 + 见底检测**：`scripts/technical.py`（RSI、MACD、布林带、量比、K 线形态、背离检测）
-- **持仓快照**：`scripts/stock_fetch.py`（持仓同步 + 报价刷新）
+所有数据通过 券商 券商网关 获取（`python3`），底层共享 `common.py`：
+- **行情获取**：`quant/data/market_data.py`（K 线、报价、快照、分时，可 import）
+- **技术指标 + 见底检测**：`quant/core/technical.py`（RSI、MACD、布林带、量比、K 线形态、背离检测）
+- **持仓快照**：`quant/sync/stock_fetch.py`（持仓同步 + 报价刷新）
 
 快速检测命令：
 ```bash
-.venv/moomoo/bin/python3 scripts/technical.py NVDA --signals-only
-.venv/moomoo/bin/python3 scripts/technical.py NVDA --json
+python3 quant/core/technical.py STOCK_A --signals-only
+python3 quant/core/technical.py STOCK_A --json
 ```
 
 不使用 WebSearch 获取价格或技术指标数据。
@@ -79,7 +78,7 @@ aliases:
 - 价格远低于 60 日均线（偏离 > 15%）→ 均值回归动力强
 - 回踩 60MA 附近（偏离 ±3% 内）= 关键观察位
 - 但偏离本身不是买入理由，需要配合止跌信号
-- 均线角色定义参考 `technical-indicators-framework.md`
+- 均线角色定义参考 [[technical-indicators-framework]]
 
 ---
 

@@ -60,13 +60,16 @@ aliases:
 当三种方法给出不同结论时：
 1. **三者一致** → 高置信度，可以行动
 2. **两者一致、一个偏离** → 分析偏离原因（是否有结构性变化？）
-3. **三者矛盾** → 信号不清晰，观望或仅做 probe size
+3. **三者矛盾** → 信号不清晰，观望或仅做小仓位试探
 
 > 估值永远是区间，不是精确值。用多种方法做**三角验证（triangulation）**，而非依赖单一数字。
 
 ## 📚 推荐书单 (Recommended Reading)
 - **《价值评估》 (Valuation)** - *McKinsey & Company*: 估值领域的“蓝皮书”，涵盖了从 DCF 到 ROIC 分析的详尽框架。
 - **《学会估值，轻松投资》 (The Little Book of Valuation)** - *Aswath Damodaran*: 纽约大学估值教授的实战指南，比麦肯锡的书更通俗易懂。
+
+## 🔗 在实盘系统中
+实盘系统里估值是**判断层，零交易授权**：DCF 与 EPS×PE 交叉验证、周期股看反向隐含而不看「公允价」，结论只写进卡片的 thesis 作 [FYI]，不改 cap、股数和退出线（入场授权只看价格结构）。写法见 [[fundamental-frame|基本面框架]]；利率如何穿过现金流与折现率传到估值见 [[rate-to-equity-transmission-framework|利率到估值传导框架]]。
 
 ---
 > 📍 **Navigation**

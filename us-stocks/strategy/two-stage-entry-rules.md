@@ -6,15 +6,15 @@ aliases:
   - Two-Stage Entry
   - 两段式建仓
 ---
-
 # 两段式建仓规则卡
 
 > **定位（2026-06-11 补）**：本卡是建仓执行的**哲学内核**（2026-03 形成，刻意保持简单）。
 > 后续执行栈都建在这两句之上，复杂场景查对应细化层：
-> 加仓节奏/资格 → `uncertainty-execution-system.md`（Q-A/B/C/D 三旋钮）；
-> binary catalyst 的"现在买 vs 等" → `entry-timing-ev-framework.md`；
-> zone 触碰日盘中判读（60m×日线，触碰方式 A/B/C 决定接法 + 确认 bar 量化）→ `zone-touch-confirmation.md`；
-> size 上限 → `kelly-position-sizing.md`。本卡与它们冲突时，以细化层为准。
+> 加仓节奏/资格 → [[uncertainty-execution-system]]（Q-A/B/C/D 三旋钮）；
+> binary catalyst 的"现在买 vs 等" → [[entry-timing-ev-framework]]；
+> parabolic 标的档位锚点 → trading-discipline 3 档 ladder；
+> zone 触碰日盘中判读（60m×日线，触碰方式 A/B/C 决定接法 + 确认 bar 量化）→ [[zone-touch-confirmation]]；
+> size 上限 → [[kelly-position-sizing]]。本卡与它们冲突时，以细化层为准。
 
 ## 核心原则
 > 轻仓买价格，重仓买确认。

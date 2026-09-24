@@ -8,12 +8,12 @@ aliases:
   - Consensus Premium
   - 共识溢价
 ---
-
 # 内生市场论 — 短期波动的结构驱动模型
 
 > **状态**：active · 建立 2026-06-08 · 源：《内生市场论》长文整合(篇 2)
-> **定位**：回答"**为什么这个事件能在这个时点引发这么大波动**"。与 `macro-context-check.md` 机械层互补 —— 那层建模**"开枪"(机械出清/负 gamma 下杀)**,本文建模**"上膛"(共识溢价 + 拥挤累积)**。
+> **定位**：回答"**为什么这个事件能在这个时点引发这么大波动**"。与 [[macro-context-check]] 机械层互补 —— 那层建模**"开枪"(机械出清/负 gamma 下杀)**,本文建模**"上膛"(共识溢价 + 拥挤累积)**。
 > **优先级**：这是**理解层**(市场为什么这么动),不是信号层。它改变你怎么**解读**波动,不直接生成买卖。**短期幅度看结构,中长期方向仍回基本面(P=EPS×PE)** —— 见 §7 边界。
+> **微观机制**：本文"结构决定短期路径"的 order-flow 落地(做市商 delta hedge → 正/负 gamma 减震器/放大器、call/put wall、gamma flip、OPEX)见 [[dealer-gamma-positioning]]。
 
 ---
 
@@ -88,15 +88,15 @@ VIX 反映**不确定性的 rate-of-change**,不是坏消息本身。地缘问�
 
 ## 6. 对 用户 的应用(能力圈护栏 + 旋钮 B)
 
-🚨 **你是 deliberate AI 共识多头,你整个 book 就是当下最强的共识交易之一。** 共识溢价对你 = **理解回撤暴力性 + 择时的透镜,不是暴露治理器,永不输出"减 AI / 分散出能力圈"**(接 `feedback_ai_circle_of_competence`)。
+🚨 **你是 deliberate AI 共识多头,你整个 book 就是当下最强的共识交易之一。** 共识溢价对你 = **理解回撤暴力性 + 择时的透镜,不是暴露治理器,永不输出"减 AI / 分散出能力圈"**(接 memory `partner_calibration.md` §AI-circle)。
 
 **三个合法用途(全部强化你现有风格,不引入 conservative bias)**:
 
 1. **强化持有**:你的 AI 名字会因 vol spike / RV unwind / 机械踩踏暴力回撤 → 那是**共识溢价层被砍,≠ EPS×PE thesis 坏**。**别在底部割肉**(割肉是多头最致命错)。接 bayesian 铁律 #2 + macro 机械层。
-2. **强化抄底**:暴力 washout = 溢价层"送的" +EV 加仓点(thesis intact 前提)。接 `uncertainty-execution-system.md`"宏观砸 + thesis intact → ladder"。
+2. **强化抄底**:暴力 washout = 溢价层"送的" +EV 加仓点(thesis intact 前提)。接 [[uncertainty-execution-system]]"宏观砸 + thesis intact → ladder"。
 3. **旋钮 B —— 单名 opt-in timing**:单只票走成**白银那种垂直主升**(价格大部分 = 共识溢价)→ 允许它作为**该名 trim / hedge 的 timing 触发**。约束:
    - **单名 + 板块内轮动 / 对冲,绝不减总 AI 敞口**
-   - 受 `position-tiers.md` 约束:**底仓锁死不动**,只动 core / trading 层 + 对冲层
+   - 受 [[position-tiers]] 约束:**底仓锁死不动**,只动 core / trading 层 + 对冲层
    - 须配合拥挤 6 信号(尤其信号 6:利好买不动)确认,不是凭"涨多了"直觉
 
 **硬禁止**:
@@ -118,24 +118,24 @@ VIX 反映**不确定性的 rate-of-change**,不是坏消息本身。地缘问�
 
 **判断口径**:**短期波动幅度 = 结构(仓位/拥挤/vol 传导);中长期趋势方向 = 基本面。** 别把趋势重估误判成错杀,别把真恶化误判成绝佳抄底。
 
-**镜像 `feedback_dont_distort_for_comfort`**:那条防"把真涨说成 meme 安慰自己";本条防"把真跌说成踩踏骗自己抄底"。同一诚实纪律的两个方向。
+**镜像 memory `partner_calibration.md` §don't-distort-for-comfort**:那条防"把真涨说成 meme 安慰自己";本条防"把真跌说成踩踏骗自己抄底"。同一诚实纪律的两个方向。
 
 ---
 
 ## 源案例
 
 - **文章三例**:白银(最强共识 = 最高溢价,垂直回落像 Warsh 新闻砸的,实为拥挤 + 多层杠杆出清)/ 韩国(存储叙事抛物线,共识自我强化最脆)/ **IGV-SMH**(IGV 暴跌 → VIX↑ → 大盘去杠杆 → 多 semi 空 SaaS 的 RV 拥挤仓被迫拆 → 空 IGV 回补反拉 IGV,非基本面改善)。
-- **你的源案例**:**STOCK_Z 4/21 Iran shooting star**(`macro-context-check.md` 源案例)= 内生市场论教科书 —— Iran 新闻 = 火柴,move = 结构 / macro 恐慌,盘后 truce 期货反弹。你已用此案例建了 macro-context;本文是它的**一般化**。
+- **你的源案例**:**STOCK_Z 4/21 Iran shooting star**([[macro-context-check]] 源案例)= 内生市场论教科书 —— Iran 新闻 = 火柴,move = 结构 / macro 恐慌,盘后 truce 期货反弹。你已用此案例建了 macro-context;本文是它的**一般化**。
 - **你的 6/6 负 gamma 整合** = 本文"开枪"半的 down-payment;本文补"上膛"半。
 
 ---
 
 ## Cross-refs
-- `macro-context-check.md` —— 机械 / flow 层 = 本文"开枪"半;本文补"上膛"(共识溢价/拥挤)半
-- `uncertainty-execution-system.md` —— Q-C 恐慌衰竭 / 右尾 = §4"跌不动"的执行层
-- `bayesian-decision-model.md` —— 共识溢价压缩 ≠ 移动 EPS×PE 后验(§6.1 接铁律 #2)
-- `zone-maintenance.md` —— parabolic 诊断 + 边际买家枯竭维度(§3 信号 6)
-- `feedback_dont_distort_for_comfort`(memory)—— §7 边界的镜像
+- [[macro-context-check]] —— 机械 / flow 层 = 本文"开枪"半;本文补"上膛"(共识溢价/拥挤)半
+- [[uncertainty-execution-system]] —— Q-C 恐慌衰竭 / 右尾 = §4"跌不动"的执行层
+- [[bayesian-decision-model]] —— 共识溢价压缩 ≠ 移动 EPS×PE 后验(§6.1 接铁律 #2)
+- [[zone-maintenance]] —— parabolic 诊断 + 边际买家枯竭维度(§3 信号 6)
+- `partner_calibration.md` §don't-distort(memory)—— §7 边界的镜像
 - P = EPS × PE —— §7 中长期方向锚
 
 ---

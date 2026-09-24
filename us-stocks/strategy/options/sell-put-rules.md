@@ -7,7 +7,6 @@ aliases:
   - Sell Put Rules
   - 卖 Put 纪律
 ---
-
 # 卖 Put 交易纪律卡
 
 ## 核心原则
@@ -98,7 +97,7 @@ aliases:
 - 平静期：2
 - 一般：1
 - 财报 / 周末 / 宏观风险密集：0
-- 补充触发（2026-05-05 高波动票 deep-OTM put 案例）：(DTE ≤ 21) AND (距 earnings ≤ 5 天) → 强制提前 BUY_BACK，不为残余 premium 承担 binary + IV 双暴露
+- 补充触发（2026-05-05 STOCK_Z P103 案例）：(DTE ≤ 21) AND (距 earnings ≤ 5 天) → 强制提前 BUY_BACK，不为残余 premium 承担 binary + IV 双暴露
 
 ### Intent
 - 真想接货：2
@@ -111,7 +110,7 @@ aliases:
 - 0-4：更像赌，不像纪律交易
 
 ### 第 5 问 = 硬 veto（不计分）
-**会不会抵消我刚做完的减仓 / 防守动作？** 是 → undoing defense，**直接否决，分数再高也不做**。
+**会不会抵消我刚做完的减仓 / 防守动作？** 是 → undoing defense，**直接否决，分数再高也不做**（[[trading-discipline]] § Undoing defense）。
 
 ---
 
@@ -130,7 +129,7 @@ aliases:
 
 ## 与期权框架的关系
 
-本文件为卖 put 单一策略的纪律卡。完整期权策略体系（包括 Bull Put Spread 替代方案、决策树、其他策略的对冲场景）详见 `options-strategy-framework.md`。
+本文件为卖 put 单一策略的纪律卡。完整期权策略体系（包括 Bull Put Spread 替代方案、决策树、其他策略的对冲场景）详见 [[options-strategy-framework]]。
 
 **框架规则：所有 sell put 默认应用 spread 形式（Bull Put Spread），除非 100% 确定想接货且仓位合理。**
 

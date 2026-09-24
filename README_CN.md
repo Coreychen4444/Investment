@@ -2,54 +2,57 @@
 
 [English Version](README.md)
 
-一套基于 [Obsidian](https://obsidian.md/) 构建的、以第一性原理驱动的投资决策框架。所有分析围绕股价本质公式展开：
+一套基于 [Obsidian](https://obsidian.md/) 构建的、以第一性原理驱动的投资框架，外加一个**真实运行中的美股交易系统**的脱敏镜像。知识框架围绕股价本质公式展开：
 
 $$P = EPS \times PE$$
 
 - **EPS（每股收益）**：企业基本面与内生增长（微观视角）
 - **PE（市盈率）**：市场预期与流动性（宏观 + 情绪）
 
+交易系统建立在另一个前提上：**入场授权只看价格结构；决策以概率为先；退出交给机械的钟。** 基本面、宏观、估值只提供先验，从不授予一笔交易。
+
+> **座右铭**：宁可错过，不可失序；失去节奏，终会成为市场的猎物。
+
 ## 体系结构
 
-知识库分为五大核心模块 + 两个实战工作区：
-
 ```
-00_Index/           → 中央控制台与导航
-10_Core_Logic/      → 第一性原理：戴维斯双击/双杀、EPS、PE、预期差
-20_Macro/           → 美联储政策、美债收益率、货币史、黄金
-30_Micro_Analysis/  → 护城河、波特五力、财务健康、科技指标
-40_Valuation/       → PE Band、DCF、相对估值、指标选择
-50_Psychology_Risk/ → 市场情绪、仓位管理、止损、退出策略
-60_Strategy/        → 板块 thesis 与年度投资计划（示例）
-us-stocks/          → 交易规则、执行纪律、行业知识、复盘
-polymarket/         → 预测市场（电竞赔率修复）交易框架
+00_Index/            → 中央控制台与导航
+10_Core_Logic/       → 第一性原理：戴维斯双击/双杀、EPS、PE、预期差
+20_Macro/            → 美联储政策、美债收益率、货币史、黄金
+30_Micro_Analysis/   → 护城河、波特五力、财务健康、科技指标
+40_Valuation/        → PE Band、DCF、相对估值、指标选择
+50_Psychology_Risk/  → 市场情绪、仓位管理、止损、退出策略
+60_Strategy/         → 板块 thesis 与年度投资计划（示例）
+us-stocks/           → 实盘交易系统（脱敏镜像）
+  ├─ system-overview.md   系统总览：一页看完整套系统
+  ├─ strategy/            方法论 canonical（含 options/、directives/、rules/）
+  ├─ methods/             宏观与基本面判断方法（零交易授权）
+  ├─ research/            预注册回测：采纳了什么、否掉了什么
+  ├─ reviews/             匿名化真实复盘
+  └─ knowledge/           主题长文
+polymarket/          → 已归档的模板工作区（不再维护）
 ```
 
 ## 核心亮点
 
-- **交易规则**：30 条规则 + 5 条铁律，从真实交易中提炼
-- **交易前 Checklist**：每笔交易前的系统化决策框架
-- **两段式建仓**："轻仓买价格，重仓买确认"
-- **期权框架**：分级策略指南，含 Greeks、Zone 集成、错误检测矩阵
-- **见底确认信号**：A/B/C 分级信号系统，用于加仓/建仓判断
-- **交易复盘**：匿名化的真实案例 — 最有价值的部分
-- **预测市场**：独立的电竞赔率修复交易框架
+- **系统总览**：分工四格（人选股 / 系统出入场清单 / 退出归系统的钟 / 人执行）、决策栈、sizing、退出栈、每日节奏，一页看完
+- **只做两种入场模式**：🔁 抄底（空头衰竭，止损 = 止跌低）与 🚀 趋势确认（gate 转移状态机），其他坚决不做
+- **卡片即状态机**：每只标的都有 zones、二值 regime cap {0, 40% NAV} 和下一个 gate；gate 是在市场反复做过决定的地方「被发现」的，不是被指定的
+- **六臂 sizing**：regime cap、gate 风险预算（2.5 / 4 / 5% NAV）、at-risk 上限、冲击预算、gross 上限、购买力，取最紧的一臂并且必须播报
+- **机械退出栈，没有 override**：卡片止损、利润棘轮、趋势死亡线、期权阶梯；「再看一天」试了三次、三次付费，已整条废止
+- **研究裁决账本**：预注册、常做样本外的回测；很多直觉（箱体突破更好、底部「更多证据」、更严的量能阈值）被数据否掉
+- **交易复盘**：匿名化真实案例；process 与结果分开打分（process 错 + 结果好 = D，最危险）
 
 ## 如何使用
 
 1. 用 [Obsidian](https://obsidian.md/) 打开，获得完整体验（双向链接、Mermaid 图表、LaTeX 公式）
-2. 从 `00_Index/Home.md` 开始 — 这是中央控制台
-3. 沿模块链接深入学习各维度
-4. 用 `us-stocks/holdings/current/_EXAMPLE_.md` 作为模板记录你自己的持仓笔记
-5. 交易前参考 `us-stocks/strategy/trading-rules.md`
+2. 知识框架从 `00_Index/Home.md` 开始；交易系统从 `us-stocks/system-overview.md` 开始
+3. 用 `us-stocks/holdings/current/_EXAMPLE_.md` 作为模板建你自己的标的卡
+4. 交易前参考 `us-stocks/strategy/trading-rules.md`（顶部 master index）
 
-## 自定义
+## 脱敏说明
 
-这是一个框架，不是教条：
-- `us-stocks/holdings/` — 用模板添加你自己的持仓笔记
-- `us-stocks/reviews/` — 记录你自己的交易复盘
-- `60_Strategy/` — 替换为你自己的板块 thesis 和年度计划
-- `polymarket/` — 可适配任何预测市场或另类资产
+ticker 一律替换为 `STOCK_*` 占位符；账户级金额删除或改写为比例；能指认公司的催化剂一律泛化。文中 `quant/...` 之类的名字指作者私有仓里的代码强制点，保留是为了说明规则在哪里被强制执行（「规则不进代码 = 不存在」）。
 
 ## 核心理念
 

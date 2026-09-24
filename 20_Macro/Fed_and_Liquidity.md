@@ -36,6 +36,9 @@ aliases:
 *   [[Gold_Logic|黄金逻辑]] - 为什么在法币时代持有"野蛮的遗迹"？
 *   [[USD_System|美元体系]] - 布雷顿森林体系的瓦解与石油美元霸权。
 
+## 🔗 在实盘系统中
+宏观在实盘系统里只提供**方向先验与风险环境**，不翻译成买卖、仓位或退出规则。推导方法：[[macro-inference-contract|宏观推导合同]]（现状 → 增量 → 冲击 → 传导 → 剩余风险）、[[macro-sensor-map|宏观观测选择]]、[[market-structure-analysis|市场结构分析]]；单日异动先做归因检查：[[macro-context-check|宏观归因检查]]。
+
 ## 📚 推荐书单 (Recommended Reading)
 - **《原则：应对变化中的世界秩序》 (Principles for Dealing with the Changing World Order)** - *Ray Dalio*: 理解长期债务周期与大国博弈背后的宏观规律。
 - **《索罗斯的金融炼金术》 (The Alchemy of Finance)** - *George Soros*: 理解“反身性”理论与市场泡沫的形成机制。

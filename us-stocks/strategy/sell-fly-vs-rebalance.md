@@ -8,10 +8,10 @@ aliases:
   - 卖飞与再平衡
   - 卖飞判别框架
 ---
-
 # Sell飞 vs Rebalance Framing（卖飞与再平衡的判别框架）
 
-> Canonical（2026-06-11 自行为触发层迁入 strategy）。
+> Canonical（2026-06-11 自 [[trading-discipline]] 迁入，内容不变）。
+> 触发条件与响应见 [[trading-discipline]]（行为层只留指针）。
 
 Applied when: 评估"卖在 X，现在涨到 Y，少赚 Z%"的场景。
 
@@ -42,16 +42,16 @@ Applied when: 评估"卖在 X，现在涨到 Y，少赚 Z%"的场景。
 - ✓ 现金真闲置 = sell飞（罕见情况，多数是 rebalance）
 
 ## 源案例
-**2026-04-09 STOCK_N 高位卖出**:
-- 误读："卖在高位 X，之后涨到 X+28%，少赚一截"
-- 实际：套现资金 → 加仓 STOCK_Y + STOCK_Z → 同期分别涨 47% / 72%
-- redirected 同期收益显著超过被卖标的同期涨幅
-- **结论**：rebalance 跑赢，不是 sell飞，是成功 reallocation
+**2026-04-09 STOCK_N $830 卖出**:
+- 误读："卖在 $830，现在 $1,064，少赚 $560"
+- 实际：$1,720 套现 → 加仓 STOCK_Y $358 + STOCK_Z $90 → STOCK_Y 涨 47% / STOCK_Z 涨 72%
+- $1,720 redirected → 同期收益 ~$1,000+ vs STOCK_N 同期 $560 涨幅
+- **结论**：rebalance 跑赢 STOCK_N，不是 sell飞，是成功 reallocation
 
-**2026-06-01 STOCK_S 清仓（rotation 后次日 +34%）**:
-- 资金当日 redirect 到 STOCK_D（次日 +7.6%）；catalyst（战略合作公告）除内幕外不可预测
-- 真账 = redirected capital vs 被卖标的同期，不是孤立盯一只
-- **结论**：process A 级 rebalance；+34% 是 variance 非失误；后悔 ROI=0
+**2026-06-01 STOCK_S（海外市场）清仓（rotation 后 6/2 +34%）**:
+- 资金当日 redirect 到 STOCK_D（6/2 +7.6%）；catalyst（战略合作公告）除内幕外不可预测
+- 真账 = redirected capital vs STOCK_S 同期，不是孤立盯 STOCK_S
+- **结论**：process A 级 rebalance；+34% 是 variance 非失误；后悔 ROI=0（见 trade_journal 2026-06-03 完整复盘）
 
 ---
 > 📍 **Navigation**

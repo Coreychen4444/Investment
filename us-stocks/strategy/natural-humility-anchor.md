@@ -8,10 +8,10 @@ aliases:
   - 自然谦逊锚
   - 深亏持仓规则
 ---
-
 # Natural Humility Anchor（自然谦逊锚）
 
-> Canonical（2026-06-11 自行为触发层迁入 strategy）。
+> Canonical（2026-06-11 自 [[trading-discipline]] 迁入，内容不变）。
+> 触发条件与响应见 [[trading-discipline]]（行为层只留指针）。
 
 Applied when: 评估是否要主动止损一个深亏 position（亏损 ≥ 30% from cost basis）。
 
@@ -37,14 +37,14 @@ Applied when: 评估是否要主动止损一个深亏 position（亏损 ≥ 30% 
 3. **Options 三档 DTE 处理**：
    - DTE > 60 OR LEAPS → 标准 anchor handling
    - DTE 21-60 + OTM + bid < $0.10 → force close（marginal psych value < friction）
-   - DTE ≤ 21 + OTM → force close（gamma 加速区独立规则；复核窗口与 G-02 的 DTE<30 监测衔接，见 `options/greeks-discipline.md`）
+   - DTE ≤ 21 + OTM → force close（gamma 加速区独立规则；复核窗口与 G-02 的 DTE<30 监测衔接，见 [[greeks-discipline]]）
    - DTE ≤ 7 任何状态 → force close
 4. **Stocks**：无 time-based 强制；只看 thesis 和 5% cap
 5. **Position 价值 → 0** — 留着的 marginal psych value < transaction friction
 
 ## 防 creep 红线
 1. ❌ **不能 retro-label** — 不能因为某 position 跌深了"宣布"它是 anchor。Anchor 是 result（自然形成），不是 designation（事后宣布）
-2. ❌ **不能用 anchor 价值 justify 任何买入 / 加仓**（含相关标的：anchor 某票 ≠ permission to buy 其杠杆 ETF）
+2. ❌ **不能用 anchor 价值 justify 任何买入 / 加仓**（含相关标的：anchor STOCK_R ≠ permission to buy 对应杠杆 ETF）
 3. ❌ **不豁免 Iron Rule #2A** — averaging down 限制照常生效
 4. ❌ **不能 roll options 给 anchor "续命"** — 到期 expire 或 force close，不延期
 5. ❌ **同时 ≥ 3 个 anchors = 警讯** — 提示账户风格在恶化（不是单纯 anchor 问题），需主动 reduce
@@ -53,13 +53,13 @@ Applied when: 评估是否要主动止损一个深亏 position（亏损 ≥ 30% 
 Iron Rule #2A、G-02、thesis invalidation 都是 **higher priority** than anchor framework。Anchor 不创建任何这些规则的例外。
 
 ## 源案例
-**2026-04-30 STOCK_R 深 OTM call**：
+**2026-04-30 STOCK_R 20C 6/18**：
 - 持仓 10 张 @ cost basis $0.86 = $860
-- Status: -66%, DTE 49, deep OTM，thesis intact
-- 4-check：loss ≥ 30% ✓ / thesis intact ✓ / 持有 ≥ 24h ✓ / cost basis 在 5% cap 内
+- Status: -66%, DTE 49, underlying STOCK_R $11.42 vs strike $20（deep OTM），thesis intact
+- 4-check：loss ≥ 30% ✓ / thesis intact ✓ / 持有 ≥ 24h（8 天）✓ / cost basis 在 5% cap 内
 - 决策：符合 natural humility anchor，可 hold
-- 后续：按 force-close 规则于 DTE 收窄后平仓 @ $0.08，realized -$780
-- 禁止：用该 anchor 身份 justify 加仓同票或买对应杠杆 ETF
+- 后续：5/21 按 force-close 规则平仓 @ $0.08，realized -$780（events ledger 有记录）
+- 禁止：用 STOCK_R anchor 身份 justify 加仓 STOCK_R 或买对应杠杆 ETF
 
 ---
 > 📍 **Navigation**

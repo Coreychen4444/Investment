@@ -8,7 +8,6 @@ aliases:
   - 60MA
   - 250MA
 ---
-
 # 技术指标操作框架
 
 Last updated: 2026-06-11（trim 侧阈值量化 + parabolic 适用边界）
@@ -16,12 +15,13 @@ Last updated: 2026-06-11（trim 侧阈值量化 + parabolic 适用边界）
 > **量能是裁判，均线是地图，RSI 是温度计；MACD 和布林带是备注，不是主角。**
 
 本文件定义技术指标的角色分工、权重层级和操作 SOP。覆盖建仓→加仓→减仓全周期。
-见底信号的量化评分参考 `bottom-confirmation-signals.md`。
+见底信号的量化评分参考 [[bottom-confirmation-signals]]。
 
 > ⚠️ **适用边界（2026-06-11 补）**：本 SOP 是 **normal-mode（均值回归）标的**的框架。
-> Parabolic-mode 标的（momentum diagnosis 全 YES）**不适用**——主升浪不回踩 60MA
-> （等回踩=结构性踏空），"偏离 60MA 过大"也不是它的减仓信号（6 个月 +150% 的标的常年偏离 >50%）。
-> Parabolic 标的的加减仓锚 = trailing 5d/10d high + 拥挤 6 信号（endogenous §3）。
+> Parabolic-mode 标的（zone-maintenance momentum diagnosis Q1-Q3 全 YES）**不适用**——
+> 主升浪不回踩 60MA（等回踩=结构性踏空），"偏离 60MA 过大"也不是它的减仓信号
+> （6 个月 +150% 的标的常年偏离 >50%）。Parabolic 标的的加减仓锚 = trailing 5d/10d high
+> （[[zone-maintenance]] parabolic anchor）+ 拥挤 6 信号（endogenous §3）。
 
 ---
 
@@ -78,7 +78,7 @@ Last updated: 2026-06-11（trim 侧阈值量化 + parabolic 适用边界）
 
 ### 第五步：分批建仓
 - 试仓 30% → 企稳确认 → 加至 60% → 趋势明确 → 加满
-- 配合 `two-stage-entry-rules.md`（轻仓买价格，重仓买确认）
+- 配合 [[two-stage-entry-rules]]（轻仓买价格，重仓买确认）
 
 ### 第六步：减仓执行（两段式；阈值 2026-06-11 量化——原"明显/过大"无法执行）
 - 第一减：RSI > 70 **且 偏离 60MA > +20%** → 减 1/3
@@ -100,10 +100,10 @@ Last updated: 2026-06-11（trim 侧阈值量化 + parabolic 适用边界）
 
 ## 五、与其他策略文件的关系
 
-- `bottom-confirmation-signals.md` — 见底信号评分（A/B/C），聚焦建仓时机判断
-- `two-stage-entry-rules.md` — 分批建仓执行纪律（试仓→确认仓）
-- `trading-rules.md` — 总规则，zone 检查、FOMO 防护、iron rules
-- `event-risk-reduction-principle.md` — 事件叠加时的减仓框架
+- [[bottom-confirmation-signals]] — 见底信号评分（A/B/C），聚焦建仓时机判断
+- [[two-stage-entry-rules]] — 分批建仓执行纪律（试仓→确认仓）
+- [[trading-rules]] — 总规则，zone 检查、FOMO 防护、iron rules
+- [[event-risk-reduction-principle]] — 事件叠加时的减仓框架
 
 本文件定义"技术面怎么看"，其他文件定义"看完之后怎么做"。
 
@@ -111,13 +111,13 @@ Last updated: 2026-06-11（trim 侧阈值量化 + parabolic 适用边界）
 
 ## 六、数据获取
 
-通过 OpenD 获取（`.venv/moomoo/bin/python3`）：
+通过 券商网关 获取（`python3`）：
 ```bash
 # 技术分析（RSI/MACD/布林/量比/MA偏离）
-.venv/moomoo/bin/python3 scripts/technical.py NVDA --json
+python3 quant/core/technical.py STOCK_A --json
 
 # 周线 K 线
-.venv/moomoo/bin/python3 scripts/market_data.py  # import get_kline(ticker, ktype="1w")
+python3 quant/data/market_data.py  # import get_kline(ticker, ktype="1w")
 ```
 
 ---

@@ -52,7 +52,7 @@ min_exit_qty = ⌈required_realized / (current_price × 100)⌉
 
 **Step 3 — 最坏情况书面验证**
 
-在 `trade/us_stock/holding/journals/options_journal.md` 当前 entry 写：
+在 期权日志 当前 entry 写：
 
 > "若剩余 (total_qty − min_exit_qty) 张归零，净 PnL = realized − cost_total = +$X (+Y%)"
 
@@ -186,13 +186,14 @@ _Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intrad
 - Delta 的等效股数转换（组合 beta 管理）
 
 ### 多腿组合操作规则（✅ 已落地——STOCK_Y 440/500 复盘完成）
-正文在 `options-strategy-framework.md` §11.1（多腿先识别组合再算合并 PnL + spread 76.7% max 早平 EV 决策）。本节不再重复维护。
+正文在 [[options-strategy-framework]] §11.1（多腿先识别组合再算合并 PnL + spread 76.7% max 早平 EV 决策）；
+完整复盘 期权日志 2026-05-06。本节不再重复维护。
 
 ### IV percentile / IV rank 应用规则（阈值跟随 canonical 闸门表 §六）
 - 卖方择时：IV percentile ≥ 60 优先 sell premium（capital-deployment 触发线）
 - 买方择时：IV percentile < 30 买方友好；≥60 需 4 条 override
 - IV term structure（远月低 IV、近月高 IV → 买远卖近的 calendar）
-- 数据源：每日记录 IV 历史自建 percentile（攒满 60 天前用外部源手查并标注）
+- 数据源：`quant/data/iv_logger.py` 每日落 IV 历史（攒满 60 天前 percentile 用外部手查并标注）
 
 ### 期权专属反模式
 - IV crush 误判为方向错误
@@ -205,10 +206,10 @@ _Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intrad
 ## 与正股规则的接口
 
 **直接复用**（不重复在本文件）：
-- `../trading-rules.md` 全部 entry/exit/zone/anti-FOMO/event-day/behavioral
-- `../pre-trade-checklist.md` 主体
-- `../event-risk-reduction-principle.md`（事件前 IV + theta 双重作用，G-03 是其期权专项实现）
-- `../bottom-confirmation-signals.md`（技术信号同样适用于期权 timing）
+- [[trading-rules]] 全部 entry/exit/zone/anti-FOMO/event-day/behavioral
+- [[pre-trade-checklist]] 主体
+- [[event-risk-reduction-principle]]（事件前 IV + theta 双重作用，G-03 是其期权专项实现）
+- [[bottom-confirmation-signals]]（技术信号同样适用于期权 timing）
 
 **期权特有覆盖**（本文件）：
 - G-01: +100% 浮盈强制 floor partial exit
@@ -220,6 +221,6 @@ _Source: STOCK_X 5/01 11C earnings 2026-04-23 stock +4.8% but option -41% intrad
 ## 引用案例索引
 
 - **STOCK_X 5/01 11C** (2026-04-10 至 2026-04-24): G-01, G-02, G-03 三规则共同源案例
-- **STOCK_Y 440/500 spread** ✅: 复盘完成（+$2,760, 23 天捕 76.7% max）→ 多腿规则已入 options-framework §11.1
-- **STOCK_Z deep-OTM short put** ✅: 复盘完成（+$685, 收割 77% + pre-earnings de-risk）→ G-02×earnings 联动已入 sell-put-rules 评分卡补充触发
-- **STOCK_R 短月 deep OTM call** ✅: 复盘归入 `../natural-humility-anchor.md` 源案例（force close -$780）
+- **STOCK_Y 440/500 spread** ✅: 复盘见 options_journal 2026-05-06（+$2,760, 23 天捕 76.7% max）→ 多腿规则已入 options-framework §11.1
+- **STOCK_Z 5/22 P103 short put** ✅: 复盘见 options_journal 2026-05-05（+$685, 收割 77% + pre-earnings de-risk）→ G-02×earnings 联动已入 sell-put-rules 评分卡补充触发
+- **STOCK_R 6/18 20C deep OTM** ✅: 复盘归入 [[natural-humility-anchor]] 源案例（5/21 force close -$780）

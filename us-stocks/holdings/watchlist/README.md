@@ -1,10 +1,11 @@
 # Watchlist
 
-This folder is for names under observation but not necessarily held.
+候选池：在观察、但未持有的标的。实盘系统里这份名单由人决定（选股是人的 edge），入场由系统决定。
 
-Suggested use:
-- thesis snapshot
-- why it matters now
-- trigger to enter
-- trigger to avoid
-- catalyst calendar
+建议每只候选也用同一张卡（模板见 `../current/_EXAMPLE_.md`），重点写：
+- **结构**：z1 / z2 / no_chase / stop 与下一个 gate —— 入场只看这些
+- **两种模式的触发条件**：🔁 抄底（空仓 + 止跌信号 + 有效期）或 🚀 趋势确认（gate 收盘 ×2 + 量腿）
+- **避开的条件**：结构未修复（cap 0 = VETO）、信号过期、已超 no_chase
+- **thesis 快照与催化剂日历**：只作 [FYI]，不产生授权
+
+平仓的持仓回到候选池时，卡片原样搬回、过期后重画。

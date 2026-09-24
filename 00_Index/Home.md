@@ -72,6 +72,9 @@ graph TD
 
 ## ✅ 投资决策 CheckList
 
+> [!note] 研究框架 vs 交易系统
+> 下面的 CheckList 是**研究框架**：判断一家公司值不值得研究、贵不贵。实盘交易系统（[[system-overview|系统总览]]）另有一条硬约定——**入场授权只看价格结构**，基本面 / 宏观 / 估值只作方向先验（[FYI]），不产生买卖、仓位或退出规则。两者分工：研究回答「值不值得放进候选池」，价格结构回答「今天能不能买、买多少、何时走」。
+
 > [!check] **Step 1: 初筛 (Screening) - 值得看吗？**
 > - [ ] **护城河**: 是否拥有网络效应、转换成本或无形资产？([[Moat_Types]])
 > - [ ] **成长性**: 营收/利润增长是否稳健？(SaaS 参考 [[Tech_Metrics|Rule of 40]])
@@ -101,5 +104,7 @@ graph TD
 [[2026_Investment_Plan|👉 进入年度作战室 (示例)]]
 
 ## 🧭 工作区入口 (Working Hubs)
-- [[us-stocks/Home|🇺🇸 US Stocks Hub]]
-- [[polymarket/Home|🎯 Polymarket Hub]]
+- [[us-stocks/Home|🇺🇸 US Stocks Hub]] —— 实盘交易系统的脱敏镜像
+- [[system-overview|📐 当前交易系统总览]] —— 分工四格 / 决策栈 / 两种模式 / sizing / 退出栈 / 演进时间线
+- [[research-verdicts|🔬 研究裁决账本]] —— 预注册回测：哪些直觉被数据否掉了
+- ~~[[polymarket/Home|🎯 Polymarket Hub]]~~ —— 已归档（交易范围只剩美股正股与单腿 long call）

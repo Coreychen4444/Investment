@@ -26,7 +26,7 @@ for day in last_25_days:
     buckets[bucket] += volume
 ```
 解读：
-- 单 bucket 量 ≥ 邻近 bucket 中位数 × 3 = 强支撑/阻力（相对定义，跨标的可迁移；旧绝对股数阈值仅适用高流通股标的，2026-06-11 相对化）
+- 单 bucket 量 ≥ 邻近 bucket 中位数 × 3 = 强支撑/阻力（相对定义，跨标的可迁移；旧"> 60M 股"绝对阈值仅适用当时高流通股标的，2026-06-11 相对化）
 - 集中分布 (top 2 buckets > 50% total) = 价格记忆点高浓度区
 - 离散分布 = 当前价格区域无明显锚定
 
@@ -87,16 +87,16 @@ for day in last_25_days:
 
 ```bash
 # Volume profile
-.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/get_kline.py US.{TICKER} --ktype 1d --num 30 --json
+python3 .claude/skills/openapi/scripts/quote/get_kline.py US.{TICKER} --ktype 1d --num 30 --json
 
 # Option OI for an expiry's put chain
-.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/get_option_chain.py US.{TICKER} --start {EXPIRY} --end {EXPIRY} --json
+python3 .claude/skills/openapi/scripts/quote/get_option_chain.py US.{TICKER} --start {EXPIRY} --end {EXPIRY} --json
 # Then iterate strikes:
-.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/get_stock_quote.py US.{TICKER}{YYMMDD}P{STRIKE}000 --json
+python3 .claude/skills/openapi/scripts/quote/get_stock_quote.py US.{TICKER}{YYMMDD}P{STRIKE}000 --json
 # Pull `open_interest` field
 
 # Snapshots for spreads
-.venv/moomoo/bin/python3 .claude/skills/openapi/scripts/quote/get_snapshot.py {OPTION_CODES} --json
+python3 .claude/skills/openapi/scripts/quote/get_snapshot.py {OPTION_CODES} --json
 ```
 
 ---
@@ -137,10 +137,10 @@ for day in last_25_days:
 
 ## 与其他规则接口
 
-- `zone-maintenance.md` step 4 momentum diagnosis 是设 zone 时的 mode 选择
+- [[zone-maintenance]] step 4 momentum diagnosis 是设 zone 时的 mode 选择
 - 设 zone1/zone2 阈值时，**4 信号收敛是 mandatory**（不只是 ATH retrace）
-- `sell-put-rules.md` strike comfort 检查在三角验证 PASS 后再做
-- `options-strategy-framework.md` 决策树 + 本文件配合使用
+- [[sell-put-rules]] strike comfort 检查在三角验证 PASS 后再做
+- [[options-strategy-framework]] 决策树 + 本文件配合使用
 
 ---
 

@@ -1,13 +1,13 @@
 # Risk & Capital Framework — 资金 / capacity / 集中度
 
 > Canonical home for capital-assessment、cash% reasonableness、concentration stress-test。
-> 关系：与 `.claude/rules/position-tiers.md`（三层仓位 + Concentration Override Protocol）互补 —— position-tiers 定义 cap 与 override 协议，**本文定义"如何计算 capacity / cash% / 满 ladder 暴露"的方法**。
-> Memory 源（recall 层，已降级为指针）：`feedback_buying_power` / `feedback_cash_pct_framework` / `feedback_concentration_full_ladder_check`。
+> 关系：与 [[position-tiers]]（三层仓位 + Concentration Override Protocol）互补 —— position-tiers 定义 cap 与 override 协议，**本文定义"如何计算 capacity / cash% / 满 ladder 暴露"的方法**。
+> Memory 源（recall 层，已降级为指针）：`risk_capital_sizing.md` §1-3（原 feedback_buying_power / cash_pct_framework / concentration_full_ladder_check，2026-06-11 合并）。
 
 ## 1. Buying Power vs Cash —— 评估加仓 capacity
 评估"有没有空间加仓"时，用**真实购买力**，不是单看 `cash` 字段。
 
-- Capacity = broker `power`（margin-aware 购买力）+ off-broker near-cash（第二券商余额；场外 redeemable 货币基金）。**不是 `cash` 一项。**（具体账户标识不入策略文档）
+- Capacity = broker `power`（margin-aware 购买力，`get_portfolio.py --currency USD`）+ off-broker near-cash（第二券商账户余额；场外 redeemable 货币基金）。**不是 `cash` 一项。**（具体账户标识不入本目录——strategy/ 是公开 vault 的同步源，敏感细节放 memory `infra_reference.md`）
 - `risk_status` LEVEL1–5 = margin 风险等级标签，**不是"不能交易"信号**。LEVEL5 仍可加仓，只是占用更多 margin headroom。
 - **加仓的真实约束通常不是现金**，而是：(a) 单票集中度 cap，(b) zone / no-chase 纪律，(c) 财报前风险窗口。说"不加"时必须点名真实约束（集中度 19% / zone1 上沿 / earnings 8 天），不能用"没现金"搪塞。
 - **源案例**：2026-04-30 我用 `cash` $X,XXX + LEVEL5 误判"加仓空间≈0"；实际 power $X,XXX + off-broker ~$X,XXX ≈ $X,XXX deployable。
@@ -41,7 +41,7 @@
 **4 步硬检查（挂 multi-tier GTC 前）**：
 1. 算满 ladder fill 后单票 delta 等价值
 2. 占账户 % = 上式 × current_price / total_assets
-3. >25% → 触发 override 检查（`position-tiers.md` Concentration Override Protocol）
+3. >25% → 触发 override 检查（[[position-tiers]] Concentration Override Protocol）
 4. 已有 active override → 缩 ladder 直至无双 override 风险（红线：**最多 1 个 active override**），或等其他 override 释放
 
 **红线**：

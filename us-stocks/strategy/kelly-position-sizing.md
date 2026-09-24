@@ -8,11 +8,10 @@ aliases:
   - Fractional Kelly
   - 凯利公式
 ---
-
 # Kelly Position Sizing — 从后验概率到 size 的映射
 
 > **状态**：active · 建立 2026-06-08 · 源：@RuujSs《The Math That Runs Every Hedge Fund》模块 2(分数凯利)整合
-> **定位**：补 `bayesian-decision-model.md` 留的洞 —— 决策层说"仓位 = 概率加权的赌注",但没说**从概率 p 到 size 的映射公式**。本文 = 那个公式 + 生存约束。
+> **定位**：补 [[bayesian-decision-model]] 留的洞 —— 决策层说"仓位 = 概率加权的赌注",但没说**从概率 p 到 size 的映射公式**。本文 = 那个公式 + 生存约束。
 > **优先级**：Kelly 给的是 **edge/odds 侧的 size 上限**;真实下单 size = `MIN(分数 Kelly 上限, concentration cap, ladder 预算)`。它是天花板之一,不是单独的开关。
 
 ---
@@ -97,7 +96,7 @@ at-risk $   = 分数f × bankroll
 读法:
 - **高 p + 高 b 时 at-risk 比例会很大(>30%)** —— 这正是为什么第 6 条的 MIN(concentration cap) 几乎总会先 bind。Kelly 告诉你"边缘允许多大",concentration 告诉你"组合能承受多大",**取更紧的那个**。
 - quarter-Kelly = 表内数字再砍半。
-- 表是粗刻度;精确值用 `scripts/kelly_size.py`。
+- 表是粗刻度;精确值用 `quant/risk/kelly_size.py`。
 
 ---
 
@@ -122,8 +121,8 @@ at-risk $   = 分数f × bankroll
 
 - ❌ 不能对 3 个同层(如光互联)仓位**各自**算 half-Kelly 再相加 → 实际等于对同一个赌注下了 ~3× Kelly = 严重过注。
 - ✅ 同一子驱动层的多注 → 合并成**一个 Kelly 预算**,再在层内分配。
-- 用 `scripts/chain_layers.py` 查当前 book 哪些层有 ≥2 个名字(同层堆叠),那一层套**联合 Kelly**,不是各自 Kelly。
-- 这是 Kelly 与 `feedback_ai_circle_of_competence`(同层冗余)的接口:**冗余检测不是为了"减 AI",是为了"别对同一个赌注算多遍 Kelly"。**
+- 用 `quant/risk/chain_layers.py` 查当前 book 哪些层有 ≥2 个名字(同层堆叠),那一层套**联合 Kelly**,不是各自 Kelly。
+- 这是 Kelly 与 memory `partner_calibration.md` §AI-circle(同层冗余)的接口:**冗余检测不是为了"减 AI",是为了"别对同一个赌注算多遍 Kelly"。**
 
 ---
 
@@ -138,16 +137,16 @@ at-risk $   = 分数f × bankroll
 
 ---
 
-## 9. 工具:`scripts/kelly_size.py`
+## 9. 工具:`quant/risk/kelly_size.py`
 
 ```
-.venv/moomoo/bin/python3 scripts/kelly_size.py \
+python3 quant/risk/kelly_size.py \
     --p 0.65 --b 2.5 --fraction 0.5 \
     --bankroll 50000 --loss-per-unit 1.0 \
     --cap-pct 25 [--json]
 
 # 期权可用 --entry / --target 自动推 b(b = (target−entry)/entry):
-.venv/moomoo/bin/python3 scripts/kelly_size.py \
+python3 quant/risk/kelly_size.py \
     --p 0.6 --entry 2.47 --target 8.0 --bankroll 50000 --loss-per-unit 1.0
 ```
 
@@ -156,11 +155,11 @@ at-risk $   = 分数f × bankroll
 ---
 
 ## Cross-refs
-- `bayesian-decision-model.md` —— 提供 p(后验);本文是它"概率→size"的缺失环节
-- `uncertainty-execution-system.md` —— 提供 ladder 节奏;Kelly 给单档 size 上限
-- `risk-capital-framework.md` §3 —— concentration cap;与 Kelly 取 MIN
-- `scripts/chain_layers.py` —— 同层冗余检测,决定哪些仓位套联合 Kelly(第 7 条)
-- `.claude/rules/position-tiers.md` —— 三层 size 递减是 Kelly 的纪律表达
+- [[bayesian-decision-model]] —— 提供 p(后验);本文是它"概率→size"的缺失环节
+- [[uncertainty-execution-system]] —— 提供 ladder 节奏;Kelly 给单档 size 上限
+- [[risk-capital-framework]] §3 —— concentration cap;与 Kelly 取 MIN
+- `quant/risk/chain_layers.py` —— 同层冗余检测,决定哪些仓位套联合 Kelly(第 7 条)
+- [[position-tiers]] —— 三层 size 递减是 Kelly 的纪律表达
 
 ---
 > 📍 **Navigation**

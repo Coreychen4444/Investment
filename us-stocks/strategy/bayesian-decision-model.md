@@ -1,7 +1,11 @@
 # Bayesian Decision Model — 投资底层模型
 
 > **状态**：底层模型（foundational），2026-06-04 由 用户 确立，优先级高于任何单点 thesis。
-> **关系**：是 `feedback_embrace_uncertainty` 哲学（memory）的操作引擎；与 P=EPS×PE（估值层）互补 —— 本模型 = 决策层。CLAUDE.md「Core Decision Model」是精简指针，**本文是 canonical 详述**。
+> **关系**：是 `philosophy_core.md` Part B 哲学（memory）的操作引擎；与 P=EPS×PE（估值层）互补 —— 本模型 = 决策层。AGENTS.md「Core Decision Model」是精简指针，**本文是 canonical 详述**。
+> **范围修订（2026-08-04 技术面优先 v3，用户 directive，见 [[2026-08-04-technical-first-directive]]）**：
+> 铁律 #2/#3 的 verification→sizing 通道**退出股票入场授权路径**——入场档位与 cap 由纯价格结构判定
+> （entry_guard 单腿化）。本模型保留为 用户 判断层哲学、复盘框架与情报层的证据分级标准；
+> agent 不再以"thesis 未验证"为由限制任何授权。
 
 ## 核心原则
 一切投资决策以概率为主。每个仓位 = 一个概率加权的赌注。判断标准是**后验分布 + EV**，不是 narrative conviction，不是价格位置，不是"感觉"。
@@ -28,7 +32,7 @@
 - **增量信息检验（new info vs already-counted，2026-06-08 加）**：即使是真 information（不是 salience），也要问"它相对我**已经计入**的证据，增量解释力是多少"。3 篇都指向同一个 driver 的研报 = **1 个信号，不是 3 个**；相关证据重复计数 → 后验过度更新 → 假自信（穿量化外衣的近因偏差）。正交化检验在 research 库执行（`knowledge/research/README.md` 第一原则 #5）。源：@RuujSs 量化框架模块 4（边际信息 / 正交化）。
 
 ### 3. 更新前先验证事实
-posterior update 只在**前提为真**时合法。先用 OpenD / WebSearch 核实，不在 misread 上调仓。
+posterior update 只在**前提为真**时合法。先用 券商网关 / WebSearch 核实，不在 misread 上调仓。
 - **源案例**：用户 读研报得"STOCK_Z laser 还在 patent 阶段未验证" → 实际 STOCK_Z 已量产自制 laser（收入证明），未验证的只是某个 BH 工艺专利。**capability 已证 / moat 未证才是真赌点**。基于错误前提的"更新"会污染整条决策链。
 
 ### 4. 机会成本 / 相对 EV
@@ -41,22 +45,22 @@ posterior update 只在**前提为真**时合法。先用 OpenD / WebSearch 核�
 ### 5. 概率触发要 pre-commit
 把"我会在 X 时 / X 价卖"变成**硬触发（日期 + 价格）**，否则 intention 会 decay 成"再看一天"，被动钉在你最担心的 binary 上。
 - 时间触发 + 价格 fallback 双写，用既有 zone（stop / no-chase / trim / G-01）做 fallback 锚。
-- 与 `feedback_post_incident_attention_hijack`（plan decay）同 bug。
+- 与 memory `partner_calibration.md` §post-incident（plan decay）同 bug。
 - **源案例**：STOCK_Z "财报前 sell the news" → 落成 7/28 前无条件平 + 跌破 $130 提前出 + 冲 $250 触 G-01。
 
 ### 6. Process > outcome
 用**决策时的概率估计质量 + EV** 评分，不用结果。
 - process 对 + 结果坏 = A（运气）；process 错 + 结果好 = D（variance ≠ skill，下次同赌会败）。
-- 完整 rubric：`.claude/rules/trading-discipline.md` Post-Trade Scoring Rubric。
-- 根基：`feedback_discipline_perfect_vs_actual_perfect`（"过度追求对已知的完美贴近，恰恰是对未知的背离"）。
+- 完整 rubric：[[trading-discipline]] Post-Trade Scoring Rubric。
+- 根基：memory `philosophy_core.md`（"过度追求对已知的完美贴近，恰恰是对未知的背离"）。
 
 ## 与现有框架的关系
 - **P=EPS×PE**：估值层（标的值多少）；本模型：决策层（不确定下怎么下注）。两层都跑。
-- **entry-timing-ev-framework.md**：binary catalyst 入场是本模型的具体应用（target 从 K 线 / ATR / cluster 推导 = 量化 likelihood）。
-- **position-tiers.md / concentration**：机会成本铁律（#4）的组合层约束。
-- **trading-discipline.md Post-Trade Rubric**：铁律 #6 的执行细则。
-- **kelly-position-sizing.md**：本模型给出后验概率 p；Kelly 把 p → size 上限，是"概率→下注比例"的缺失环节。真实 size = `MIN(分数Kelly, concentration, ladder)`。"仓位 = 概率加权的赌注"这句话的执行公式。
-- **endogenous-market-model.md**：市场结构层。**共识溢价压缩 / 机械踩踏 = 结构驱动的波动，对个股 EPS×PE thesis 信息量最低 → 不该移动后验**（铁律 #2 的市场结构版）。短期幅度看结构，中长期方向才回基本面。
+- **[[entry-timing-ev-framework]]**：binary catalyst 入场是本模型的具体应用（target 从 K 线 / ATR / cluster 推导 = 量化 likelihood）。
+- **[[position-tiers]] / concentration**：机会成本铁律（#4）的组合层约束。
+- **[[trading-discipline]] Post-Trade Rubric**：铁律 #6 的执行细则。
+- **[[kelly-position-sizing]]**：本模型给出后验概率 p；Kelly 把 p → size 上限，是"概率→下注比例"的缺失环节。真实 size = `MIN(分数Kelly, concentration, ladder)`。"仓位 = 概率加权的赌注"这句话的执行公式。
+- **[[endogenous-market-model]]**：市场结构层。**共识溢价压缩 / 机械踩踏 = 结构驱动的波动，对个股 EPS×PE thesis 信息量最低 → 不该移动后验**（铁律 #2 的市场结构版）。短期幅度看结构，中长期方向才回基本面。
 
 ## 源对话
 2026-06-04 STOCK_Z LEAPS 讨论（研报合理性核查 → 是否调整 LEAPS）。本模型 4 个 refinement（#1 agent-relative / #2 info-vs-salience / #3 verify-before-update / #4–5 机会成本 + pre-commit）全部从该次对话逼出，非教科书移植。
